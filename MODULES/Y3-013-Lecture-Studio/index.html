@@ -1,0 +1,2724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Lecture Studio — Year 3 PASS</title>
+
+<style>
+
+:root {
+
+    --bg:
+        #f5f7fb;
+
+    --panel:
+        #ffffff;
+
+    --panel-2:
+        #f8fafc;
+
+    --panel-3:
+        #eef2f7;
+
+    --border:
+        #d9e0ea;
+
+    --text:
+        #172033;
+
+    --muted:
+        #667085;
+
+    --primary:
+        #4f8cff;
+
+    --primary-dark:
+        #2563eb;
+
+    --success:
+        #22c55e;
+
+    --warning:
+        #f59e0b;
+
+    --danger:
+        #ef4444;
+
+    --radius:
+        12px;
+
+    --shadow:
+        0 12px 35px rgba(0,0,0,.25);
+}
+
+
+* {
+
+    box-sizing:
+        border-box;
+}
+
+
+html,
+body {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    margin:
+        0;
+
+    padding:
+        0;
+}
+
+
+body {
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow:
+        hidden;
+}
+
+
+/* ============================================================
+   APP SHELL
+   ============================================================ */
+
+.app {
+
+    display:
+        grid;
+
+    grid-template-rows:
+        64px 1fr;
+
+    width:
+        100%;
+
+    height:
+        100%;
+}
+
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+
+.topbar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 22px;
+
+    background:
+        #0d1424;
+
+    border-bottom:
+        1px solid var(--border);
+
+    z-index:
+        20;
+}
+
+
+.brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    min-width:
+        0;
+}
+
+
+.brand-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    border-radius:
+        10px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f8cff,
+            #7c3aed
+        );
+
+    color:
+        white;
+
+    font-size:
+        19px;
+
+    font-weight:
+        800;
+
+    box-shadow:
+        0 7px 20px rgba(
+            79,
+            140,
+            255,
+            .25
+        );
+}
+
+
+.brand-text {
+
+    min-width:
+        0;
+}
+
+
+.brand-title {
+
+    font-size:
+        15px;
+
+    font-weight:
+        750;
+
+    line-height:
+        1.1;
+}
+
+
+.brand-subtitle {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    white-space:
+        nowrap;
+}
+
+
+.top-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+}
+
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+
+.workspace {
+
+    min-height:
+        0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        380px minmax(
+            0,
+            1fr
+        );
+
+    overflow:
+        hidden;
+}
+
+
+/* ============================================================
+   LEFT PANEL
+   ============================================================ */
+
+.controls {
+
+    min-width:
+        0;
+
+    overflow:
+        auto;
+
+    padding:
+        18px;
+
+    background:
+        var(--panel);
+
+    border-right:
+        1px solid var(--border);
+}
+
+
+.controls::-webkit-scrollbar,
+.preview::-webkit-scrollbar,
+.source-area::-webkit-scrollbar {
+
+    width:
+        7px;
+}
+
+
+.controls::-webkit-scrollbar-thumb,
+.preview::-webkit-scrollbar-thumb,
+.source-area::-webkit-scrollbar-thumb {
+
+    background:
+        #303c52;
+
+    border-radius:
+        20px;
+}
+
+
+.section {
+
+    margin-bottom:
+        18px;
+
+    padding:
+        15px;
+
+    background:
+        var(--panel-2);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+}
+
+
+.section-title {
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    color:
+        #cbd5e1;
+}
+
+
+.field {
+
+    margin-bottom:
+        12px;
+}
+
+
+.field:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+label {
+
+    display:
+        block;
+
+    margin-bottom:
+        6px;
+
+    color:
+        #cbd5e1;
+
+    font-size:
+        12px;
+
+    font-weight:
+        650;
+}
+
+
+input,
+select,
+textarea {
+
+    width:
+        100%;
+
+    border:
+        1px solid var(--border);
+
+    outline:
+        none;
+
+    background:
+        #0c1423;
+
+    color:
+        var(--text);
+
+    border-radius:
+        9px;
+
+    font-family:
+        inherit;
+}
+
+
+input,
+select {
+
+    height:
+        39px;
+
+    padding:
+        0 11px;
+
+    font-size:
+        13px;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            79,
+            140,
+            255,
+            .12
+        );
+}
+
+
+select {
+
+    cursor:
+        pointer;
+}
+
+
+.source-area {
+
+    height:
+        390px;
+
+    resize:
+        vertical;
+
+    min-height:
+        240px;
+
+    max-height:
+        700px;
+
+    padding:
+        13px;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.55;
+
+    resize:
+        vertical;
+}
+
+
+.source-area::placeholder {
+
+    color:
+        #667085;
+}
+
+
+/* ============================================================
+   SOURCE ACTIONS
+   ============================================================ */
+
+.source-actions {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        7px;
+
+    margin-top:
+        9px;
+}
+
+
+button {
+
+    border:
+        0;
+
+    outline:
+        none;
+
+    font-family:
+        inherit;
+
+    cursor:
+        pointer;
+}
+
+
+.btn {
+
+    min-height:
+        38px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        #182236;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    transition:
+        .15s ease;
+}
+
+
+.btn:hover {
+
+    background:
+        #202d43;
+
+    border-color:
+        #3a4860;
+}
+
+
+.btn:disabled {
+
+    opacity:
+        .45;
+
+    cursor:
+        not-allowed;
+}
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    border-color:
+        #3b82f6;
+
+    color:
+        white;
+}
+
+
+.btn-primary:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f8cff,
+            #2563eb
+        );
+}
+
+
+.btn-danger {
+
+    color:
+        #fecaca;
+}
+
+
+.btn-success {
+
+    color:
+        #bbf7d0;
+}
+
+
+/* ============================================================
+   DROP ZONE
+   ============================================================ */
+
+.drop-zone {
+
+    margin-top:
+        10px;
+
+    padding:
+        14px;
+
+    border:
+        1px dashed #3b4a63;
+
+    border-radius:
+        9px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.45;
+
+    transition:
+        .15s ease;
+}
+
+
+.drop-zone.dragging {
+
+    border-color:
+        var(--primary);
+
+    background:
+        rgba(
+            79,
+            140,
+            255,
+            .08
+        );
+
+    color:
+        #dbeafe;
+}
+
+
+/* ============================================================
+   STATISTICS
+   ============================================================ */
+
+.stats {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:
+        7px;
+
+    margin-top:
+        10px;
+}
+
+
+.stat {
+
+    padding:
+        10px 7px;
+
+    text-align:
+        center;
+
+    background:
+        #0c1423;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        8px;
+}
+
+
+.stat-value {
+
+    font-size:
+        15px;
+
+    font-weight:
+        800;
+}
+
+
+.stat-label {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .05em;
+}
+
+
+/* ============================================================
+   CHECKLIST
+   ============================================================ */
+
+.check-list {
+
+    display:
+        grid;
+
+    gap:
+        8px;
+}
+
+
+.check {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        8px;
+
+    color:
+        #cbd5e1;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.4;
+}
+
+
+.check input {
+
+    width:
+        15px;
+
+    height:
+        15px;
+
+    margin:
+        1px 0 0;
+
+    accent-color:
+        var(--primary);
+}
+
+
+/* ============================================================
+   GENERATION AREA
+   ============================================================ */
+
+.generate-area {
+
+    position:
+        sticky;
+
+    bottom:
+        0;
+
+    padding-top:
+        10px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--panel) 12%
+        );
+}
+
+
+.generate-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 90px;
+
+    gap:
+        7px;
+}
+
+
+.generate-row .btn {
+
+    height:
+        45px;
+}
+
+
+/* ============================================================
+   PROGRESS
+   ============================================================ */
+
+.progress {
+
+    margin-top:
+        10px;
+}
+
+
+.progress-track {
+
+    width:
+        100%;
+
+    height:
+        5px;
+
+    overflow:
+        hidden;
+
+    background:
+        #202a3b;
+
+    border-radius:
+        10px;
+}
+
+
+.progress-bar {
+
+    width:
+        0%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #8b5cf6
+        );
+
+    border-radius:
+        inherit;
+
+    transition:
+        width
+        .25s ease;
+}
+
+
+.progress-meta {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        6px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+}
+
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.status {
+
+    margin-top:
+        9px;
+
+    padding:
+        9px 10px;
+
+    min-height:
+        34px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        8px;
+
+    background:
+        #0c1423;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.35;
+}
+
+
+.status[data-type="success"] {
+
+    color:
+        #bbf7d0;
+
+    border-color:
+        rgba(
+            34,
+            197,
+            94,
+            .25
+        );
+}
+
+
+.status[data-type="warning"] {
+
+    color:
+        #fde68a;
+
+    border-color:
+        rgba(
+            245,
+            158,
+            11,
+            .25
+        );
+}
+
+
+.status[data-type="error"] {
+
+    color:
+        #fecaca;
+
+    border-color:
+        rgba(
+            239,
+            68,
+            68,
+            .25
+        );
+}
+
+
+/* ============================================================
+   RIGHT PREVIEW
+   ============================================================ */
+
+.preview {
+
+    min-width:
+        0;
+
+    overflow:
+        auto;
+
+    background:
+        #090e1a;
+
+    padding:
+        22px;
+}
+
+
+.preview-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        18px;
+}
+
+
+.preview-heading {
+
+    min-width:
+        0;
+}
+
+
+.preview-heading h1 {
+
+    margin:
+        0;
+
+    font-size:
+        21px;
+
+    line-height:
+        1.2;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+}
+
+
+.preview-heading p {
+
+    margin:
+        5px 0 0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+
+.preview-actions {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        7px;
+}
+
+
+/* ============================================================
+   SLIDES GRID
+   ============================================================ */
+
+.slides-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(
+                360px,
+                1fr
+            )
+        );
+
+    gap:
+        16px;
+
+    padding-bottom:
+        30px;
+}
+
+
+.slide-card {
+
+    min-width:
+        0;
+
+    min-height:
+        275px;
+
+    overflow:
+        hidden;
+
+    position:
+        relative;
+
+    background:
+        #ffffff;
+
+    color:
+        #172033;
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform
+        .15s ease,
+        box-shadow
+        .15s ease;
+}
+
+
+.slide-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 16px 40px
+        rgba(
+            0,
+            0,
+            0,
+            .32
+        );
+}
+
+
+.slide-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    height:
+        42px;
+
+    padding:
+        0 12px;
+
+    border-bottom:
+        1px solid #e4e7ec;
+
+    background:
+        #f8fafc;
+}
+
+
+.slide-number {
+
+    color:
+        #98a2b3;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+}
+
+
+.slide-type {
+
+    padding:
+        4px 7px;
+
+    border-radius:
+        5px;
+
+    background:
+        #eef2ff;
+
+    color:
+        #4338ca;
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .06em;
+}
+
+
+.icon-btn {
+
+    margin-left:
+        auto;
+
+    width:
+        27px;
+
+    height:
+        27px;
+
+    border-radius:
+        7px;
+
+    background:
+        transparent;
+
+    color:
+        #98a2b3;
+
+    font-size:
+        17px;
+}
+
+
+.icon-btn:hover {
+
+    background:
+        #fee2e2;
+
+    color:
+        #dc2626;
+}
+
+
+.slide-body {
+
+    padding:
+        18px;
+}
+
+
+.slide-kicker {
+
+    margin-bottom:
+        7px;
+
+    color:
+        #2563eb;
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .1em;
+}
+
+
+.slide-body h3 {
+
+    margin:
+        0 0 7px;
+
+    color:
+        #101828;
+
+    font-size:
+        20px;
+
+    line-height:
+        1.2;
+}
+
+
+.slide-subtitle {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #667085;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.4;
+}
+
+
+.slide-body ul {
+
+    margin:
+        10px 0 0;
+
+    padding-left:
+        19px;
+
+    color:
+        #344054;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.55;
+}
+
+
+.slide-body li {
+
+    margin:
+        5px 0;
+}
+
+
+.steps {
+
+    display:
+        grid;
+
+    gap:
+        8px;
+
+    margin-top:
+        10px;
+}
+
+
+.step {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+
+    color:
+        #344054;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+}
+
+
+.step span {
+
+    flex:
+        0 0 auto;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    border-radius:
+        50%;
+
+    background:
+        #2563eb;
+
+    color:
+        white;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+}
+
+
+.slide-table-wrap {
+
+    width:
+        100%;
+
+    overflow:
+        auto;
+
+    margin-top:
+        12px;
+}
+
+
+.slide-table-wrap table {
+
+    width:
+        100%;
+
+    border-collapse:
+        collapse;
+
+    font-size:
+        9px;
+}
+
+
+.slide-table-wrap th,
+.slide-table-wrap td {
+
+    padding:
+        6px;
+
+    border:
+        1px solid #d0d5dd;
+
+    text-align:
+        left;
+
+    vertical-align:
+        top;
+}
+
+
+.slide-table-wrap th {
+
+    background:
+        #f2f4f7;
+
+    font-weight:
+        800;
+}
+
+
+.callout {
+
+    display:
+        grid;
+
+    gap:
+        4px;
+
+    margin-top:
+        12px;
+
+    padding:
+        9px;
+
+    border-left:
+        3px solid #2563eb;
+
+    border-radius:
+        4px;
+
+    background:
+        #eff6ff;
+
+    color:
+        #344054;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.4;
+}
+
+
+.callout strong {
+
+    color:
+        #1d4ed8;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .08em;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.empty-slides {
+
+    grid-column:
+        1 / -1;
+
+    min-height:
+        430px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    align-content:
+        center;
+
+    gap:
+        6px;
+
+    border:
+        1px dashed #29364d;
+
+    border-radius:
+        14px;
+
+    background:
+        #0d1422;
+
+    color:
+        var(--muted);
+
+    text-align:
+        center;
+}
+
+
+.empty-icon {
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    margin-bottom:
+        5px;
+
+    border-radius:
+        14px;
+
+    background:
+        #182236;
+
+    color:
+        #7da7ff;
+
+    font-size:
+        24px;
+}
+
+
+.empty-slides h3 {
+
+    margin:
+        0;
+
+    color:
+        #e5e7eb;
+
+    font-size:
+        16px;
+}
+
+
+.empty-slides p {
+
+    margin:
+        0;
+
+    font-size:
+        12px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (
+    max-width:
+    1050px
+) {
+
+    .workspace {
+
+        grid-template-columns:
+            330px minmax(
+                0,
+                1fr
+            );
+    }
+
+
+    .slides-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+@media (
+    max-width:
+    760px
+) {
+
+    body {
+
+        overflow:
+            auto;
+    }
+
+
+    .app {
+
+        height:
+            auto;
+
+        min-height:
+            100%;
+    }
+
+
+    .workspace {
+
+        grid-template-columns:
+            1fr;
+
+        overflow:
+            visible;
+    }
+
+
+    .controls {
+
+        border-right:
+            0;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+
+    .preview {
+
+        overflow:
+            visible;
+    }
+
+
+    .topbar {
+
+        position:
+            sticky;
+
+        top:
+            0;
+    }
+
+
+    .preview-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+
+    .preview-actions {
+
+        justify-content:
+            flex-start;
+    }
+}
+
+/* =========================================================
+   LECTURE STUDIO — LIGHT MODE OVERRIDE
+   Place AFTER all existing CSS
+   ========================================================= */
+
+:root {
+    --bg: #f5f7fb !important;
+    --panel: #ffffff !important;
+    --panel-2: #f8fafc !important;
+    --panel-3: #eef2f7 !important;
+    --border: #d9e0ea !important;
+    --text: #172033 !important;
+    --muted: #667085 !important;
+    --primary: #4f8cff !important;
+    --primary-dark: #2563eb !important;
+    --success: #16a34a !important;
+    --warning: #d97706 !important;
+    --danger: #dc2626 !important;
+    --shadow: 0 12px 35px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Main application areas */
+html,
+body {
+    background: #f5f7fb !important;
+    color: #172033 !important;
+}
+
+body {
+    color-scheme: light !important;
+}
+
+.topbar {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-bottom: 1px solid #d9e0ea !important;
+}
+
+.controls {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-right: 1px solid #d9e0ea !important;
+}
+
+.preview {
+    background: #f5f7fb !important;
+    color: #172033 !important;
+}
+
+/* Panels/cards */
+.panel,
+.card,
+.section,
+.stat,
+.preview-card,
+.slide-card {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-color: #d9e0ea !important;
+}
+
+/* Text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.brand,
+.section-title,
+label,
+strong {
+    color: #172033 !important;
+}
+
+p,
+small,
+.muted,
+.description,
+.help,
+.subtitle {
+    color: #667085 !important;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #98a2b3 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-color: #4f8cff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.12) !important;
+}
+
+/* Source text area */
+#sourceText {
+    background: #ffffff !important;
+    color: #172033 !important;
+}
+
+/* Drop zone */
+.drop-zone {
+    background: #f8fafc !important;
+    color: #667085 !important;
+    border-color: #cbd5e1 !important;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+    background: #eff6ff !important;
+    border-color: #4f8cff !important;
+}
+
+/* Buttons */
+button {
+    color: #172033 !important;
+}
+
+.btn-secondary,
+.secondary,
+button.secondary {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+    border-color: #cbd5e1 !important;
+}
+
+.btn-secondary:hover,
+.secondary:hover,
+button.secondary:hover {
+    background: #e2e8f0 !important;
+}
+
+.btn-primary,
+.primary,
+button.primary {
+    color: #ffffff !important;
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+}
+
+.btn-primary:hover,
+.primary:hover,
+button.primary:hover {
+    background: #1d4ed8 !important;
+}
+
+/* Stats */
+.stat-value {
+    color: #172033 !important;
+}
+
+.stat-label {
+    color: #667085 !important;
+}
+
+/* Progress */
+.progress,
+.progress-track {
+    background: #e2e8f0 !important;
+}
+
+.progress-bar {
+    background: #2563eb !important;
+}
+
+/* Status */
+.status {
+    background: #f8fafc !important;
+    color: #475467 !important;
+    border-color: #d9e0ea !important;
+}
+
+/* Slide preview */
+.slide {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-color: #d9e0ea !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07) !important;
+}
+
+.slide-title,
+.slide h1,
+.slide h2,
+.slide h3 {
+    color: #172033 !important;
+}
+
+.slide p,
+.slide li {
+    color: #344054 !important;
+}
+
+/* Tables */
+table {
+    background: #ffffff !important;
+    color: #172033 !important;
+    border-color: #d9e0ea !important;
+}
+
+th {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+}
+
+td {
+    background: #ffffff !important;
+    color: #344054 !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Medical/high-yield callouts */
+.callout,
+.high-yield,
+.clinical,
+.warning,
+.info {
+    background: #f8fafc !important;
+    color: #172033 !important;
+    border-color: #d9e0ea !important;
+}
+
+/* Scrollbars */
+* {
+    scrollbar-color: #cbd5e1 #f1f5f9 !important;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1 !important;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8 !important;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    accent-color: #2563eb !important;
+}
+
+/* Selection */
+::selection {
+    background: #bfdbfe !important;
+    color: #172033 !important;
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ======================================================
+         TOP BAR
+         ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div class="brand-text">
+
+                <div class="brand-title">
+                    Lecture Studio
+                </div>
+
+                <div class="brand-subtitle">
+                    Year 3 PASS • Long-form lecture → structured presentation
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <button
+                id="newProjectBtn"
+                class="btn"
+                type="button"
+            >
+                New Project
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         WORKSPACE
+         ====================================================== -->
+
+    <main class="workspace">
+
+
+        <!-- ==================================================
+             CONTROLS
+             ================================================== -->
+
+        <aside class="controls">
+
+
+            <!-- PROJECT -->
+
+            <section class="section">
+
+                <div class="section-title">
+                    Lecture setup
+                </div>
+
+
+                <div class="field">
+
+                    <label for="lectureTitle">
+                        Lecture title
+                    </label>
+
+                    <input
+                        id="lectureTitle"
+                        type="text"
+                        placeholder="e.g. Anthelmintic Agents"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <select id="subject">
+
+                        <option>
+                            Pharmacology
+                        </option>
+
+                        <option>
+                            Pathology
+                        </option>
+
+                        <option>
+                            Microbiology
+                        </option>
+
+                        <option>
+                            Anatomy
+                        </option>
+
+                        <option>
+                            Physiology
+                        </option>
+
+                        <option>
+                            Neuroanatomy
+                        </option>
+
+                        <option>
+                            Obstetrics & Gynaecology
+                        </option>
+
+                        <option>
+                            Paediatrics
+                        </option>
+
+                        <option>
+                            Medicine
+                        </option>
+
+                        <option>
+                            Surgery
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="lectureType">
+                        Lecture structure
+                    </label>
+
+                    <select id="lectureType">
+
+                        <option>
+                            Medical Lecture
+                        </option>
+
+                        <option>
+                            Pharmacology Lecture
+                        </option>
+
+                        <option>
+                            Pathology Lecture
+                        </option>
+
+                        <option>
+                            Microbiology Lecture
+                        </option>
+
+                        <option>
+                            Anatomy Lecture
+                        </option>
+
+                        <option>
+                            Clinical Topic
+                        </option>
+
+                        <option>
+                            Lecture Transcript
+                        </option>
+
+                        <option>
+                            Revision Lecture
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="detail">
+                        Detail level
+                    </label>
+
+                    <select id="detail">
+
+                        <option>
+                            Concise
+                        </option>
+
+                        <option selected>
+                            Comprehensive
+                        </option>
+
+                        <option>
+                            Extremely Comprehensive
+                        </option>
+
+                        <option>
+                            Preserve Everything
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="targetSlides">
+                        Target number of slides
+                    </label>
+
+                    <select id="targetSlides">
+
+                        <option selected>
+                            Auto
+                        </option>
+
+                        <option>
+                            15
+                        </option>
+
+                        <option>
+                            20
+                        </option>
+
+                        <option>
+                            25
+                        </option>
+
+                        <option>
+                            30
+                        </option>
+
+                        <option>
+                            40
+                        </option>
+
+                        <option>
+                            50
+                        </option>
+
+                        <option>
+                            60
+                        </option>
+
+                        <option>
+                            80
+                        </option>
+
+                        <option>
+                            100
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div
+                            id="wordCount"
+                            class="stat-value"
+                        >
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            Words
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div
+                            id="charCount"
+                            class="stat-value"
+                        >
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            Characters
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div
+                            id="slideCount"
+                            class="stat-value"
+                        >
+                            0
+                        </div>
+
+                        <div class="stat-label">
+                            Slides
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SOURCE -->
+
+            <section class="section">
+
+                <div class="section-title">
+                    Lecture material
+                </div>
+
+
+                <div class="field">
+
+                    <label for="sourceText">
+                        Paste the complete lecture / transcript
+                    </label>
+
+                    <textarea
+                        id="sourceText"
+                        class="source-area"
+                        spellcheck="true"
+                        placeholder="Paste your entire lecture here.
+
+You can paste:
+• lecturer transcripts
+• PowerPoint text
+• detailed notes
+• textbook-derived study notes
+• revision material
+• long pharmacology/pathology/microbiology lectures
+
+The module will split very long material into manageable sections before sending it through the PASS AI system."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="source-actions">
+
+                    <button
+                        id="importBtn"
+                        class="btn"
+                        type="button"
+                    >
+                        Import TXT / MD
+                    </button>
+
+
+                    <button
+                        id="sampleBtn"
+                        class="btn"
+                        type="button"
+                    >
+                        Load Sample
+                    </button>
+
+
+                    <button
+                        id="clearSourceBtn"
+                        class="btn btn-danger"
+                        type="button"
+                    >
+                        Clear
+                    </button>
+
+
+                    <input
+                        id="fileInput"
+                        type="file"
+                        accept=".txt,.md,text/plain,text/markdown"
+                        hidden
+                    >
+
+                </div>
+
+
+                <div
+                    id="dropZone"
+                    class="drop-zone"
+                >
+                    Drop a TXT or Markdown lecture here
+                    <br>
+                    or use Import TXT / MD
+                </div>
+
+
+                <div class="stats">
+
+                    <div
+                        id="sourceSize"
+                        class="stat"
+                        style="grid-column:1/-1;"
+                    >
+                        No source
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MEDICAL STRUCTURE -->
+
+            <section class="section">
+
+                <div class="section-title">
+                    Medical teaching structure
+                </div>
+
+
+                <div class="check-list">
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Learning objectives
+                        </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            High-yield examination points
+                        </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Clinical correlations
+                        </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Comparison tables
+                        </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Mechanisms and processes
+                        </span>
+
+                    </label>
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span>
+                            Final revision summary
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- GENERATE -->
+
+            <div class="generate-area">
+
+                <div class="generate-row">
+
+                    <button
+                        id="generateBtn"
+                        class="btn btn-primary"
+                        type="button"
+                    >
+                        Generate Presentation
+                    </button>
+
+
+                    <button
+                        id="cancelBtn"
+                        class="btn btn-danger"
+                        type="button"
+                        disabled
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div class="progress-track">
+
+                        <div
+                            id="lsProgressBar"
+                            class="progress-bar"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="progress-meta">
+
+                        <span>
+                            Lecture Studio
+                        </span>
+
+                        <span id="lsProgressText">
+                            Ready
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="lsStatus"
+                    class="status"
+                    data-type="info"
+                >
+                    Ready — paste a complete lecture or transcript.
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- ==================================================
+             PREVIEW
+             ================================================== -->
+
+        <section class="preview">
+
+
+            <div class="preview-header">
+
+
+                <div class="preview-heading">
+
+                    <h1>
+                        Presentation Preview
+                    </h1>
+
+                    <p>
+                        Generated slides appear here. You can remove
+                        individual slides before exporting.
+                    </p>
+
+                </div>
+
+
+                <div class="preview-actions">
+
+                    <button
+                        id="exportJsonBtn"
+                        class="btn"
+                        type="button"
+                    >
+                        Save Project JSON
+                    </button>
+
+
+                    <button
+                        id="exportHtmlBtn"
+                        class="btn"
+                        type="button"
+                    >
+                        Export HTML Slides
+                    </button>
+
+
+                    <button
+                        id="exportPptxBtn"
+                        class="btn btn-primary"
+                        type="button"
+                    >
+                        Export PPTX
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="slidesGrid"
+                class="slides-grid"
+            >
+
+                <div class="empty-slides">
+
+                    <div class="empty-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        No slides yet
+                    </h3>
+
+                    <p>
+                        Paste a lecture on the left and generate
+                        your presentation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script>
+
+/*
+ * The module.js file owns the application logic.
+ *
+ * This tiny bootstrap only verifies that the module
+ * loaded successfully.
+ */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+
+        if (
+            window.Y3_013_LectureStudio
+        ) {
+
+            console.log(
+                '[Y3-013-Lecture-Studio] UI loaded successfully.'
+            );
+
+        } else {
+
+            console.error(
+                '[Y3-013-Lecture-Studio] module.js was not loaded.'
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

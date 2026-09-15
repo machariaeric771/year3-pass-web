@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; frame-src 'self' blob:;"
+    >
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Year 3 Study OS</title>
+
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/themes.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">Y3</div>
+
+            <div class="brand-text">
+                <strong>Year 3</strong>
+                <span>Study OS</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section-label">WORKSPACE</div>
+
+        <nav id="main-navigation" class="navigation">
+            <!-- Sidebar rendered by sidebar.js -->
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <span>System ready</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <section class="main-area">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+                <button
+                    id="sidebar-toggle"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Toggle sidebar"
+                >
+                    ☰
+                </button>
+                <button
+    id="theme-toggle"
+    class="theme-toggle"
+    type="button"
+    title="Switch theme"
+    aria-label="Switch theme"
+>
+    ☀️
+</button>
+
+                <div>
+                    <div id="page-breadcrumb" class="breadcrumb">
+                        Year 3 Study OS
+                    </div>
+
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="connection-indicator">
+                    <span class="status-dot"></span>
+                    <span>Core online</span>
+                </div>
+
+            </div>
+
+        </header>
+
+        <main id="content" class="content">
+            <!-- Dashboard/module content injected here -->
+        </main>
+
+    </section>
+
+</div>
+
+<!-- WEB MIGRATION: replaces CORE/preload.js. Rebuilds window.year3
+     and window.api on top of fetch() so every module below still
+     calls window.year3.* / window.api.* exactly as before. -->
+<script src="./services/api-client.js"></script>
+
+<script src="./sidebar/sidebar.js"></script>
+<script src="./dashboard/dashboard.js"></script>
+<script src="./app.js"></script>
+
+</body>
+</html>

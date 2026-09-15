@@ -1,0 +1,23 @@
+{
+  "name": "year3-study-os-web",
+  "version": "1.0.0",
+  "description": "Year Three Medical Study Operating System — Web Edition (migrated from Electron)",
+  "main": "backend/server.js",
+  "author": "Year 3 Study OS",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "multer": "^2.0.0",
+    "pdfjs-dist": "^6.3.289",
+    "pptxgenjs": "^4.0.1"
+  }
+}

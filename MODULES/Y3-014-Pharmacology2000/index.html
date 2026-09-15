@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Pharmacology2000 — Year 3 Study OS
+    </title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --bg:
+                #f5f7fb;
+
+            --surface:
+                #ffffff;
+
+            --surface-soft:
+                #f8fafc;
+
+            --border:
+                #e4e8ef;
+
+            --text:
+                #172033;
+
+            --muted:
+                #687386;
+
+            --primary:
+                #3157d5;
+
+            --primary-dark:
+                #2444ad;
+
+            --primary-soft:
+                #edf1ff;
+
+            --success:
+                #16855b;
+
+            --success-soft:
+                #eaf8f1;
+
+            --warning:
+                #a56a00;
+
+            --shadow:
+                0 12px 35px rgba(
+                    30,
+                    45,
+                    80,
+                    0.08
+                );
+
+            --radius:
+                16px;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            background:
+                var(--bg);
+
+            color:
+                var(--text);
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+
+        button,
+        input,
+        textarea {
+
+            font: inherit;
+        }
+
+
+        button {
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           APP
+        ========================================================= */
+
+        .app {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 20;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.94
+                );
+
+            backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid var(--border);
+
+            padding:
+                18px 28px;
+        }
+
+
+        .header-inner {
+
+            max-width:
+                1450px;
+
+            margin:
+                0 auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                24px;
+        }
+
+
+        .brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                14px;
+        }
+
+
+        .brand-icon {
+
+            width:
+                48px;
+
+            height:
+                48px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3157d5,
+                    #6d85e8
+                );
+
+            color:
+                white;
+
+            font-size:
+                24px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(
+                    49,
+                    87,
+                    213,
+                    0.25
+                );
+        }
+
+
+        .brand-text h1 {
+
+            margin:
+                0;
+
+            font-size:
+                20px;
+
+            font-weight:
+                750;
+
+            letter-spacing:
+                -0.02em;
+        }
+
+
+        .brand-text p {
+
+            margin:
+                3px 0 0;
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+        }
+
+
+        .header-actions {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+        }
+
+
+        .header-button {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--surface);
+
+            color:
+                var(--text);
+
+            padding:
+                9px 13px;
+
+            border-radius:
+                10px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                650;
+        }
+
+
+        .header-button:hover {
+
+            border-color:
+                #b8c2d6;
+
+            background:
+                var(--surface-soft);
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        .main {
+
+            width:
+                min(
+                    1450px,
+                    calc(
+                        100% - 48px
+                    )
+                );
+
+            margin:
+                0 auto;
+
+            padding:
+                30px 0 70px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #162d70 0%,
+                    #3157d5 55%,
+                    #5b73db 100%
+                );
+
+            color:
+                white;
+
+            border-radius:
+                24px;
+
+            padding:
+                38px;
+
+            margin-bottom:
+                24px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(
+                    35,
+                    60,
+                    130,
+                    0.20
+                );
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                340px;
+
+            height:
+                340px;
+
+            right:
+                -90px;
+
+            top:
+                -130px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                800px;
+        }
+
+
+        .hero-kicker {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                6px 10px;
+
+            border-radius:
+                999px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.13
+                );
+
+            font-size:
+                12px;
+
+            font-weight:
+                750;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.08em;
+        }
+
+
+        .hero h2 {
+
+            margin:
+                16px 0 10px;
+
+            font-size:
+                clamp(
+                    30px,
+                    4vw,
+                    46px
+                );
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -0.035em;
+        }
+
+
+        .hero p {
+
+            margin:
+                0;
+
+            max-width:
+                730px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.82
+                );
+
+            line-height:
+                1.7;
+
+            font-size:
+                15px;
+        }
+
+
+        .hero-actions {
+
+            margin-top:
+                24px;
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                10px;
+        }
+
+
+        .hero-button {
+
+            border:
+                0;
+
+            padding:
+                11px 17px;
+
+            border-radius:
+                11px;
+
+            font-weight:
+                700;
+
+            background:
+                white;
+
+            color:
+                #2444ad;
+        }
+
+
+        .hero-button.secondary {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            color:
+                white;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.2
+                );
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap:
+                14px;
+
+            margin-bottom:
+                28px;
+        }
+
+
+        .stat {
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            padding:
+                19px;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .stat-label {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.06em;
+        }
+
+
+        .stat-value {
+
+            margin-top:
+                7px;
+
+            font-size:
+                25px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                -0.03em;
+        }
+
+
+        .progress-track {
+
+            height:
+                7px;
+
+            margin-top:
+                12px;
+
+            background:
+                #e9edf4;
+
+            border-radius:
+                999px;
+
+            overflow:
+                hidden;
+        }
+
+
+        .progress-fill {
+
+            height:
+                100%;
+
+            width:
+                0%;
+
+            background:
+                var(--primary);
+
+            border-radius:
+                inherit;
+
+            transition:
+                width 0.3s ease;
+        }
+
+
+        /* =========================================================
+           SEARCH
+        ========================================================= */
+
+        .search-panel {
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+            align-items:
+                center;
+
+            margin-bottom:
+                22px;
+        }
+
+
+        .search-box {
+
+            position:
+                relative;
+
+            flex:
+                1;
+        }
+
+
+        .search-box input {
+
+            width:
+                100%;
+
+            padding:
+                14px 44px 14px 46px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            background:
+                var(--surface);
+
+            color:
+                var(--text);
+
+            outline:
+                none;
+
+            box-shadow:
+                0 5px 20px
+                rgba(
+                    30,
+                    45,
+                    80,
+                    0.04
+                );
+        }
+
+
+        .search-box input:focus {
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    49,
+                    87,
+                    213,
+                    0.10
+                );
+        }
+
+
+        .search-icon {
+
+            position:
+                absolute;
+
+            left:
+                16px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                var(--muted);
+        }
+
+
+        .clear-search {
+
+            position:
+                absolute;
+
+            right:
+                12px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            border:
+                0;
+
+            background:
+                transparent;
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =========================================================
+           LAYOUT
+        ========================================================= */
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(
+                    0,
+                    1fr
+                )
+                320px;
+
+            gap:
+                22px;
+
+            align-items:
+                start;
+        }
+
+
+        /* =========================================================
+           RESOURCE GRID
+        ========================================================= */
+
+        .resource-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        270px,
+                        1fr
+                    )
+                );
+
+            gap:
+                17px;
+        }
+
+
+        .resource-card {
+
+            position:
+                relative;
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            padding:
+                20px;
+
+            min-height:
+                280px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+
+        .resource-card:hover {
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                #ccd4e4;
+
+            box-shadow:
+                0 17px 42px
+                rgba(
+                    30,
+                    45,
+                    80,
+                    0.11
+                );
+        }
+
+
+        .resource-card-top {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+        }
+
+
+        .resource-category {
+
+            display:
+                inline-flex;
+
+            padding:
+                5px 8px;
+
+            border-radius:
+                7px;
+
+            background:
+                var(--primary-soft);
+
+            color:
+                var(--primary-dark);
+
+            font-size:
+                11px;
+
+            font-weight:
+                750;
+        }
+
+
+        .icon-button {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                #9aa4b5;
+
+            border-radius:
+                9px;
+
+            font-size:
+                17px;
+        }
+
+
+        .icon-button.active {
+
+            color:
+                #d49300;
+
+            background:
+                #fff9e8;
+
+            border-color:
+                #f1d78d;
+        }
+
+
+        .resource-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            margin:
+                19px 0 13px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--surface-soft);
+
+            font-size:
+                27px;
+        }
+
+
+        .resource-card h3 {
+
+            margin:
+                0 0 8px;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.25;
+        }
+
+
+        .resource-card p {
+
+            margin:
+                0;
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.65;
+        }
+
+
+        .resource-footer {
+
+            display:
+                flex;
+
+            gap:
+                8px;
+
+            margin-top:
+                auto;
+
+            padding-top:
+                20px;
+        }
+
+
+        .primary-button,
+        .secondary-button {
+
+            border-radius:
+                9px;
+
+            padding:
+                9px 11px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+        }
+
+
+        .primary-button {
+
+            border:
+                0;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
+            flex:
+                1;
+        }
+
+
+        .primary-button:hover {
+
+            background:
+                var(--primary-dark);
+        }
+
+
+        .secondary-button {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                var(--text);
+        }
+
+
+        .completed-label {
+
+            position:
+                absolute;
+
+            left:
+                20px;
+
+            bottom:
+                66px;
+
+            font-size:
+                11px;
+
+            color:
+                var(--success);
+
+            font-weight:
+                700;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                16px;
+        }
+
+
+        .side-panel {
+
+            background:
+                var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            padding:
+                18px;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .side-panel h3 {
+
+            margin:
+                0 0 13px;
+
+            font-size:
+                14px;
+        }
+
+
+        .mini-empty {
+
+            color:
+                var(--muted);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.6;
+
+            padding:
+                8px 0;
+        }
+
+
+        .recent-list,
+        .bookmark-list {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                7px;
+        }
+
+
+        .recent-item,
+        .bookmark-list-item {
+
+            width:
+                100%;
+
+            border:
+                1px solid transparent;
+
+            background:
+                var(--surface-soft);
+
+            border-radius:
+                10px;
+
+            padding:
+                10px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+            text-align:
+                left;
+        }
+
+
+        .recent-item:hover,
+        .bookmark-list-item:hover {
+
+            border-color:
+                var(--border);
+        }
+
+
+        .recent-item-icon {
+
+            width:
+                31px;
+
+            height:
+                31px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                8px;
+
+            background:
+                white;
+        }
+
+
+        .recent-item-text {
+
+            min-width:
+                0;
+
+            flex:
+                1;
+        }
+
+
+        .recent-item-text strong {
+
+            display:
+                block;
+
+            white-space:
+                nowrap;
+
+            overflow:
+                hidden;
+
+            text-overflow:
+                ellipsis;
+
+            font-size:
+                12px;
+        }
+
+
+        .recent-item-text small {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            margin-top:
+                2px;
+
+            font-size:
+                10px;
+        }
+
+
+        .recent-arrow {
+
+            color:
+                var(--muted);
+        }
+
+
+        .bookmark-list-item {
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .bookmark-list-item strong {
+
+            font-size:
+                12px;
+
+            flex:
+                1;
+
+            min-width:
+                100px;
+        }
+
+
+        .bookmark-list-item small {
+
+            width:
+                100%;
+
+            margin-left:
+                20px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+        }
+
+
+        .side-action {
+
+            width:
+                100%;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                var(--text);
+
+            padding:
+                10px;
+
+            border-radius:
+                9px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            margin-top:
+                7px;
+        }
+
+
+        .side-action:hover {
+
+            background:
+                var(--surface-soft);
+        }
+
+
+        /* =========================================================
+           INFO NOTICE
+        ========================================================= */
+
+        .notice {
+
+            background:
+                #fffaf0;
+
+            border:
+                1px solid #f1dfb0;
+
+            color:
+                #725000;
+
+            border-radius:
+                12px;
+
+            padding:
+                13px;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================================================
+           EMPTY
+        ========================================================= */
+
+        .empty-state {
+
+            grid-column:
+                1 / -1;
+
+            padding:
+                60px 20px;
+
+            text-align:
+                center;
+
+            background:
+                white;
+
+            border:
+                1px dashed var(--border);
+
+            border-radius:
+                var(--radius);
+        }
+
+
+        .empty-icon {
+
+            font-size:
+                35px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .empty-state h3 {
+
+            margin:
+                0 0 5px;
+        }
+
+
+        .empty-state p {
+
+            margin:
+                0;
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+        }
+
+
+        /* =========================================================
+           NOTES MODAL
+        ========================================================= */
+
+        .modal {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                100;
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                20px;
+
+            background:
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.42
+                );
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+
+        .modal.open {
+
+            display:
+                flex;
+        }
+
+
+        .modal-card {
+
+            width:
+                min(
+                    650px,
+                    100%
+                );
+
+            background:
+                white;
+
+            border-radius:
+                18px;
+
+            padding:
+                22px;
+
+            box-shadow:
+                0 30px 80px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.20
+                );
+        }
+
+
+        .modal-header {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .modal-header h3 {
+
+            margin:
+                0;
+
+            font-size:
+                18px;
+        }
+
+
+        .modal-close {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                8px;
+
+            background:
+                white;
+
+            color:
+                var(--muted);
+        }
+
+
+        .notes-textarea {
+
+            width:
+                100%;
+
+            min-height:
+                260px;
+
+            resize:
+                vertical;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                11px;
+
+            padding:
+                13px;
+
+            outline:
+                none;
+
+            line-height:
+                1.6;
+        }
+
+
+        .notes-textarea:focus {
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    49,
+                    87,
+                    213,
+                    0.09
+                );
+        }
+
+
+        .modal-footer {
+
+            display:
+                flex;
+
+            justify-content:
+                flex-end;
+
+            gap:
+                8px;
+
+            margin-top:
+                13px;
+        }
+
+
+        .modal-button {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            padding:
+                9px 14px;
+
+            border-radius:
+                9px;
+
+            font-weight:
+                700;
+
+            font-size:
+                12px;
+        }
+
+
+        .modal-button.primary {
+
+            border:
+                0;
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .toast {
+
+            position:
+                fixed;
+
+            left:
+                50%;
+
+            bottom:
+                25px;
+
+            transform:
+                translate(
+                    -50%,
+                    20px
+                );
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+            z-index:
+                200;
+
+            background:
+                #172033;
+
+            color:
+                white;
+
+            padding:
+                11px 16px;
+
+            border-radius:
+                10px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                650;
+
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .toast.show {
+
+            opacity:
+                1;
+
+            transform:
+                translate(
+                    -50%,
+                    0
+                );
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (
+            max-width: 1000px
+        ) {
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .sidebar {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+        }
+
+
+        @media (
+            max-width: 700px
+        ) {
+
+            .header {
+
+                padding:
+                    14px 16px;
+            }
+
+            .header-inner {
+
+                align-items:
+                    flex-start;
+            }
+
+            .header-actions {
+
+                display:
+                    none;
+            }
+
+            .main {
+
+                width:
+                    min(
+                        calc(
+                            100% - 24px
+                        ),
+                        1450px
+                    );
+
+                padding-top:
+                    18px;
+            }
+
+            .hero {
+
+                padding:
+                    25px;
+            }
+
+            .stats {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+
+            .sidebar {
+
+                display:
+                    flex;
+            }
+
+            .resource-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    💊
+                </div>
+
+                <div class="brand-text">
+
+                    <h1>
+                        Pharmacology2000
+                    </h1>
+
+                    <p>
+                        Year 3 Study OS · Pharmacology Learning Hub
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="show-recent"
+                    class="header-button"
+                >
+                    Recent
+                </button>
+
+                <button
+                    id="show-bookmarks"
+                    class="header-button"
+                >
+                    ★ Bookmarks
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="main">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-kicker">
+                    Y3-014 · External Learning Resource
+                </span>
+
+                <h2>
+                    Pharmacology, organized for study.
+                </h2>
+
+                <p>
+                    Access Pharmacology2000's medical pharmacology
+                    course, visual references, clinical cases and
+                    reference material from one focused Year 3
+                    Study OS workspace.
+                </p>
+
+                <div class="hero-actions">
+
+                    <button
+                        class="hero-button"
+                        data-action="open"
+                        data-id="intro-course"
+                    >
+                        Open Medical Pharmacology
+                    </button>
+
+                    <button
+                        class="hero-button secondary"
+                        data-action="open"
+                        data-id="infographics"
+                    >
+                        Explore Infographics
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STATS
+        ====================================================== -->
+
+        <section class="stats">
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    Resources
+                </div>
+
+                <div class="stat-value">
+                    7
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    Completed
+                </div>
+
+                <div
+                    id="progress-count"
+                    class="stat-value"
+                >
+                    0 / 7
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        id="progress-bar"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    Progress
+                </div>
+
+                <div
+                    id="progress-percent"
+                    class="stat-value"
+                >
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-label">
+                    Bookmarked
+                </div>
+
+                <div
+                    id="bookmark-count"
+                    class="stat-value"
+                >
+                    0
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEARCH
+        ====================================================== -->
+
+        <section class="search-panel">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    🔎
+                </span>
+
+                <input
+                    id="resource-search"
+                    type="search"
+                    placeholder="Search pharmacology resources..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="clear-search"
+                    class="clear-search"
+                    title="Clear search"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTENT
+        ====================================================== -->
+
+        <div class="content-layout">
+
+
+            <!-- =================================================
+                 RESOURCE CARDS
+            ================================================== -->
+
+            <section>
+
+                <div
+                    id="resource-grid"
+                    class="resource-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SIDEBAR
+            ================================================== -->
+
+            <aside class="sidebar">
+
+
+                <!-- =============================================
+                     RECENT
+                ============================================== -->
+
+                <section
+                    id="recent-panel"
+                    class="side-panel"
+                >
+
+                    <h3>
+                        Recently opened
+                    </h3>
+
+                    <div
+                        id="recent-list"
+                        class="recent-list"
+                    ></div>
+
+                </section>
+
+
+                <!-- =============================================
+                     BOOKMARKS
+                ============================================== -->
+
+                <section
+                    id="bookmarks-panel"
+                    class="side-panel"
+                >
+
+                    <h3>
+                        My bookmarks
+                    </h3>
+
+                    <div
+                        id="bookmark-list"
+                        class="bookmark-list"
+                    ></div>
+
+                </section>
+
+
+                <!-- =============================================
+                     STUDY CONTROLS
+                ============================================== -->
+
+                <section class="side-panel">
+
+                    <h3>
+                        Study controls
+                    </h3>
+
+                    <button
+                        id="mark-all-complete"
+                        class="side-action"
+                    >
+                        ✓ Mark all as completed
+                    </button>
+
+                    <button
+                        id="reset-study-data"
+                        class="side-action"
+                    >
+                        Reset study data
+                    </button>
+
+                </section>
+
+
+                <!-- =============================================
+                     NOTICE
+                ============================================== -->
+
+                <section class="notice">
+
+                    <strong>
+                        External educational resource
+                    </strong>
+
+                    <br><br>
+
+                    Pharmacology2000 remains the source of the
+                    linked educational material. This module
+                    provides navigation, bookmarks, notes and
+                    study tracking inside Year 3 Study OS.
+
+                    <br><br>
+
+                    Always verify important pharmacology information
+                    against your current lectures, textbooks and
+                    authoritative clinical guidance.
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =============================================================
+     NOTES MODAL
+============================================================== -->
+
+<div
+    id="notes-modal"
+    class="modal"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h3 id="notes-modal-title">
+                    Study notes
+                </h3>
+
+            </div>
+
+            <button
+                id="notes-close"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <textarea
+            id="resource-notes"
+            class="notes-textarea"
+            placeholder="Write your own study notes, reminders, drug comparisons or questions here..."
+        ></textarea>
+
+
+        <input
+            id="notes-resource-id"
+            type="hidden"
+        >
+
+
+        <div class="modal-footer">
+
+            <button
+                id="notes-cancel"
+                class="modal-button"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="notes-save"
+                class="modal-button primary"
+            >
+                Save notes
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =============================================================
+     TOAST
+============================================================== -->
+
+<div
+    id="p2k-toast"
+    class="toast"
+></div>
+
+
+<!-- =============================================================
+     MODULE SCRIPT
+============================================================== -->
+
+<script
+    src="./module.js"
+></script>
+
+
+</body>
+
+</html>

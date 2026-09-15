@@ -1,0 +1,89 @@
+<style>
+#histology-module{--bg:#f5f7fa;--panel:#fff;--soft:#f8fafc;--border:#d9e1ea;--text:#17212b;--muted:#687686;--accent:#2563eb;--accent2:#1d4ed8;--danger:#dc2626;--good:#15803d;--shadow:0 4px 18px rgba(15,23,42,.07);width:100%;max-width:100%;min-width:0;padding:12px;background:var(--bg);color:var(--text);font:14px/1.45 Segoe UI,Arial,sans-serif;box-sizing:border-box}#histology-module.dark{--bg:#111827;--panel:#172033;--soft:#1d283b;--border:#334155;--text:#eef2f7;--muted:#a9b5c4;--shadow:0 5px 20px rgba(0,0,0,.2)}#histology-module *{box-sizing:border-box}#histology-module button,#histology-module input,#histology-module select,#histology-module textarea{font:inherit}#histology-module button{cursor:pointer}.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}.histo-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;margin-bottom:10px}.brand{display:flex;align-items:center;gap:10px}.brand-mark{width:40px;height:40px;border-radius:11px;background:#e8f0ff;display:grid;place-items:center;font-size:21px}.brand h1{font-size:19px;margin:0}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px}.head-actions,.viewer-actions,.viewer-tools,.image-adjust{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.btn,.icon-btn{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:8px;padding:7px 10px}.btn:hover,.icon-btn:hover{background:var(--soft)}.primary{background:var(--accent);border-color:var(--accent);color:#fff}.primary:hover{background:var(--accent2)}.danger{color:var(--danger)}.toolbar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;padding:9px;margin-bottom:10px}.search-wrap{display:flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:8px;padding:0 9px;min-width:240px;flex:1}.search-wrap input{border:0;outline:0;background:transparent;color:var(--text);padding:8px 0;width:100%}.toolbar select{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:8px;border-radius:8px}.stats{display:grid;grid-template-columns:repeat(6,minmax(90px,1fr));gap:1px;margin-bottom:10px;overflow:hidden}.stat{padding:10px;background:var(--panel)}.stat b{font-size:18px}.stat small{display:block;color:var(--muted)}.library-strip{padding:10px;margin-bottom:10px}.section-title{display:flex;justify-content:space-between;margin-bottom:8px;font-weight:700}.section-title small,.muted{color:var(--muted)}.slide-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}.slide-card{min-width:150px;max-width:180px;border:1px solid var(--border);background:var(--soft);border-radius:10px;overflow:hidden;text-align:left;color:var(--text);padding:0}.slide-card.active{outline:2px solid var(--accent)}.slide-thumb{height:82px;background:#eef2f7;display:grid;place-items:center;overflow:hidden}.slide-thumb img{width:100%;height:100%;object-fit:cover}.slide-card .sc-body{padding:7px}.slide-card strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.slide-card small{color:var(--muted)}.workspace{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,.8fr);gap:10px}.viewer{min-width:0}.viewer-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px;border-bottom:1px solid var(--border)}.viewer-head h2{font-size:17px;margin:0}.microscope{padding:10px}.image-stage{position:relative;height:540px;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:#111827;display:grid;place-items:center;user-select:none}.image-stage img{position:absolute;max-width:none;transform-origin:center center;cursor:grab;display:none;will-change:transform,filter}.image-stage img.dragging{cursor:grabbing}.image-stage:focus{outline:2px solid var(--accent)}#h-label-layer{position:absolute;inset:0;pointer-events:none}.label-marker{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;background:#dc2626;color:#fff;border:2px solid #fff;border-radius:999px;width:26px;height:26px;font-size:11px;font-weight:700;display:grid;place-items:center;box-shadow:0 2px 8px #0008;cursor:pointer}.label-marker span{position:absolute;left:30px;top:50%;transform:translateY(-50%);white-space:nowrap;background:#fff;color:#111827;border:1px solid #ddd;border-radius:6px;padding:3px 6px;font-weight:600;box-shadow:0 2px 6px #0002}.dark .label-marker span{background:#172033;color:#fff;border-color:#475569}.labels-hidden .label-marker{display:none}.#h-empty{}.image-stage #h-empty{color:#cbd5e1;text-align:center;padding:20px}.microscope-foot{padding-top:8px;display:grid;gap:8px}.image-adjust{font-size:12px;color:var(--muted)}.image-adjust label{display:flex;align-items:center;gap:5px}.image-adjust input{width:100px}.details{min-width:0;overflow:hidden}.tabs{display:flex;border-bottom:1px solid var(--border);overflow:auto}.tab{border:0;background:transparent;color:var(--muted);padding:10px 11px;white-space:nowrap;border-bottom:2px solid transparent}.tab.active{color:var(--accent);border-bottom-color:var(--accent)}.tab-pane{display:none;padding:12px}.tab-pane.active{display:block}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.info-box{padding:9px;border:1px solid var(--border);border-radius:9px;background:var(--soft)}.info-box small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase}.feature-list,.structure-list{margin:8px 0;padding:0;list-style:none;display:grid;gap:6px}.feature-list li,.structure-item{padding:8px;border:1px solid var(--border);border-radius:8px;background:var(--soft)}.structure-item{cursor:pointer}.structure-item:hover{border-color:var(--accent)}#h-notes{width:100%;height:360px;resize:vertical;border:1px solid var(--border);border-radius:9px;background:var(--soft);color:var(--text);padding:9px}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;padding:9px}.quick-card{text-align:left;border:1px solid var(--border);border-radius:9px;background:var(--soft);padding:10px;color:var(--text)}.quick-card b{display:block}.quick-card span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.modal-back{position:fixed;inset:0;background:#0007;display:grid;place-items:center;z-index:9999;padding:18px}.modal{width:min(760px,96vw);max-height:92vh;overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 60px #0005}.modal.wide{width:min(1050px,97vw)}.modal-head{padding:13px 15px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}.modal-head h3{margin:0}.modal-body{padding:14px}.modal-foot{padding:11px 14px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:7px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field{display:grid;gap:4px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--muted)}.field input,.field select,.field textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:8px;background:var(--soft);color:var(--text)}.field textarea{min-height:90px;resize:vertical}.check{display:flex;gap:7px;align-items:center}.modal table{width:100%;border-collapse:collapse}.modal th,.modal td{padding:7px;border-bottom:1px solid var(--border);text-align:left}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.compare-pane{border:1px solid var(--border);border-radius:10px;overflow:hidden}.compare-pane img{width:100%;height:280px;object-fit:contain;background:#111827}.compare-pane .cp-body{padding:9px}.spotter-image{height:400px;background:#111827;border-radius:10px;display:grid;place-items:center;overflow:hidden}.spotter-image img{max-width:100%;max-height:100%;object-fit:contain}.quiz-choice{width:100%;text-align:left;border:1px solid var(--border);background:var(--soft);padding:9px;border-radius:8px;margin:5px 0;color:var(--text)}.quiz-choice.correct{border-color:var(--good);background:#ecfdf3}.quiz-choice.wrong{border-color:var(--danger);background:#fef2f2}.collection-row{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px;border:1px solid var(--border);border-radius:8px;margin:6px 0}.metric{display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center}.barline{height:8px;background:var(--soft);border-radius:99px;overflow:hidden}.barline i{display:block;height:100%;background:var(--accent)}#h-toast{position:fixed;right:18px;bottom:18px;z-index:10000;background:#17212b;color:#fff;padding:10px 13px;border-radius:8px;opacity:0;transform:translateY(10px);transition:.2s;pointer-events:none}#h-toast.show{opacity:1;transform:none}.empty{padding:22px;text-align:center;color:var(--muted)}@media(max-width:900px){.workspace{grid-template-columns:1fr}.details{min-height:300px}.stats{grid-template-columns:repeat(3,1fr)}.quick{grid-template-columns:1fr 1fr}}@media(max-width:600px){#histology-module{padding:7px}.histo-head{align-items:flex-start;flex-direction:column}.head-actions{width:100%}.head-actions .btn{flex:1}.image-stage{height:390px}.form-grid{grid-template-columns:1fr}.quick{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}.compare-grid{grid-template-columns:1fr}}
+</style>
+<div id="histology-module" class="histo-app">
+  <section class="histo-head panel">
+    <div class="brand"><div class="brand-mark">🔬</div><div><h1>Histology Viewer</h1><p>Virtual microscope • slide library • spotter practice • personal lab</p></div></div>
+    <div class="head-actions">
+      <button class="btn primary" data-action="add-slide">＋ Add slide</button>
+      <button class="btn" data-action="import-images">Import images</button>
+      <button class="btn" data-action="spotter">Spotter</button>
+      <button class="btn" data-action="quiz">Quiz</button>
+      <button class="btn" data-action="ask-ai">Ask AI</button>
+      <button class="btn" data-action="theme">☾ Dark</button>
+    </div>
+  </section>
+
+  <section class="toolbar panel">
+    <div class="search-wrap"><span>⌕</span><input id="h-search" placeholder="Search slides, structures, notes, stains…"></div>
+    <select id="h-system"><option value="">All systems</option></select>
+    <select id="h-category"><option value="">All categories</option></select>
+    <select id="h-stain"><option value="">All stains</option></select>
+    <select id="h-sort"><option value="recent">Recently used</option><option value="az">A–Z</option><option value="newest">Newest</option><option value="progress">Progress</option></select>
+    <button class="btn" data-action="bookmarks">☆ Bookmarks</button>
+    <button class="btn" data-action="collections">Collections</button>
+    <button class="btn" data-action="analytics">Analytics</button>
+    <button class="btn" data-action="library-tools">Library</button>
+  </section>
+
+  <section class="stats panel" id="h-stats"></section>
+
+  <section class="library-strip panel">
+    <div class="section-title"><span>Slide library</span><small id="h-count"></small></div>
+    <div id="h-library" class="slide-strip"></div>
+  </section>
+
+  <main class="workspace">
+    <section class="viewer panel">
+      <div class="viewer-head">
+        <div><h2 id="h-title">Select a slide</h2><div id="h-subtitle" class="muted"></div></div>
+        <div class="viewer-actions">
+          <button class="icon-btn" data-action="prev" title="Previous">←</button>
+          <button class="icon-btn" data-action="next" title="Next">→</button>
+          <button class="icon-btn" data-action="zoom-out" title="Zoom out">−</button>
+          <span id="h-zoom">100%</span>
+          <button class="icon-btn" data-action="zoom-in" title="Zoom in">＋</button>
+          <button class="icon-btn" data-action="fit" title="Fit">Fit</button>
+          <button class="icon-btn" data-action="reset-view" title="Reset">↺</button>
+          <button class="icon-btn" data-action="fullscreen" title="Fullscreen">⛶</button>
+        </div>
+      </div>
+      <div class="microscope" id="h-microscope">
+        <div class="image-stage" id="h-stage">
+          <img id="h-image" alt="Histology slide">
+          <div id="h-label-layer"></div>
+          <div id="h-empty">Choose a slide or add your own image.</div>
+        </div>
+        <div class="microscope-foot">
+          <div class="viewer-tools">
+            <button class="btn" data-action="toggle-labels">🏷 Labels</button>
+            <button class="btn" data-action="add-label">＋ Label</button>
+            <button class="btn" data-action="capture">▣ Capture region</button>
+            <button class="btn" data-action="edit-slide">Edit slide</button>
+            <button class="btn danger" data-action="delete-slide">Delete</button>
+          </div>
+          <div class="image-adjust"><label>Brightness <input id="h-bright" type="range" min="50" max="150" value="100"></label><label>Contrast <input id="h-contrast" type="range" min="50" max="160" value="100"></label><label>Saturation <input id="h-sat" type="range" min="0" max="180" value="100"></label><button class="btn" data-action="reset-adjust">Reset image</button></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="details panel">
+      <div class="tabs"><button class="tab active" data-tab="info">Info</button><button class="tab" data-tab="structures">Structures</button><button class="tab" data-tab="notes">Notes</button><button class="tab" data-tab="clinical">Clinical</button></div>
+      <div id="tab-info" class="tab-pane active"></div>
+      <div id="tab-structures" class="tab-pane"></div>
+      <div id="tab-notes" class="tab-pane"><textarea id="h-notes" placeholder="Your personal notes…"></textarea><small>Autosaved locally.</small></div>
+      <div id="tab-clinical" class="tab-pane"></div>
+    </aside>
+  </main>
+
+  <section class="quick panel">
+    <button class="quick-card" data-action="teach"><b>🧠 Teach me this slide</b><span>Low → high power explanation, identification clues and exam tips.</span></button>
+    <button class="quick-card" data-action="compare"><b>⚖ Compare</b><span>Put two slides side-by-side and compare their features.</span></button>
+    <button class="quick-card" data-action="custom-spotter"><b>🎯 Build spotter</b><span>Create a personal practical question from any image region.</span></button>
+    <button class="quick-card" data-action="collections"><b>⭐ Collections</b><span>Build Exam Essentials, difficult slides and custom sets.</span></button>
+  </section>
+
+  <input id="h-image-input" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" multiple hidden>
+  <input id="h-json-input" type="file" accept="application/json" hidden>
+  <div id="h-modal-root"></div><div id="h-toast"></div>
+</div>

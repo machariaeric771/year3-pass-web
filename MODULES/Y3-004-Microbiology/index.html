@@ -1,0 +1,4961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f9fc">
+    <meta
+        name="description"
+        content="YEAR 3 STUDY OS — MICROBIOLOGY. A desktop medical microbiology learning environment."
+    >
+
+    <title>YEAR 3 STUDY OS — MICROBIOLOGY</title>
+    <style>
+/* ============================================================
+   YEAR 3 STUDY OS — MICROBIOLOGY
+   PROFESSIONAL LIGHT UI
+   ============================================================ */
+
+:root {
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --surface-2: #f8fafb;
+    --surface-3: #eef2f5;
+
+    --text: #17232d;
+    --muted: #64727e;
+    --subtle: #8b98a3;
+
+    --border: #dce3e8;
+    --border-strong: #cbd5dc;
+
+    --primary: #236b91;
+    --primary-dark: #174f6d;
+    --primary-soft: #e8f2f7;
+
+    --success: #287b58;
+    --success-soft: #e9f5ee;
+
+    --warning: #9a6a16;
+    --warning-soft: #fbf3df;
+
+    --danger: #a94b4b;
+    --danger-soft: #fbecec;
+
+    --shadow-sm: 0 1px 3px rgba(25, 45, 60, .06);
+    --shadow-md: 0 5px 16px rgba(25, 45, 60, .08);
+    --shadow-lg: 0 14px 38px rgba(25, 45, 60, .14);
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 11px;
+
+    --header-height: 62px;
+    --nav-height: 44px;
+    --content-width: 1450px;
+
+    --focus: 0 0 0 3px rgba(35, 107, 145, .16);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    background: var(--bg);
+    color-scheme: light;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    background: var(--bg);
+    color: var(--text);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: .55;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    box-shadow: var(--focus);
+    border-color: var(--primary);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    min-height: var(--header-height);
+    height: var(--header-height);
+
+    display: grid;
+    grid-template-columns: 235px minmax(260px, 680px) auto;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 0 20px;
+
+    background: rgba(255,255,255,.98);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.brand-mark {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--primary);
+    background: var(--primary-soft);
+
+    border: 1px solid #d3e5ee;
+    border-radius: 8px;
+}
+
+.brand-mark svg {
+    width: 20px;
+    height: 20px;
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.brand-title {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 1.15;
+    font-weight: 800;
+
+    letter-spacing: .065em;
+    white-space: nowrap;
+}
+
+.brand-module {
+    margin-top: 3px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    line-height: 1.15;
+    font-weight: 750;
+
+    letter-spacing: .12em;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   GLOBAL SEARCH
+   ============================================================ */
+
+.global-search-wrap {
+    position: relative;
+    width: 100%;
+    justify-self: center;
+}
+
+.search-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 12px;
+
+    width: 16px;
+    height: 16px;
+
+    transform: translateY(-50%);
+
+    color: var(--subtle);
+    pointer-events: none;
+}
+
+#globalSearch {
+    width: 100%;
+    height: 37px;
+
+    padding: 0 40px 0 37px;
+
+    color: var(--text);
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    transition:
+        border-color .15s ease,
+        background .15s ease;
+}
+
+#globalSearch:hover {
+    border-color: var(--border-strong);
+}
+
+#globalSearch:focus {
+    background: var(--surface);
+}
+
+#globalSearch::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: #8c99a5;
+}
+
+.search-shortcut {
+    position: absolute;
+
+    top: 50%;
+    right: 8px;
+
+    transform: translateY(-50%);
+
+    padding: 2px 6px;
+
+    color: var(--subtle);
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    font-size: 9px;
+
+    pointer-events: none;
+}
+
+/* ============================================================
+   HEADER ACTIONS
+   ============================================================ */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-button,
+.header-action {
+    min-width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 0 8px;
+
+    color: #43515d;
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        color .15s ease;
+}
+
+.icon-button:hover,
+.header-action:hover {
+    background: var(--surface-3);
+    border-color: var(--border);
+}
+
+.header-action.ai {
+    color: var(--primary-dark);
+    background: var(--primary-soft);
+    border-color: #d3e5ee;
+    font-weight: 700;
+}
+
+.header-action svg,
+.icon-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+    background: var(--success);
+
+    box-shadow: 0 0 0 3px var(--success-soft);
+}
+
+/* ============================================================
+   MAIN NAVIGATION
+   IMPORTANT:
+   NORMAL FLOW — NOT FIXED/STICKY
+   ============================================================ */
+
+.app-nav {
+    position: relative !important;
+    top: auto !important;
+
+    z-index: 20;
+
+    min-height: var(--nav-height);
+    height: var(--nav-height);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    background: var(--surface);
+
+    border-bottom: 1px solid var(--border);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+}
+
+.app-nav::-webkit-scrollbar {
+    height: 3px;
+}
+
+.app-nav::-webkit-scrollbar-thumb {
+    background: #cbd4da;
+    border-radius: 20px;
+}
+
+.nav-list {
+    width: min(var(--content-width), 100%);
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: stretch;
+
+    gap: 1px;
+
+    white-space: nowrap;
+}
+
+.nav-item {
+    position: relative;
+
+    height: var(--nav-height);
+
+    padding: 0 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #52616d;
+    background: transparent;
+
+    border: 0;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    transition:
+        color .15s ease,
+        background .15s ease;
+}
+
+.nav-item:hover {
+    color: var(--primary-dark);
+    background: #f6f9fb;
+}
+
+.nav-item.is-active {
+    color: var(--primary-dark);
+}
+
+.nav-item.is-active::after {
+    content: "";
+
+    position: absolute;
+
+    right: 10px;
+    bottom: 0;
+    left: 10px;
+
+    height: 2px;
+
+    background: var(--primary);
+    border-radius: 2px 2px 0 0;
+}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+.app-main {
+    width: min(var(--content-width), calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 22px 0 55px;
+
+    min-height: 0;
+
+    overflow: visible;
+}
+
+.module-view {
+    display: none;
+}
+
+.module-view.is-active {
+    display: block;
+}
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+.view-heading {
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    margin: 0 0 4px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.view-title {
+    margin: 0;
+
+    font-size: clamp(23px, 2vw, 30px);
+    line-height: 1.15;
+
+    letter-spacing: -.025em;
+}
+
+.view-subtitle {
+    max-width: 760px;
+
+    margin: 6px 0 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+/* ============================================================
+   SECTION LABELS
+   ============================================================ */
+
+.section-label {
+    margin: 0 0 8px;
+
+    color: #43515d;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   SURFACES
+   ============================================================ */
+
+.surface {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.surface-header {
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 11px 14px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.surface-body {
+    padding: 14px;
+}
+
+/* ============================================================
+   WELCOME
+   ============================================================ */
+
+.welcome-panel {
+    min-height: 165px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 23px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-md);
+}
+
+.welcome-kicker {
+    margin: 0 0 6px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: .13em;
+}
+
+.welcome-title {
+    margin: 0;
+
+    max-width: 720px;
+
+    font-size: clamp(24px, 2.5vw, 34px);
+    line-height: 1.08;
+
+    letter-spacing: -.035em;
+}
+
+.welcome-copy {
+    max-width: 720px;
+
+    margin: 9px 0 16px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.welcome-mark {
+    width: 100px;
+    height: 100px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--primary);
+
+    background: var(--primary-soft);
+
+    border: 1px solid #d4e5ee;
+
+    border-radius: 50%;
+}
+
+.welcome-mark svg {
+    width: 52px;
+    height: 52px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.ghost-button {
+    min-height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 0 11px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        transform .1s ease;
+}
+
+.primary-button {
+    color: #fff;
+
+    background: var(--primary);
+
+    border: 1px solid var(--primary);
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.secondary-button {
+    color: #40515e;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border-strong);
+}
+
+.secondary-button:hover {
+    background: var(--surface-3);
+}
+
+.ghost-button {
+    color: var(--primary-dark);
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+}
+
+.ghost-button:hover {
+    background: var(--primary-soft);
+}
+
+.danger-button {
+    color: #fff;
+
+    background: var(--danger);
+
+    border: 1px solid var(--danger);
+}
+
+/* ============================================================
+   STATISTICS
+   ============================================================ */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 9px;
+
+    margin-top: 12px;
+}
+
+.stat-card {
+    min-height: 88px;
+
+    padding: 13px 14px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-label {
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.stat-value {
+    min-height: 31px;
+
+    margin-top: 5px;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--text);
+
+    font-size: 23px;
+    font-weight: 800;
+
+    letter-spacing: -.02em;
+}
+
+.stat-meta {
+    color: var(--subtle);
+    font-size: 10px;
+}
+
+/* ============================================================
+   DASHBOARD
+   ============================================================ */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(280px, .65fr);
+
+    gap: 12px;
+
+    margin-top: 12px;
+}
+
+.split-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 12px;
+
+    margin-top: 12px;
+}
+
+.quick-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 7px;
+}
+
+.action-card {
+    min-height: 78px;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    text-align: left;
+
+    color: var(--text);
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+.action-card:hover {
+    background: var(--primary-soft);
+    border-color: #c8dfe9;
+}
+
+.action-icon {
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--primary);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.action-icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+.action-name {
+    margin-top: 7px;
+
+    font-size: 11px;
+    font-weight: 750;
+}
+
+/* ============================================================
+   EMPTY STATES
+   ============================================================ */
+
+.empty-state {
+    min-height: 105px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 18px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+.empty-state strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #42515d;
+
+    font-size: 12px;
+}
+
+.empty-state p {
+    max-width: 430px;
+
+    margin: 0;
+
+    font-size: 11px;
+}
+
+/* ============================================================
+   TOOL LAYOUT
+   ============================================================ */
+
+.tool-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(205px, 245px)
+        minmax(0, 1fr);
+
+    gap: 12px;
+
+    align-items: start;
+}
+
+/*
+ * IMPORTANT:
+ * The filter/tool panel is NOT sticky.
+ * It scrolls normally with the page.
+ */
+
+.filter-panel {
+    position: static !important;
+
+    top: auto !important;
+
+    height: auto !important;
+
+    max-height: none !important;
+
+    overflow: visible !important;
+}
+
+.filter-group {
+    padding: 11px 13px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-group:last-child {
+    border-bottom: 0;
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+.field {
+    margin-bottom: 10px;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #4a5965;
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="time"],
+input[type="url"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+
+    min-height: 35px;
+
+    padding: 7px 9px;
+
+    color: var(--text);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border-strong);
+
+    border-radius: 6px;
+
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.field-help {
+    margin-top: 3px;
+
+    color: var(--subtle);
+
+    font-size: 9px;
+}
+
+/* ============================================================
+   TOOLBARS
+   ============================================================ */
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 10px;
+}
+
+.toolbar > .grow {
+    flex: 1 1 220px;
+}
+
+.results-meta {
+    margin-left: auto;
+
+    color: var(--subtle);
+
+    font-size: 10px;
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+
+.card-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+.entity-card {
+    min-height: 125px;
+
+    padding: 13px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease,
+        transform .15s ease;
+}
+
+.entity-card:hover {
+    border-color: #c8dce6;
+
+    box-shadow: var(--shadow-md);
+
+    transform: translateY(-1px);
+}
+
+.entity-card button {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    text-align: left;
+
+    color: inherit;
+
+    background: transparent;
+    border: 0;
+}
+
+.entity-type {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 19px;
+
+    padding: 0 6px;
+
+    color: var(--primary-dark);
+
+    background: var(--primary-soft);
+
+    border: 1px solid #d4e5ee;
+    border-radius: 4px;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.entity-name {
+    margin: 8px 0 3px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.entity-description {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    margin-top: 8px;
+}
+
+.tag {
+    padding: 2px 5px;
+
+    color: #5b6974;
+
+    background: var(--surface-3);
+
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    font-size: 8px;
+}
+
+/* ============================================================
+   TOPIC CATEGORIES
+   ============================================================ */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+.category-card {
+    min-height: 120px;
+
+    padding: 14px;
+
+    text-align: left;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        border-color .15s ease,
+        background .15s ease,
+        box-shadow .15s ease;
+}
+
+.category-card:hover {
+    border-color: #c7dce7;
+
+    background: #fbfdfe;
+
+    box-shadow: var(--shadow-md);
+}
+
+.category-card h3 {
+    margin: 9px 0 4px;
+
+    font-size: 13px;
+}
+
+.category-card p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+/* ============================================================
+   WORKSPACE
+   ============================================================ */
+
+.workspace {
+    min-height: 340px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.workspace-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(230px, .75fr)
+        minmax(0, 1.25fr);
+
+    min-height: 380px;
+}
+
+.workspace-side {
+    padding: 14px;
+
+    border-right: 1px solid var(--border);
+}
+
+.workspace-main {
+    padding: 16px;
+}
+
+/* ============================================================
+   DETAILS
+   ============================================================ */
+
+.detail-list {
+    display: grid;
+
+    grid-template-columns:
+        145px
+        minmax(0, 1fr);
+
+    margin: 0;
+}
+
+.detail-list dt,
+.detail-list dd {
+    margin: 0;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 11px;
+}
+
+.detail-list dt {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.detail-list dd {
+    color: var(--text);
+}
+
+/* ============================================================
+   COMPARISON
+   ============================================================ */
+
+.comparison-controls {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        auto;
+
+    gap: 8px;
+
+    align-items: end;
+
+    margin-bottom: 12px;
+}
+
+.comparison-table-wrap {
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 8px 10px;
+
+    border: 1px solid var(--border);
+
+    text-align: left;
+    vertical-align: top;
+
+    font-size: 10px;
+}
+
+.comparison-table th {
+    background: var(--surface-3);
+
+    color: #45535f;
+
+    font-weight: 800;
+}
+
+/* ============================================================
+   CLINICAL CASES
+   ============================================================ */
+
+.case-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        275px;
+
+    gap: 12px;
+}
+
+.case-presentation {
+    padding: 16px;
+}
+
+.case-section {
+    margin-top: 14px;
+}
+
+.case-section h3 {
+    margin: 0 0 5px;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.case-text {
+    margin: 0;
+
+    color: #465560;
+
+    font-size: 12px;
+
+    white-space: pre-wrap;
+}
+
+.case-sidebar {
+    padding: 13px;
+}
+
+.option-list {
+    display: grid;
+    gap: 6px;
+}
+
+.option-button {
+    width: 100%;
+
+    padding: 8px 9px;
+
+    text-align: left;
+
+    color: #43515d;
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease;
+}
+
+.option-button:hover {
+    background: var(--primary-soft);
+    border-color: #c8dfe9;
+}
+
+.case-explanation {
+    margin-top: 12px;
+
+    padding: 11px;
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-size: 11px;
+}
+
+/* ============================================================
+   LAB SIMULATOR
+   ============================================================ */
+
+.lab-stage {
+    min-height: 390px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            rgba(225,233,239,.5) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(225,233,239,.5) 1px,
+            transparent 1px
+        ),
+        var(--surface-2);
+
+    background-size: 22px 22px;
+
+    border-radius: 8px;
+}
+
+/* ============================================================
+   IMAGE ATLAS
+   ============================================================ */
+
+.atlas-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+.atlas-card {
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.atlas-media {
+    aspect-ratio: 4 / 3;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--subtle);
+
+    background: var(--surface-3);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.atlas-media svg {
+    width: 38px;
+    height: 38px;
+}
+
+.atlas-info {
+    padding: 9px;
+}
+
+.atlas-info strong {
+    font-size: 11px;
+}
+
+.atlas-info p {
+    margin: 3px 0 0;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+/* ============================================================
+   SPOTTER
+   ============================================================ */
+
+.spotter-stage {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(250px, .8fr);
+
+    gap: 12px;
+}
+
+.spotter-image {
+    min-height: 380px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--subtle);
+
+    background: #e9eef2;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+#spotterImage {
+    max-width: 100%;
+    max-height: 520px;
+
+    object-fit: contain;
+}
+
+.spotter-question-panel {
+    padding: 16px;
+}
+
+.spotter-score {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 9px 0;
+    margin-bottom: 13px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.score-label {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+#spotterScore {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* ============================================================
+   FLASHCARDS
+   ============================================================ */
+
+.flashcard-shell {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.flashcard {
+    min-height: 350px;
+    perspective: 1200px;
+}
+
+.flashcard-inner {
+    position: relative;
+
+    min-height: 350px;
+
+    transform-style: preserve-3d;
+
+    transition: transform .35s ease;
+}
+
+.flashcard.is-flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-face {
+    position: absolute;
+    inset: 0;
+
+    backface-visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    box-shadow: var(--shadow-md);
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+
+    background: var(--surface-2);
+}
+
+.flashcard-label {
+    color: var(--primary);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+#flashcardFront,
+#flashcardBack {
+    margin-top: 11px;
+
+    font-size: clamp(17px, 2vw, 24px);
+
+    font-weight: 750;
+    line-height: 1.3;
+}
+
+.rating-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 6px;
+
+    margin-top: 10px;
+}
+
+.rating-button {
+    min-height: 38px;
+
+    color: #465560;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border-strong);
+
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.rating-button:hover {
+    background: var(--surface-3);
+}
+
+/* ============================================================
+   QUESTION BANK
+   ============================================================ */
+
+.question-layout {
+    display: grid;
+
+    grid-template-columns:
+        220px
+        minmax(0, 1fr);
+
+    gap: 12px;
+}
+
+.question-filters {
+    padding: 13px;
+}
+
+.question-panel {
+    padding: 17px;
+}
+
+.question-number {
+    color: var(--primary);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+}
+
+#questionContainer {
+    min-height: 210px;
+    margin-top: 9px;
+}
+
+/* ============================================================
+   EXAM
+   ============================================================ */
+
+.exam-layout {
+    display: grid;
+
+    grid-template-columns:
+        215px
+        minmax(0, 1fr);
+
+    gap: 12px;
+}
+
+.exam-controls {
+    padding: 13px;
+}
+
+.exam-workspace {
+    padding: 17px;
+}
+
+.exam-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+#examTimer {
+    font-variant-numeric: tabular-nums;
+
+    font-weight: 800;
+
+    color: var(--primary-dark);
+}
+
+/* ============================================================
+   NOTES
+   ============================================================ */
+
+.notes-layout {
+    display: grid;
+
+    grid-template-columns:
+        235px
+        minmax(0, 1fr);
+
+    min-height: 520px;
+}
+
+.notes-list-panel {
+    border-right: 1px solid var(--border);
+}
+
+.notes-list-toolbar {
+    padding: 10px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+#notesList {
+    min-height: 420px;
+}
+
+.note-editor {
+    padding: 14px;
+}
+
+.editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    padding: 6px;
+
+    margin-bottom: 7px;
+
+    background: var(--surface-3);
+
+    border: 1px solid var(--border);
+
+    border-bottom: 0;
+
+    border-radius: 6px 6px 0 0;
+}
+
+.editor-tool {
+    min-width: 28px;
+    height: 27px;
+
+    color: #52616d;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 4px;
+
+    font-size: 11px;
+}
+
+#noteEditor {
+    min-height: 280px;
+
+    padding: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 0 0 6px 6px;
+
+    outline: none;
+}
+
+.attachment-panel {
+    margin-top: 11px;
+
+    padding: 10px;
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+}
+
+.pdf-list {
+    margin-top: 7px;
+}
+
+.pdf-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    padding: 7px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 10px;
+}
+
+/* ============================================================
+   AI
+   ============================================================ */
+
+.ai-layout {
+    display: grid;
+
+    grid-template-columns:
+        215px
+        minmax(0, 1fr);
+
+    min-height: 540px;
+}
+
+.ai-context-panel {
+    padding: 13px;
+
+    border-right: 1px solid var(--border);
+}
+
+.ai-main {
+    display: grid;
+
+    grid-template-rows:
+        1fr
+        auto;
+
+    min-width: 0;
+}
+
+#aiConversation {
+    min-height: 400px;
+    max-height: 540px;
+
+    overflow-y: auto;
+
+    padding: 15px;
+
+    background: #fbfcfd;
+}
+
+.ai-composer {
+    padding: 10px;
+
+    background: var(--surface);
+
+    border-top: 1px solid var(--border);
+}
+
+.ai-input-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 6px;
+}
+
+#aiInput {
+    min-height: 40px;
+    max-height: 120px;
+}
+
+.quick-prompts {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 7px;
+}
+
+.prompt-chip {
+    padding: 5px 7px;
+
+    color: var(--primary-dark);
+
+    background: var(--primary-soft);
+
+    border: 1px solid #d4e5ee;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+}
+
+/* ============================================================
+   FLOW / KNOWLEDGE GRAPH
+   ============================================================ */
+
+.flow-canvas,
+#knowledgeGraphCanvas {
+    min-height: 400px;
+
+    position: relative;
+
+    overflow: auto;
+
+    padding: 24px;
+
+    background:
+        linear-gradient(
+            rgba(225,233,239,.5) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(225,233,239,.5) 1px,
+            transparent 1px
+        ),
+        var(--surface-2);
+
+    background-size: 25px 25px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.flow-node {
+    width: min(230px, 90%);
+
+    margin: 0 auto 28px;
+
+    padding: 11px 13px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border-strong);
+
+    border-radius: 7px;
+
+    box-shadow: var(--shadow-sm);
+
+    font-size: 11px;
+}
+
+.flow-arrow {
+    width: 1px;
+    height: 20px;
+
+    margin: -20px auto 8px;
+
+    background: var(--border-strong);
+}
+
+.flow-arrow::after {
+    content: "";
+
+    display: block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-left: -3px;
+    margin-top: 15px;
+
+    border-right: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+
+    transform: rotate(45deg);
+
+    background: var(--surface-2);
+}
+
+/* ============================================================
+   INFORMATION CARDS
+   ============================================================ */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+.info-card {
+    padding: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+}
+
+.info-card h3 {
+    margin: 0 0 5px;
+
+    font-size: 12px;
+}
+
+.info-card p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+/* ============================================================
+   PROGRESS
+   ============================================================ */
+
+.progress-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+.progress-card {
+    padding: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+}
+
+.progress-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+.progress-name {
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.progress-value {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.progress-track {
+    height: 5px;
+
+    margin-top: 9px;
+
+    overflow: hidden;
+
+    background: var(--surface-3);
+
+    border-radius: 99px;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+
+    transition: width .3s ease;
+}
+
+/* ============================================================
+   REVIEW
+   ============================================================ */
+
+.review-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+.review-card {
+    padding: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+}
+
+.review-card strong {
+    display: block;
+
+    font-size: 20px;
+}
+
+.review-card span {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+/* ============================================================
+   ALGORITHMS
+   ============================================================ */
+
+.algorithm-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 7px;
+}
+
+.algorithm-button {
+    min-height: 62px;
+
+    padding: 10px;
+
+    text-align: left;
+
+    color: #3e4e5a;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease;
+}
+
+.algorithm-button:hover {
+    background: var(--primary-soft);
+    border-color: #c8dfe9;
+}
+
+/* ============================================================
+   KNOWLEDGE
+   ============================================================ */
+
+.knowledge-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 12px;
+}
+
+/* ============================================================
+   SEARCH RESULTS
+   ============================================================ */
+
+.global-search-wrap {
+    z-index: 130;
+}
+
+.search-results {
+    position: absolute;
+
+    top: calc(100% + 5px);
+
+    right: 0;
+    left: 0;
+
+    max-height: 420px;
+
+    overflow-y: auto;
+
+    z-index: 150;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.search-result-item {
+    width: 100%;
+
+    display: block;
+
+    padding: 9px 11px;
+
+    text-align: left;
+
+    color: inherit;
+
+    background: transparent;
+
+    border: 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.search-result-item:hover {
+    background: var(--surface-2);
+}
+
+.search-result-item:last-child {
+    border-bottom: 0;
+}
+
+.search-result-type {
+    color: var(--primary);
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+.search-result-title {
+    margin-top: 2px;
+
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.search-result-meta {
+    margin-top: 1px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+/* ============================================================
+   MODALS
+   ============================================================ */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+
+    background: rgba(19,31,40,.43);
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal-dialog {
+    width: min(850px, 100%);
+
+    max-height: calc(100vh - 36px);
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 14px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-title {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.modal-body {
+    overflow-y: auto;
+
+    padding: 15px;
+}
+
+.modal-close {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--muted);
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+}
+
+.modal-close:hover {
+    background: var(--surface-3);
+}
+
+/* ============================================================
+   SETTINGS
+   ============================================================ */
+
+.settings-grid {
+    display: grid;
+    gap: 11px;
+}
+
+.setting-block {
+    padding: 12px;
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+}
+
+.setting-block h3 {
+    margin: 0 0 8px;
+
+    font-size: 12px;
+}
+
+/* ============================================================
+   PDF VIEWER
+   ============================================================ */
+
+#pdfViewerModal .modal-dialog {
+    width: min(1150px, 100%);
+
+    height: calc(100vh - 36px);
+}
+
+#pdfViewerFrame {
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    border: 0;
+
+    background: #e9eef2;
+}
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.loading-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 600;
+
+    display: none;
+
+    place-items: center;
+
+    background: rgba(255,255,255,.72);
+
+    backdrop-filter: blur(2px);
+}
+
+.loading-overlay.is-visible {
+    display: grid;
+}
+
+.loading-card {
+    min-width: 180px;
+
+    padding: 17px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow: var(--shadow-lg);
+
+    font-size: 12px;
+}
+
+.spinner {
+    width: 28px;
+    height: 28px;
+
+    margin: 0 auto 9px;
+
+    border: 3px solid var(--surface-3);
+
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+
+.toast {
+    position: fixed;
+
+    right: 18px;
+    bottom: 18px;
+
+    z-index: 650;
+
+    max-width: 340px;
+
+    padding: 9px 12px;
+
+    color: #fff;
+
+    background: #273741;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 6px;
+
+    box-shadow: var(--shadow-lg);
+
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    pointer-events: none;
+
+    transition:
+        opacity .18s ease,
+        transform .18s ease;
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 10px;
+}
+
+.spacer-16 {
+    height: 12px;
+}
+
+.spacer-24 {
+    height: 18px;
+}
+
+.section-stack > * + * {
+    margin-top: 12px;
+}
+
+.hidden-file-input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+
+    clip: rect(0,0,0,0);
+    clip-path: inset(50%);
+
+    white-space: nowrap;
+}
+
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #c8d0d7 transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #c8d0d7;
+    border-radius: 10px;
+}
+
+/* ============================================================
+   RESPONSIVE — 1200px
+   ============================================================ */
+
+@media (max-width: 1200px) {
+
+    .app-header {
+        grid-template-columns:
+            215px
+            minmax(240px, 1fr)
+            auto;
+
+        gap: 12px;
+
+        padding: 0 16px;
+    }
+
+    .app-nav {
+        padding: 0 16px;
+    }
+
+    .app-main {
+        width: min(var(--content-width), calc(100% - 32px));
+    }
+
+    .card-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .atlas-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .quick-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — 950px
+   ============================================================ */
+
+@media (max-width: 950px) {
+
+    .app-header {
+        grid-template-columns:
+            200px
+            minmax(220px, 1fr)
+            auto;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .review-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .algorithm-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — 800px
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+    :root {
+        --header-height: auto;
+    }
+
+    .app-header {
+        position: relative;
+
+        min-height: 108px;
+        height: auto;
+
+        grid-template-columns:
+            1fr
+            auto;
+
+        grid-template-areas:
+            "brand actions"
+            "search search";
+
+        gap: 8px;
+
+        padding: 10px 13px;
+    }
+
+    .brand {
+        grid-area: brand;
+    }
+
+    .global-search-wrap {
+        grid-area: search;
+    }
+
+    .header-actions {
+        grid-area: actions;
+    }
+
+    .app-nav {
+        position: relative !important;
+
+        top: auto !important;
+
+        min-height: 42px;
+        height: auto;
+
+        padding: 0 10px;
+    }
+
+    .nav-item {
+        height: 42px;
+        padding: 0 11px;
+
+        font-size: 11px;
+    }
+
+    .app-main {
+        width: calc(100% - 22px);
+
+        padding-top: 15px;
+    }
+
+    .welcome-panel {
+        grid-template-columns: 1fr;
+
+        padding: 18px;
+    }
+
+    .welcome-mark {
+        display: none;
+    }
+
+    .dashboard-grid,
+    .split-grid,
+    .tool-layout,
+    .workspace-grid,
+    .case-layout,
+    .spotter-stage,
+    .question-layout,
+    .exam-layout,
+    .notes-layout,
+    .ai-layout,
+    .knowledge-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /*
+     * Absolutely no sticky side panels.
+     */
+    .filter-panel {
+        position: static !important;
+    }
+
+    .workspace-side,
+    .notes-list-panel,
+    .ai-context-panel {
+        border-right: 0;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .info-grid,
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .notes-layout {
+        min-height: 0;
+    }
+
+    #notesList {
+        min-height: 150px;
+        max-height: 260px;
+        overflow-y: auto;
+    }
+
+    #aiConversation {
+        max-height: 500px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — 600px
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .app-header {
+        padding: 9px 11px;
+    }
+
+    .brand-title {
+        font-size: 11px;
+    }
+
+    .brand-module {
+        font-size: 9px;
+    }
+
+    .header-action span {
+        display: none;
+    }
+
+    .app-main {
+        width: calc(100% - 18px);
+
+        padding-bottom: 35px;
+    }
+
+    .view-heading {
+        margin-bottom: 13px;
+    }
+
+    .view-title {
+        font-size: 22px;
+    }
+
+    .view-subtitle {
+        font-size: 12px;
+    }
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .card-grid,
+    .atlas-grid,
+    .category-grid,
+    .quick-grid,
+    .review-grid,
+    .algorithm-list {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-list {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-list dt {
+        padding-bottom: 1px;
+        border-bottom: 0;
+    }
+
+    .detail-list dd {
+        padding-top: 1px;
+    }
+
+    .rating-row {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .flashcard,
+    .flashcard-inner {
+        min-height: 300px;
+    }
+
+    .flashcard-face {
+        padding: 25px;
+    }
+
+    .modal {
+        padding: 9px;
+    }
+
+    .modal-dialog {
+        max-height: calc(100vh - 18px);
+    }
+
+    .toast {
+        right: 9px;
+        bottom: 9px;
+        left: 9px;
+
+        max-width: none;
+    }
+}
+
+/* ============================================================
+   VERY SMALL SCREENS
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-actions {
+        gap: 2px;
+    }
+
+    .icon-button,
+    .header-action {
+        min-width: 31px;
+        height: 31px;
+
+        padding: 0 6px;
+    }
+
+    .welcome-title {
+        font-size: 22px;
+    }
+
+    .primary-button,
+    .secondary-button,
+    .danger-button,
+    .ghost-button {
+        width: 100%;
+    }
+
+    .button-row {
+        align-items: stretch;
+    }
+}
+
+/* ============================================================
+   CRITICAL SCROLL OVERRIDES
+   Prevent accidental fixed/sticky sidebars from old CSS
+   ============================================================ */
+
+#microNav,
+#microNav *,
+.micro-nav,
+.micro-toolbar,
+.micro-sidebar,
+.sidebar,
+.toolbar,
+.filter-panel {
+    box-sizing: border-box;
+}
+
+/*
+ * The Microbiology toolbar/navigation must travel with
+ * the document instead of remaining fixed on screen.
+ */
+
+#microNav,
+.micro-nav,
+.micro-toolbar,
+.micro-sidebar {
+    position: relative !important;
+
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+/*
+ * Never lock the application to the viewport.
+ */
+
+#microbiologyApp,
+.microbiology-app,
+.microbiology-shell,
+.micro-shell,
+.app-shell {
+    height: auto !important;
+    min-height: 100vh !important;
+
+    overflow: visible !important;
+}
+
+/*
+ * The actual document is the scrolling surface.
+ */
+
+html,
+body {
+    height: auto !important;
+    min-height: 100% !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+/* ============================================================
+   MICROBIOLOGY — NORMAL PAGE FLOW
+   Nothing in the module stays fixed/sticky while scrolling.
+   ============================================================ */
+
+.app-header,
+.app-nav,
+.micro-header,
+.micro-toolbar,
+.micro-search,
+.filter-panel,
+.sidebar,
+.micro-sidebar {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+}
+
+/* Search / toolbar participates in normal document flow */
+.search-bar,
+.search-container,
+.toolbar,
+.toolbar-container,
+.global-search,
+#globalSearch {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+}
+
+/* Remove any artificial sticky offsets */
+.app-main,
+.micro-main,
+.main-content,
+.content-area {
+    padding-top: 0;
+}
+
+/* ============================================================
+   THEME
+   ============================================================ */
+
+/*
+ * IMPORTANT:
+ * Do NOT force a separate Microbiology light/dark theme.
+ *
+ * The module inherits the application's existing theme variables.
+ */
+
+/* Light/default appearance */
+:root {
+    color-scheme: light;
+}
+
+/*
+ * If the main application switches to dark mode using either
+ * body.dark-theme or html[data-theme="dark"], Microbiology
+ * follows it automatically.
+ */
+
+body.dark-theme,
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+/* ============================================================
+   SEARCH BAR
+   ============================================================ */
+
+#globalSearch {
+    width: 100%;
+    max-width: 760px;
+    margin: 0;
+}
+
+#globalSearch,
+.search-input,
+.global-search-input {
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+.app-nav {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
+
+.app-nav::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* Navigation items remain horizontally scrollable,
+   but the navigation itself moves vertically with the page. */
+.app-nav-inner,
+.nav-inner,
+.micro-nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: max-content;
+}
+
+/* ============================================================
+   FILTERS / TOOLBAR
+   ============================================================ */
+
+.filter-panel {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Prevent nested sticky elements */
+.filter-panel *,
+.toolbar *,
+.micro-toolbar * {
+    position: static;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .app-header,
+    .app-nav {
+        position: static !important;
+    }
+
+    .app-nav {
+        overflow-x: auto;
+    }
+
+    .app-nav-inner,
+    .nav-inner,
+    .micro-nav-inner {
+        width: max-content;
+    }
+
+    #globalSearch {
+        width: 100%;
+        max-width: none;
+    }
+
+    .filter-panel {
+        position: static !important;
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   MICROBIOLOGY — FINAL LAYOUT / SCROLL CORRECTION
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. USE THE ENTIRE PAGE
+   ------------------------------------------------------------ */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Never force the application into a viewport-sized box */
+#microbiologyApp,
+.microbiology-app,
+.app-shell,
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+
+/* ------------------------------------------------------------
+   2. HEADER MUST SCROLL WITH THE PAGE
+   ------------------------------------------------------------ */
+
+.app-header,
+.micro-header,
+header {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    z-index: auto !important;
+}
+
+
+/* ------------------------------------------------------------
+   3. SEARCH MUST SCROLL WITH THE PAGE
+   ------------------------------------------------------------ */
+
+#globalSearch,
+.global-search,
+.global-search-container,
+.search-container,
+.search-bar,
+.micro-search {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+
+    height: auto !important;
+    max-height: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   4. NAVIGATION / TOOLBAR MUST SCROLL
+   ------------------------------------------------------------ */
+
+.app-nav,
+.micro-nav,
+.toolbar,
+.micro-toolbar,
+.navigation,
+.navigation-bar {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    z-index: auto !important;
+}
+
+
+/* ------------------------------------------------------------
+   5. FILTER PANEL / FORMER SIDEBAR
+   ------------------------------------------------------------ */
+
+.filter-panel,
+.sidebar,
+.micro-sidebar,
+.tool-panel,
+.side-panel {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+}
+
+
+/* ------------------------------------------------------------
+   6. MAIN CONTENT
+   ------------------------------------------------------------ */
+
+.app-main,
+.micro-main,
+.main-content,
+.content-area,
+.page-content {
+    position: static !important;
+
+    width: 100%;
+    height: auto !important;
+    min-height: 0;
+
+    overflow: visible !important;
+
+    padding-top: 0;
+    padding-bottom: 60px;
+}
+
+
+/* ------------------------------------------------------------
+   7. EVERY VIEW MUST BE ABLE TO EXPAND
+   ------------------------------------------------------------ */
+
+.module-view,
+.view,
+.micro-view,
+.section-view {
+    position: relative;
+
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+
+    overflow: visible !important;
+
+    padding-bottom: 40px;
+}
+
+
+/* ------------------------------------------------------------
+   8. GRID CONTENT MUST NOT BE CLIPPED
+   ------------------------------------------------------------ */
+
+.topic-grid,
+.organism-grid,
+.disease-grid,
+.atlas-grid,
+.antibiotic-grid,
+.vaccine-grid,
+.resource-grid,
+.question-container,
+.continue-study-list,
+.recent-activity,
+.micro-grid {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+
+    overflow: visible !important;
+}
+
+
+/* ------------------------------------------------------------
+   9. CARDS MUST NOT BE CLIPPED
+   ------------------------------------------------------------ */
+
+.micro-card,
+.card,
+.topic-card,
+.organism-card,
+.disease-card,
+.antibiotic-card,
+.vaccine-card,
+.resource-card,
+.question-card {
+    height: auto !important;
+    min-height: 0;
+
+    overflow: visible;
+}
+
+
+/* ------------------------------------------------------------
+   10. BUTTON ROWS
+   ------------------------------------------------------------ */
+
+.button-row,
+.action-row,
+.action-buttons,
+.form-actions,
+.modal-actions,
+.question-actions,
+.spotter-actions,
+.flashcard-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: auto !important;
+    min-height: 0;
+
+    overflow: visible !important;
+
+    padding-bottom: 8px;
+}
+
+
+/* ------------------------------------------------------------
+   11. PREVENT PARENT CONTAINERS FROM CUTTING OFF BUTTONS
+   ------------------------------------------------------------ */
+
+section,
+article,
+main,
+aside,
+.card,
+.panel,
+.modal-content,
+.detail,
+.question-card,
+.study-summary,
+.lesson,
+.comparison,
+.algorithm-step {
+    max-height: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   12. REMOVE CLIPPING FROM COMMON CONTAINERS
+   ------------------------------------------------------------ */
+
+.app-header *,
+.app-nav *,
+.app-main *,
+.microbiology-app *,
+.micro-main * {
+    max-height: none;
+}
+
+
+/* ------------------------------------------------------------
+   13. IMPORTANT — DO NOT CLIP THE BOTTOM OF THE PAGE
+   ------------------------------------------------------------ */
+
+#microbiologyApp,
+#microbiologyApp > *,
+#microbiologyApp main,
+#microbiologyApp section {
+    overflow-y: visible;
+}
+
+
+/* ------------------------------------------------------------
+   14. MODALS ARE THE ONLY THINGS THAT MAY OVERLAY CONTENT
+   ------------------------------------------------------------ */
+
+#microModal,
+#organismDetailModal,
+#settingsModal,
+#pdfViewerModal {
+    position: fixed !important;
+    inset: 0 !important;
+
+    z-index: 1000;
+
+    overflow-y: auto !important;
+}
+
+
+/* ------------------------------------------------------------
+   15. SEARCH RESULTS
+   ------------------------------------------------------------ */
+
+#globalSearchResults,
+.global-search-results,
+.search-results {
+    position: static !important;
+
+    width: 100%;
+    max-height: none !important;
+
+    overflow: visible !important;
+}
+
+
+/* ------------------------------------------------------------
+   16. TOAST / LOADING CAN OVERLAY TEMPORARILY
+   ------------------------------------------------------------ */
+
+#microToast,
+#microLoading {
+    z-index: 2000;
+}
+
+
+/* ------------------------------------------------------------
+   17. DESKTOP — CLEAN FULL WIDTH LAYOUT
+   ------------------------------------------------------------ */
+
+@media (min-width: 769px) {
+
+    .app-main,
+    .micro-main,
+    .main-content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .topic-grid,
+    .organism-grid,
+    .disease-grid,
+    .atlas-grid,
+    .antibiotic-grid,
+    .vaccine-grid,
+    .resource-grid {
+        width: 100%;
+    }
+}
+
+
+/* ------------------------------------------------------------
+   18. TABLET / MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+        overflow-y: auto !important;
+    }
+
+    .app-header,
+    .app-nav,
+    .micro-nav,
+    .micro-toolbar,
+    .filter-panel {
+        position: static !important;
+    }
+
+    .app-main,
+    .micro-main,
+    .main-content {
+        width: 100%;
+        padding-bottom: 80px;
+    }
+
+    .button-row,
+    .action-row,
+    .action-buttons,
+    .form-actions,
+    .modal-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button-row button,
+    .action-row button,
+    .action-buttons button,
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+
+/* ------------------------------------------------------------
+   19. VERY SMALL SCREENS
+   ------------------------------------------------------------ */
+
+@media (max-width: 480px) {
+
+    .app-main,
+    .micro-main,
+    .main-content {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 100px;
+    }
+
+    .module-view {
+        padding-bottom: 60px;
+    }
+}
+
+
+/* ============================================================
+   THEME INHERITANCE
+   ============================================================ */
+
+/*
+ * Microbiology does NOT force its own colour theme.
+ *
+ * It inherits the application's existing CSS variables and
+ * theme classes.
+ */
+
+body {
+    background: var(--bg, #ffffff);
+    color: var(--text, #172033);
+}
+
+#microbiologyApp {
+    background: var(--bg, #ffffff);
+    color: var(--text, #172033);
+}
+
+#microbiologyApp input,
+#microbiologyApp textarea,
+#microbiologyApp select {
+    background: var(--surface, #ffffff);
+    color: var(--text, #172033);
+    border-color: var(--border, #d9e1ea);
+}
+
+
+/* ============================================================
+   FINAL SAFETY NET
+   ============================================================ */
+
+/*
+ * These rules prevent accidental viewport clipping caused by
+ * older CSS declarations elsewhere in the stylesheet.
+ */
+
+#microbiologyApp,
+#microbiologyApp .app-header,
+#microbiologyApp .app-nav,
+#microbiologyApp .app-main,
+#microbiologyApp .module-view {
+    box-sizing: border-box;
+}
+
+#microbiologyApp .module-view.active,
+#microbiologyApp .module-view.is-active {
+    display: block;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
+
+/* Give the very last content on every page room to breathe */
+#microbiologyApp .module-view::after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 100%;
+}
+
+/* ============================================================
+   MICROBIOLOGY — COLLAPSIBLE SEARCH
+   ============================================================ */
+
+/* Search wrapper is hidden initially */
+.micro-search,
+.global-search,
+.search-container {
+    display: none;
+}
+
+/* Search becomes visible when opened */
+.micro-search.search-open,
+.global-search.search-open,
+.search-container.search-open {
+    display: flex;
+}
+
+/* Search icon / lens button */
+#searchToggle,
+#searchButton,
+.search-toggle,
+.search-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+    border: 1px solid var(--border, #d9e1ea);
+    border-radius: 10px;
+
+    background: var(--surface, #ffffff);
+    color: var(--text, #172033);
+
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+#searchToggle:hover,
+#searchButton:hover,
+.search-toggle:hover,
+.search-trigger:hover {
+    transform: translateY(-1px);
+    border-color: var(--primary, #2563eb);
+}
+
+/* Actual search panel */
+#globalSearch {
+    display: none;
+}
+
+.search-open #globalSearch {
+    display: block;
+}
+
+/* Search input */
+#globalSearch input,
+#globalSearch .search-input,
+#globalSearch input[type="search"],
+#globalSearch input[type="text"] {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Search panel must scroll with page */
+.search-open {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+}
+
+/* Search results are also normal page content */
+#globalSearchResults,
+.global-search-results,
+.search-results {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.ai-msg-content {
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.ai-msg-content h2,
+.ai-msg-content h3,
+.ai-msg-content h4 {
+    margin: 1.2rem 0 .6rem;
+    line-height: 1.3;
+}
+
+.ai-msg-content h2 {
+    font-size: 1.35rem;
+}
+
+.ai-msg-content h3 {
+    font-size: 1.15rem;
+}
+
+.ai-msg-content h4 {
+    font-size: 1rem;
+}
+
+.ai-msg-content p {
+    margin: .55rem 0;
+}
+
+.ai-msg-content ul,
+.ai-msg-content ol {
+    margin: .6rem 0 .8rem 1.4rem;
+    padding-left: 1rem;
+}
+
+.ai-msg-content li {
+    margin: .3rem 0;
+}
+
+.ai-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-radius: 10px;
+}
+
+.ai-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    font-size: .92rem;
+}
+
+.ai-table th,
+.ai-table td {
+    padding: .7rem .8rem;
+    border: 1px solid rgba(80, 100, 130, .2);
+    text-align: left;
+    vertical-align: top;
+}
+
+.ai-table th {
+    font-weight: 700;
+    background: rgba(40, 110, 180, .08);
+}
+
+.ai-inline-code {
+    padding: .12rem .35rem;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .06);
+    font-family: Consolas, monospace;
+}
+
+.ai-code {
+    overflow-x: auto;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    background: #f3f5f7;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+}
+
+.ai-msg-content hr {
+    border: 0;
+    border-top: 1px solid rgba(80, 100, 130, .2);
+    margin: 1.2rem 0;
+}
+
+#pdfViewerModal {
+    z-index: 1000;
+}
+
+#pdfViewerModal .modal-dialog {
+    width: min(1200px, 94vw);
+    height: min(90vh, 900px);
+    max-width: 1200px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#pdfViewerModal .modal-header {
+    flex: 0 0 auto;
+}
+
+#pdfViewerFrame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 70vh;
+
+    flex: 1 1 auto;
+
+    border: 0;
+    background: #ffffff;
+}
+</style>
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="brand" aria-label="Year 3 Study OS Microbiology">
+            <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <circle cx="12" cy="12" r="8.5"></circle>
+                    <circle cx="8.2" cy="9" r="1.1"></circle>
+                    <circle cx="14.8" cy="7.5" r=".9"></circle>
+                    <circle cx="15.7" cy="14.5" r="1.3"></circle>
+                    <path d="M5 15.5c2.5-1.3 4.2-1.1 5.8.4 1.6 1.5 3.4 1.8 5.9.4"></path>
+                </svg>
+            </div>
+            <div class="brand-copy">
+                <p class="brand-title">YEAR 3 STUDY OS</p>
+                <p class="brand-module">MICROBIOLOGY</p>
+            </div>
+        </div>
+
+        <div class="global-search-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.5"></circle>
+                <path d="m16 16 5 5"></path>
+            </svg>
+            <input
+                id="globalSearch"
+                type="search"
+                autocomplete="off"
+                placeholder="Search organisms, diseases, antibiotics, topics, questions..."
+                aria-label="Search microbiology"
+            >
+            <span class="search-shortcut" aria-hidden="true">Ctrl K</span>
+            <div id="globalSearchResults" class="search-results" hidden></div>
+        </div>
+
+        <div class="header-actions">
+            <button id="aiOpenButton" class="header-action ai" type="button" aria-label="Open Microbiology AI">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M12 3.5 14 9l5.5 2-5.5 2-2 5.5-2-5.5-5.5-2L10 9l2-5.5Z"></path>
+                </svg>
+                <span>AI</span>
+            </button>
+            <button class="icon-button" type="button" aria-label="System status">
+                <span class="status-dot" aria-hidden="true"></span>
+            </button>
+            <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle theme">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M20 15.2A8.2 8.2 0 0 1 8.8 4 8.2 8.2 0 1 0 20 15.2Z"></path>
+                </svg>
+            </button>
+            <button id="settingsButton" class="icon-button" type="button" aria-label="Open settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.7 1.7-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-2.4v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L8 17l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H6.6v-2.4h.2a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L8 8.6l1.7-1.7.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.6v-.2h2.4v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.7 1.7-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v2.4h-.2a1.7 1.7 0 0 0-1.6 1Z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav id="microNav" class="app-nav" aria-label="Microbiology sections">
+        <div class="nav-list">
+            <button class="nav-item is-active" type="button" data-section="home">Home</button>
+            <button class="nav-item" type="button" data-section="learn">Learn</button>
+            <button class="nav-item" type="button" data-section="explore">Explore</button>
+            <button class="nav-item" type="button" data-section="practice">Practice</button>
+            <button class="nav-item" type="button" data-section="study">My Study</button>
+            <button class="nav-item" type="button" data-section="ai">AI</button>
+        </div>
+    </nav>
+
+    <main id="microbiologyApp" class="app-main">
+
+        <!-- HOME -->
+        <section id="view-home" class="module-view is-active" aria-labelledby="homeTitle">
+            <div class="welcome-panel">
+                <div>
+                    <p class="welcome-kicker">MICROBIOLOGY</p>
+                    <h1 id="homeTitle" class="welcome-title">Master microorganisms, disease mechanisms, diagnosis, antimicrobial therapy and clinical reasoning.</h1>
+                    <p class="welcome-copy">A focused medical-school workspace for learning, exploring, diagnosing, practising and reviewing microbiology.</p>
+                    <div class="button-row">
+                        <button id="continueStudyButton" class="primary-button" type="button">Continue Studying</button>
+                    </div>
+                </div>
+                <div class="welcome-mark" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.7">
+                        <circle cx="32" cy="32" r="21"></circle>
+                        <circle cx="24" cy="26" r="3"></circle>
+                        <circle cx="39" cy="21" r="2.4"></circle>
+                        <circle cx="42" cy="38" r="3.2"></circle>
+                        <circle cx="25" cy="42" r="2"></circle>
+                        <path d="M12 32h8M44 32h8M32 11v8M32 45v8"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stats-grid" aria-label="Study statistics">
+                <article class="stat-card">
+                    <div class="stat-label">Topics Completed</div>
+                    <div id="statTopics" class="stat-value" aria-live="polite"></div>
+                    <div class="stat-meta">Dynamic study progress</div>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-label">Organisms Studied</div>
+                    <div id="statOrganisms" class="stat-value" aria-live="polite"></div>
+                    <div class="stat-meta">Dynamic organism coverage</div>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-label">Questions Answered</div>
+                    <div id="statQuestions" class="stat-value" aria-live="polite"></div>
+                    <div class="stat-meta">Dynamic practice history</div>
+                </article>
+                <article class="stat-card">
+                    <div class="stat-label">Study Streak</div>
+                    <div id="statStreak" class="stat-value" aria-live="polite"></div>
+                    <div class="stat-meta">Dynamic activity streak</div>
+                </article>
+            </div>
+
+            <div class="dashboard-grid">
+                <section class="surface" aria-labelledby="quickActionsHeading">
+                    <div class="surface-header">
+                        <div>
+                            <h2 id="quickActionsHeading" class="section-label">Quick Actions</h2>
+                            <span class="small muted">Jump directly into a microbiology workspace.</span>
+                        </div>
+                    </div>
+                    <div class="surface-body">
+                        <div class="quick-grid">
+                            <button class="action-card" type="button" data-action="organisms">
+                                <span class="action-icon" aria-hidden="true">◉</span>
+                                <span class="action-name">Organism Explorer</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="cases">
+                                <span class="action-icon" aria-hidden="true">⌁</span>
+                                <span class="action-name">Clinical Cases</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="questions">
+                                <span class="action-icon" aria-hidden="true">?</span>
+                                <span class="action-name">Question Bank</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="spotters">
+                                <span class="action-icon" aria-hidden="true">▣</span>
+                                <span class="action-name">Spotters</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="flashcards">
+                                <span class="action-icon" aria-hidden="true">▤</span>
+                                <span class="action-name">Flashcards</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="laboratory">
+                                <span class="action-icon" aria-hidden="true">⌬</span>
+                                <span class="action-name">Laboratory</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="antibiotics">
+                                <span class="action-icon" aria-hidden="true">＋</span>
+                                <span class="action-name">Antibiotics</span>
+                            </button>
+                            <button class="action-card" type="button" data-action="high-yield">
+                                <span class="action-icon" aria-hidden="true">★</span>
+                                <span class="action-name">High-Yield</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="continueStudy" class="surface" aria-labelledby="continueHeading">
+                    <div class="surface-header">
+                        <div>
+                            <h2 id="continueHeading" class="section-label">Continue Study</h2>
+                            <span class="small muted">Resume from your latest study state.</span>
+                        </div>
+                    </div>
+                    <div id="continueStudyList" class="empty-state">
+                        <div>
+                            <strong>Nothing to resume yet.</strong>
+                            <p>Your active topics, cases and reviews will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="split-grid">
+                <section class="surface" aria-labelledby="recentHeading">
+                    <div class="surface-header">
+                        <h2 id="recentHeading" class="section-label">Recent Activity</h2>
+                    </div>
+                    <div id="recentActivity" class="empty-state">
+                        <div>
+                            <strong>No recent activity.</strong>
+                            <p>Your study actions will be recorded here by the module.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="reviewToday" class="surface" aria-labelledby="reviewTodayHeading">
+                    <div class="surface-header">
+                        <h2 id="reviewTodayHeading" class="section-label">Review Today</h2>
+                    </div>
+                    <div id="reviewTodayContent" class="empty-state">
+                        <div>
+                            <strong>Review queue is empty.</strong>
+                            <p>Due flashcards, weak organisms, incorrect questions and recommendations will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- LEARN -->
+        <section id="view-learn" class="module-view" aria-labelledby="learnTitle">
+            <div class="view-heading">
+                <p class="eyebrow">Learn</p>
+                <h1 id="learnTitle" class="view-title">Microbiology Curriculum</h1>
+                <p class="view-subtitle">Build foundational knowledge across organisms, disease, immunology and antimicrobial therapy.</p>
+            </div>
+
+            <div class="category-grid">
+                <button class="category-card" type="button" data-topic-category="bacteriology">
+                    <span class="entity-type">Core discipline</span>
+                    <h3>Bacteriology</h3>
+                    <p>Classification, virulence, clinical disease, laboratory diagnosis and treatment of bacteria.</p>
+                </button>
+                <button class="category-card" type="button" data-topic-category="virology">
+                    <span class="entity-type">Core discipline</span>
+                    <h3>Virology</h3>
+                    <p>Viral structure, replication, pathogenesis, diagnosis, prevention and clinically important viruses.</p>
+                </button>
+                <button class="category-card" type="button" data-topic-category="mycology">
+                    <span class="entity-type">Core discipline</span>
+                    <h3>Mycology</h3>
+                    <p>Yeasts, moulds, dermatophytes, systemic fungi, mycotoxins and antifungal therapy.</p>
+                </button>
+                <button class="category-card" type="button" data-topic-category="parasitology">
+                    <span class="entity-type">Core discipline</span>
+                    <h3>Parasitology</h3>
+                    <p>Protozoa, helminths, life cycles, clinical syndromes, diagnosis and prevention.</p>
+                </button>
+                <button class="category-card" type="button" data-topic-category="immunology">
+                    <span class="entity-type">Core discipline</span>
+                    <h3>Immunology</h3>
+                    <p>Innate and adaptive responses, hypersensitivity, immunodeficiency and host defence.</p>
+                </button>
+                <button class="category-card" type="button" data-topic-category="antimicrobials">
+                    <span class="entity-type">Therapeutics</span>
+                    <h3>Antimicrobials</h3>
+                    <p>Drug classes, mechanisms, clinical use, adverse effects, interactions and resistance.</p>
+                </button>
+                <button class="category-card" type="button" data-topic-category="general">
+                    <span class="entity-type">Foundations</span>
+                    <h3>General Microbiology</h3>
+                    <p>Specimens, microscopy, culture, sterilization, epidemiology, infection control and diagnostics.</p>
+                </button>
+            </div>
+
+            <div class="spacer-24"></div>
+
+            <section id="topicLibrary" class="surface" aria-labelledby="topicLibraryTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="topicLibraryTitle" class="section-label">Topic Library</h2>
+                        <span class="small muted">Searchable curriculum content populated by module.js.</span>
+                    </div>
+                    <div class="results-meta">Dynamic content</div>
+                </div>
+                <div class="surface-body">
+                    <div class="toolbar">
+                        <input id="topicSearch" class="grow" type="search" placeholder="Search topics..." aria-label="Search topics">
+                    </div>
+                    <div id="topicGrid" class="card-grid">
+                        <div class="empty-state" style="grid-column:1/-1;">
+                            <div><strong>No topics loaded.</strong><p>Topic records will be rendered here.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- EXPLORE -->
+        <section id="view-explore" class="module-view" aria-labelledby="exploreTitle">
+            <div class="view-heading">
+                <p class="eyebrow">Explore</p>
+                <h1 id="exploreTitle" class="view-title">Explore Microbiology</h1>
+                <p class="view-subtitle">Move between organisms, diseases, antimicrobials, diagnostic pathways, epidemiology and visual resources.</p>
+            </div>
+
+            <section id="organismExplorer" class="surface section-stack" aria-labelledby="organismExplorerTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="organismExplorerTitle" class="section-label">Organism Explorer</h2>
+                        <span class="small muted">Search and filter the organism knowledge base.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="tool-layout">
+                        <aside class="surface filter-panel" aria-label="Organism filters">
+                            <div class="filter-group">
+                                <div class="field">
+                                    <label for="organismSearch">Search organism</label>
+                                    <input id="organismSearch" type="search" placeholder="e.g. Staphylococcus aureus">
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <div class="field">
+                                    <label for="organismGramFilter">Gram reaction</label>
+                                    <select id="organismGramFilter">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="organismShapeFilter">Shape</label>
+                                    <select id="organismShapeFilter">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="organismOxygenFilter">Oxygen requirement</label>
+                                    <select id="organismOxygenFilter">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="organismClinicalFilter">Clinical importance</label>
+                                    <select id="organismClinicalFilter">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="organismTaxonomyFilter">Taxonomy</label>
+                                    <select id="organismTaxonomyFilter">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </aside>
+                        <div>
+                            <div class="toolbar">
+                                <span class="results-meta">Organism records are loaded dynamically.</span>
+                            </div>
+                            <div id="organismGrid" class="card-grid">
+                                <div class="empty-state" style="grid-column:1/-1;">
+                                    <div><strong>No organisms loaded.</strong><p>Use the search and filters once module.js supplies organism data.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="comparisonTool" class="surface section-stack" aria-labelledby="comparisonTitle">
+                <div class="surface-header">
+                    <h2 id="comparisonTitle" class="section-label">Organism Comparison</h2>
+                </div>
+                <div class="surface-body">
+                    <div class="comparison-controls">
+                        <div class="field">
+                            <label for="comparisonOrganismA">Organism A</label>
+                            <select id="comparisonOrganismA">
+                                <option value="">Select organism</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="comparisonOrganismB">Organism B</label>
+                            <select id="comparisonOrganismB">
+                                <option value="">Select organism</option>
+                            </select>
+                        </div>
+                        <button id="compareOrganismsButton" class="primary-button" type="button">Compare</button>
+                    </div>
+                    <div id="comparisonResult" class="empty-state">
+                        <div><strong>Select two organisms.</strong><p>The comparison table will be generated by module.js.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="diseaseExplorer" class="surface section-stack" aria-labelledby="diseaseExplorerTitle">
+                <div class="surface-header">
+                    <h2 id="diseaseExplorerTitle" class="section-label">Disease Explorer</h2>
+                </div>
+                <div class="surface-body">
+                    <div class="toolbar">
+                        <input id="diseaseSearch" class="grow" type="search" placeholder="Search diseases, syndromes or clinical presentations..." aria-label="Search diseases">
+                    </div>
+                    <div id="diseaseFilters" class="tag-row" aria-label="Disease filters"></div>
+                    <div class="spacer-16"></div>
+                    <div id="diseaseGrid" class="card-grid">
+                        <div class="empty-state" style="grid-column:1/-1;">
+                            <div><strong>No diseases loaded.</strong><p>Disease records will appear here.</p></div>
+                        </div>
+                    </div>
+                    <div class="spacer-16"></div>
+                    <div id="diseaseDetail" class="surface" hidden></div>
+                </div>
+            </section>
+
+            <section id="antibioticExplorer" class="surface section-stack" aria-labelledby="antibioticExplorerTitle">
+                <div class="surface-header">
+                    <h2 id="antibioticExplorerTitle" class="section-label">Antibiotic Explorer</h2>
+                </div>
+                <div class="surface-body">
+                    <div class="tool-layout">
+                        <aside class="surface filter-panel" aria-label="Antibiotic filters">
+                            <div class="filter-group">
+                                <div class="field">
+                                    <label for="antibioticSearch">Search antibiotic</label>
+                                    <input id="antibioticSearch" type="search" placeholder="Search drug or class">
+                                </div>
+                            </div>
+                            <div id="antibioticFilters" class="filter-group"></div>
+                        </aside>
+                        <div>
+                            <div id="antibioticGrid" class="card-grid">
+                                <div class="empty-state" style="grid-column:1/-1;">
+                                    <div><strong>No antibiotics loaded.</strong><p>Antibiotic records will be rendered here.</p></div>
+                                </div>
+                            </div>
+                            <div class="spacer-16"></div>
+                            <div id="antibioticDetail" class="surface" hidden></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="resistanceExplorer" class="surface section-stack" aria-labelledby="resistanceExplorerTitle">
+                <div class="surface-header">
+                    <h2 id="resistanceExplorerTitle" class="section-label">Antimicrobial Resistance</h2>
+                </div>
+                <div class="surface-body">
+                    <div id="resistanceGrid" class="card-grid">
+                        <div class="empty-state" style="grid-column:1/-1;">
+                            <div><strong>No resistance mechanisms loaded.</strong><p>Resistance mechanism, organism and antibiotic relationships will appear here.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="imageAtlas" class="surface section-stack" aria-labelledby="imageAtlasTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="imageAtlasTitle" class="section-label">Microbiology Image Atlas</h2>
+                        <span class="small muted">Interface only — image assets are supplied and managed by module.js.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="toolbar">
+                        <input id="atlasSearch" class="grow" type="search" placeholder="Search atlas..." aria-label="Search image atlas">
+                        <select id="atlasCategory" aria-label="Atlas category">
+                            <option value="">All categories</option>
+                        </select>
+                    </div>
+                    <div id="atlasGrid" class="atlas-grid">
+                        <div class="empty-state" style="grid-column:1/-1;">
+                            <div><strong>No atlas images loaded.</strong><p>Image cards will be populated dynamically.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pathogenesisVisualizer" class="surface section-stack" aria-labelledby="pathogenesisTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="pathogenesisTitle" class="section-label">Pathogenesis Visualizer</h2>
+                        <span class="small muted">Interactive pathogenesis flow generated by module.js.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div id="pathogenesisFlow" class="flow-canvas">
+                        <div class="empty-state"><div><strong>No pathogenesis pathway selected.</strong><p>Select an organism or disease to build the sequence.</p></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="epidemiologyModule" class="surface section-stack" aria-labelledby="epidemiologyTitle">
+                <div class="surface-header">
+                    <h2 id="epidemiologyTitle" class="section-label">Transmission &amp; Epidemiology</h2>
+                </div>
+                <div id="epidemiologyContent" class="surface-body">
+                    <div class="empty-state"><div><strong>No epidemiology record selected.</strong><p>Reservoir, transmission, incubation, risk factors and geographic information will appear here.</p></div></div>
+                </div>
+            </section>
+
+            <section id="infectionControl" class="surface section-stack" aria-labelledby="infectionControlTitle">
+                <div class="surface-header">
+                    <h2 id="infectionControlTitle" class="section-label">Infection Control</h2>
+                </div>
+                <div id="infectionControlContent" class="surface-body">
+                    <div class="info-grid">
+                        <article class="info-card"><h3>Standard precautions</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Contact precautions</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Droplet precautions</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Airborne precautions</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Isolation &amp; PPE</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Sterilization &amp; disinfection</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Hand hygiene</h3><p>Dynamic guidance will be displayed here.</p></article>
+                        <article class="info-card"><h3>Healthcare-associated infections</h3><p>Dynamic guidance will be displayed here.</p></article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="vaccinationExplorer" class="surface section-stack" aria-labelledby="vaccinationTitle">
+                <div class="surface-header">
+                    <h2 id="vaccinationTitle" class="section-label">Vaccination Explorer</h2>
+                </div>
+                <div class="surface-body">
+                    <div id="vaccineGrid" class="card-grid">
+                        <div class="empty-state" style="grid-column:1/-1;">
+                            <div><strong>No vaccine records loaded.</strong><p>Vaccine cards will be rendered dynamically.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="algorithmModule" class="surface section-stack" aria-labelledby="algorithmTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="algorithmTitle" class="section-label">Microbiology Algorithms</h2>
+                        <span class="small muted">Interactive diagnostic pathways.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="algorithm-list">
+                        <button class="algorithm-button" type="button" data-topic="Gram-positive cocci">Gram-positive cocci</button>
+                        <button class="algorithm-button" type="button" data-topic="Gram-negative rods">Gram-negative rods</button>
+                        <button class="algorithm-button" type="button" data-topic="Diarrhea">Diarrhea</button>
+                        <button class="algorithm-button" type="button" data-topic="Meningitis">Meningitis</button>
+                        <button class="algorithm-button" type="button" data-topic="Pneumonia">Pneumonia</button>
+                        <button class="algorithm-button" type="button" data-topic="UTI">UTI</button>
+                        <button class="algorithm-button" type="button" data-topic="STI">STI</button>
+                        <button class="algorithm-button" type="button" data-topic="Sepsis">Sepsis</button>
+                        <button class="algorithm-button" type="button" data-topic="Fever of unknown origin">Fever of unknown origin</button>
+                    </div>
+                    <div class="spacer-16"></div>
+                    <div id="algorithmWorkspace" class="workspace">
+                        <div class="empty-state"><div><strong>No algorithm selected.</strong><p>Choose a pathway to render the diagnostic workflow.</p></div></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- PRACTICE -->
+        <section id="view-practice" class="module-view" aria-labelledby="practiceTitle">
+            <div class="view-heading">
+                <p class="eyebrow">Practice</p>
+                <h1 id="practiceTitle" class="view-title">Clinical Practice &amp; Assessment</h1>
+                <p class="view-subtitle">Test recognition, clinical reasoning, diagnostic interpretation and exam performance.</p>
+            </div>
+
+            <section id="caseSimulator" class="surface section-stack" aria-labelledby="caseTitleHeading">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="caseTitleHeading" class="section-label">Clinical Case Simulator</h2>
+                        <span class="small muted">Case content is generated by module.js.</span>
+                    </div>
+                </div>
+                <div class="case-layout">
+                    <div class="case-presentation">
+                        <h2 id="caseTitle" class="view-title" style="font-size:24px;"></h2>
+                        <div class="case-section"><h3>Patient presentation</h3><p id="casePresentation" class="case-text"></p></div>
+                        <div class="case-section"><h3>History</h3><p id="caseHistory" class="case-text"></p></div>
+                        <div class="case-section"><h3>Examination</h3><p id="caseExamination" class="case-text"></p></div>
+                        <div class="case-section"><h3>Laboratory results</h3><p id="caseLabs" class="case-text"></p></div>
+                    </div>
+                    <aside class="surface case-sidebar">
+                        <div class="section-label">Question</div>
+                        <p id="caseQuestion" class="case-text"></p>
+                        <div id="caseOptions" class="option-list" aria-label="Case answer choices"></div>
+                        <div id="caseExplanation" class="case-explanation" hidden></div>
+                        <div class="spacer-16"></div>
+                        <button id="nextCaseButton" class="primary-button" type="button">Next Case</button>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="labSimulator" class="surface section-stack" aria-labelledby="labSimulatorTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="labSimulatorTitle" class="section-label">Laboratory / Diagnostic Simulator</h2>
+                        <span class="small muted">Select specimen, perform tests and interpret results through the workspace.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="lab-stage">
+                        <div id="labWorkspace" class="workspace" style="width:100%;">
+                            <div class="empty-state">
+                                <div><strong>Laboratory workspace ready.</strong><p>Specimen selection, microscopy, staining, culture, biochemical tests, antigen testing, molecular testing, susceptibility testing and interpretation will be rendered here.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="spotterModule" class="surface section-stack" aria-labelledby="spotterTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="spotterTitle" class="section-label">Microbiology Spotter</h2>
+                        <span class="small muted">Image-based identification and recognition.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="spotter-stage">
+                        <div class="spotter-image">
+                            <img id="spotterImage" src="" alt="Microbiology spotter image" hidden>
+                            <div id="spotterImageEmpty" class="empty-state">
+                                <div><strong>No spotter image loaded.</strong><p>The current image will be supplied by module.js.</p></div>
+                            </div>
+                        </div>
+                        <div class="surface spotter-question-panel">
+                            <div class="spotter-score">
+                                <span class="score-label">Score</span>
+                                <span id="spotterScore"></span>
+                            </div>
+                            <p id="spotterQuestion" class="case-text"></p>
+                            <div class="field">
+                                <label for="spotterAnswer">Your answer</label>
+                                <input id="spotterAnswer" type="text" autocomplete="off" placeholder="Identify the indicated finding...">
+                            </div>
+                            <div class="button-row">
+                                <button id="spotterReveal" class="secondary-button" type="button">Reveal Answer</button>
+                                <button id="spotterNext" class="primary-button" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="flashcardsModule" class="surface section-stack" aria-labelledby="flashcardsTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="flashcardsTitle" class="section-label">Flashcards</h2>
+                        <span class="small muted">Spaced-repetition style review.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="flashcard-shell">
+                        <div id="flashcard" class="flashcard" aria-live="polite">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-face flashcard-front">
+                                    <div class="flashcard-label">Question</div>
+                                    <div id="flashcardFront"></div>
+                                </div>
+                                <div class="flashcard-face flashcard-back">
+                                    <div class="flashcard-label">Answer</div>
+                                    <div id="flashcardBack"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-row" style="justify-content:center;margin-top:13px;">
+                            <button id="flashcardFlip" class="secondary-button" type="button">Flip Card</button>
+                            <button id="flashcardNext" class="primary-button" type="button">Next</button>
+                        </div>
+                        <div class="rating-row">
+                            <button id="flashcardAgain" class="rating-button" type="button">Again</button>
+                            <button id="flashcardHard" class="rating-button" type="button">Hard</button>
+                            <button id="flashcardGood" class="rating-button" type="button">Good</button>
+                            <button id="flashcardEasy" class="rating-button" type="button">Easy</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="questionBank" class="surface section-stack" aria-labelledby="questionBankTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="questionBankTitle" class="section-label">Question Bank</h2>
+                        <span class="small muted">Filter by curriculum and question characteristics.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="question-layout">
+                        <aside class="surface question-filters">
+                            <div class="field">
+                                <label for="questionTopicFilter">Topic</label>
+                                <select id="questionTopicFilter"><option value="">All topics</option></select>
+                            </div>
+                            <div class="field">
+                                <label for="questionOrganismFilter">Organism</label>
+                                <select id="questionOrganismFilter"><option value="">All organisms</option></select>
+                            </div>
+                            <div class="field">
+                                <label for="questionDifficultyFilter">Difficulty</label>
+                                <select id="questionDifficultyFilter"><option value="">All difficulty levels</option></select>
+                            </div>
+                            <div class="field">
+                                <label for="questionTypeFilter">Question type</label>
+                                <select id="questionTypeFilter"><option value="">All question types</option></select>
+                            </div>
+                        </aside>
+                        <div class="surface question-panel">
+                            <div class="question-number">Current question</div>
+                            <div id="questionContainer">
+                                <div class="empty-state"><div><strong>No question loaded.</strong><p>Question content will be generated by the question engine.</p></div></div>
+                            </div>
+                            <div class="button-row">
+                                <button id="questionSubmit" class="primary-button" type="button">Submit Answer</button>
+                                <button id="questionNext" class="secondary-button" type="button">Next Question</button>
+                            </div>
+                            <div id="questionExplanation" class="case-explanation" hidden></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="examMode" class="surface section-stack" aria-labelledby="examModeTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="examModeTitle" class="section-label">Exam Mode</h2>
+                        <span class="small muted">Timed assessment with configurable question scope.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="exam-layout">
+                        <aside class="surface exam-controls">
+                            <div class="field">
+                                <label for="examQuestionCount">Number of questions</label>
+                                <input id="examQuestionCount" type="number" min="1" placeholder="Number">
+                            </div>
+                            <div class="field">
+                                <label for="examTimeLimit">Time limit (minutes)</label>
+                                <input id="examTimeLimit" type="number" min="1" placeholder="Minutes">
+                            </div>
+                            <div class="field">
+                                <label for="examTopic">Topic selection</label>
+                                <select id="examTopic"><option value="">All topics</option></select>
+                            </div>
+                            <div class="field">
+                                <label for="examDifficulty">Difficulty</label>
+                                <select id="examDifficulty"><option value="">All difficulty levels</option></select>
+                            </div>
+                            <button id="startExamButton" class="primary-button" type="button">Start Exam</button>
+                        </aside>
+                        <div class="surface exam-workspace">
+                            <div class="exam-status">
+                                <span class="small muted">Exam timer</span>
+                                <span id="examTimer"></span>
+                            </div>
+                            <div class="spacer-16"></div>
+                            <div id="examQuestion">
+                                <div class="empty-state"><div><strong>Exam not started.</strong><p>Configure the assessment and start when ready.</p></div></div>
+                            </div>
+                            <div id="examOptions" class="option-list"></div>
+                            <div class="button-row" style="margin-top:14px;">
+                                <button id="examNext" class="secondary-button" type="button">Next Question</button>
+                                <button id="submitExam" class="primary-button" type="button">Submit Exam</button>
+                            </div>
+                            <div id="examResults" class="spacer-16" hidden></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- MY STUDY -->
+        <section id="view-study" class="module-view" aria-labelledby="studyTitle">
+            <div class="view-heading">
+                <p class="eyebrow">My Study</p>
+                <h1 id="studyTitle" class="view-title">Personal Study Workspace</h1>
+                <p class="view-subtitle">Review what needs attention, manage notes and resources, and track your microbiology mastery.</p>
+            </div>
+
+            <section id="spacedRepetition" class="surface section-stack" aria-labelledby="spacedTitle">
+                <div class="surface-header">
+                    <h2 id="spacedTitle" class="section-label">Spaced Repetition</h2>
+                </div>
+                <div class="surface-body">
+                    <div class="review-grid">
+                        <article class="review-card"><strong id="reviewDue"></strong><span>Due Today</span></article>
+                        <article class="review-card"><strong id="reviewNew"></strong><span>New</span></article>
+                        <article class="review-card"><strong id="reviewLearning"></strong><span>Learning</span></article>
+                        <article class="review-card"><strong id="reviewMastered"></strong><span>Mastered</span></article>
+                    </div>
+                    <div class="spacer-16"></div>
+                    <div id="reviewQueue" class="empty-state">
+                        <div><strong>No review queue loaded.</strong><p>Due cards and review recommendations will appear here.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="microNotes" class="surface section-stack" aria-labelledby="notesTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="notesTitle" class="section-label">Microbiology Notes</h2>
+                        <span class="small muted">Full study notes workspace with PDF attachment support.</span>
+                    </div>
+                    <button id="createMicroNote" class="primary-button" type="button">Create Note</button>
+                </div>
+                <div class="notes-layout">
+                    <aside class="notes-list-panel">
+                        <div class="notes-list-toolbar">
+                            <label for="notesSearch">Search Notes</label>
+                            <input id="notesSearch" type="search" placeholder="Search notes...">
+                        </div>
+                        <div id="notesList">
+                            <div class="empty-state"><div><strong>No notes yet.</strong><p>Create a note to build your personal microbiology knowledge base.</p></div></div>
+                        </div>
+                    </aside>
+                    <div class="note-editor">
+                        <div class="field">
+                            <label for="noteTitle">Title</label>
+                            <input id="noteTitle" type="text" placeholder="Note title">
+                        </div>
+                        <div class="info-grid" style="margin-bottom:12px;">
+                            <div class="field">
+                                <label for="noteTags">Tags</label>
+                                <input id="noteTags" type="text" placeholder="e.g. gram-positive, sepsis">
+                            </div>
+                            <div class="field">
+                                <label for="noteTopic">Subject / Topic</label>
+                                <input id="noteTopic" type="text" placeholder="e.g. Staphylococcus aureus">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="noteEditor">Rich text editor</label>
+                            <div class="editor-toolbar" aria-label="Note formatting tools">
+                                <button class="editor-tool" type="button" data-action="format-bold" aria-label="Bold">B</button>
+                                <button class="editor-tool" type="button" data-action="format-italic" aria-label="Italic"><i>I</i></button>
+                                <button class="editor-tool" type="button" data-action="format-list" aria-label="List">≡</button>
+                            </div>
+                            <div id="noteEditor" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Note content"></div>
+                        </div>
+                        <div class="attachment-panel">
+                            <div class="button-row">
+                                <button id="attachPdfButton" class="secondary-button" type="button">Attach PDF</button>
+                                <input id="noteAttachments" class="hidden-file-input" type="file" accept="application/pdf" multiple aria-label="Attach PDF files">
+                            </div>
+                            <div class="small muted" style="margin-top:7px;">PDFs are stored with the note by module.js using IndexedDB.</div>
+                            <div id="pdfList" class="pdf-list"></div>
+                        </div>
+                        <div class="button-row" style="margin-top:14px;">
+                            <button id="saveMicroNote" class="primary-button" type="button">Save Note</button>
+                            <button id="deleteMicroNote" class="danger-button" type="button">Delete Note</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="progressModule" class="surface section-stack" aria-labelledby="progressTitle">
+                <div class="surface-header">
+                    <h2 id="progressTitle" class="section-label">Progress Tracking</h2>
+                </div>
+                <div class="surface-body">
+                    <div class="progress-card">
+                        <div class="progress-head">
+                            <span class="progress-name">Overall Progress</span>
+                            <span id="progressOverall" class="progress-value"></span>
+                        </div>
+                        <div class="progress-track"><div class="progress-fill" data-progress="overall"></div></div>
+                    </div>
+                    <div class="spacer-12"></div>
+                    <div class="progress-grid">
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Bacteriology</span><span id="progressBacteriology" class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="bacteriology"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Virology</span><span id="progressVirology" class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="virology"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Mycology</span><span id="progressMycology" class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="mycology"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Parasitology</span><span id="progressParasitology" class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="parasitology"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Immunology</span><span id="progressImmunology" class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="immunology"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Antimicrobials</span><span id="progressAntimicrobials" class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="antimicrobials"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Questions</span><span class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="questions"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Flashcards</span><span class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="flashcards"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Cases</span><span class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="cases"></div></div></article>
+                        <article class="progress-card"><div class="progress-head"><span class="progress-name">Spotters</span><span class="progress-value"></span></div><div class="progress-track"><div class="progress-fill" data-progress="spotters"></div></div></article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="weakAreas" class="surface section-stack" aria-labelledby="weakAreasTitle">
+                <div class="surface-header">
+                    <h2 id="weakAreasTitle" class="section-label">Weak Areas</h2>
+                </div>
+                <div id="weakAreasContent" class="surface-body">
+                    <div class="empty-state"><div><strong>No weak areas identified yet.</strong><p>Performance data will be analysed dynamically.</p></div></div>
+                </div>
+            </section>
+
+            <section id="knowledgeBase" class="surface section-stack" aria-labelledby="knowledgeBaseTitle">
+                <div class="surface-header">
+                    <h2 id="knowledgeBaseTitle" class="section-label">Personal Knowledge Base</h2>
+                </div>
+                <div id="knowledgeBaseContent" class="surface-body">
+                    <div class="empty-state"><div><strong>Your knowledge base is empty.</strong><p>Saved concepts, important facts, bookmarks, personal explanations and weak concepts will appear here.</p></div></div>
+                </div>
+            </section>
+
+            <section id="resourceLibrary" class="surface section-stack" aria-labelledby="resourceLibraryTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="resourceLibraryTitle" class="section-label">Resource Library</h2>
+                        <span class="small muted">Lecture notes, PDFs, references, guidelines and saved resources.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div id="resourceGrid" class="card-grid">
+                        <div class="empty-state" style="grid-column:1/-1;">
+                            <div><strong>No resources saved.</strong><p>Resources will appear here when added by the study system.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="knowledgeGraph" class="surface section-stack" aria-labelledby="knowledgeGraphTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="knowledgeGraphTitle" class="section-label">Knowledge Graph</h2>
+                        <span class="small muted">Relationships between organisms, diseases, diagnostics, drugs and concepts.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div id="knowledgeGraphCanvas">
+                        <div class="empty-state"><div><strong>Knowledge graph not generated yet.</strong><p>module.js will construct the graph from the knowledge base.</p></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="microStudyPlanner" class="surface section-stack" aria-labelledby="plannerTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="plannerTitle" class="section-label">Study Planner</h2>
+                        <span class="small muted">Plan today's microbiology goals and targets.</span>
+                    </div>
+                </div>
+                <div id="microStudyPlan" class="surface-body">
+                    <div class="empty-state"><div><strong>No study plan created.</strong><p>Today's goals, study sessions, target questions, target flashcards and completed tasks will appear here.</p></div></div>
+                </div>
+            </section>
+        </section>
+
+        <!-- AI -->
+        <section id="view-ai" class="module-view" aria-labelledby="aiTitle">
+            <div class="view-heading">
+                <p class="eyebrow">AI Workspace</p>
+                <h1 id="aiTitle" class="view-title">Microbiology AI Assistant</h1>
+                <p class="view-subtitle">Use the assistant as a structured teaching, reasoning and revision workspace.</p>
+            </div>
+
+            <section id="microAI" class="surface" aria-labelledby="microAITitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="microAITitle" class="section-label">AI Conversation</h2>
+                        <span class="small muted">AI provider, model and context are controlled by module.js.</span>
+                    </div>
+                    <div class="button-row">
+                        <button id="aiClear" class="ghost-button" type="button">Clear Conversation</button>
+                        <button id="aiCopy" class="ghost-button" type="button">Copy Response</button>
+                        <button id="aiSave" class="secondary-button" type="button">Save Response</button>
+                    </div>
+                </div>
+                <div class="ai-layout">
+                    <aside class="ai-context-panel">
+                        <div class="field">
+                            <label for="aiContext">Context</label>
+                            <select id="aiContext">
+                                <option value="">General microbiology</option>
+                            </select>
+                        </div>
+                        <div class="section-label">Quick prompts</div>
+                        <div class="quick-prompts">
+                            <button class="prompt-chip" type="button" data-ai-prompt="Explain this organism">Explain this organism</button>
+                            <button class="prompt-chip" type="button" data-ai-prompt="Teach me from zero">Teach me from zero</button>
+                            <button class="prompt-chip" type="button" data-ai-prompt="Give me a clinical case">Give me a clinical case</button>
+                            <button class="prompt-chip" type="button" data-ai-prompt="Compare these organisms">Compare these organisms</button>
+                            <button class="prompt-chip" type="button" data-ai-prompt="Explain the mechanism">Explain the mechanism</button>
+                            <button class="prompt-chip" type="button" data-ai-prompt="Quiz me">Quiz me</button>
+                            <button class="prompt-chip" type="button" data-ai-prompt="High-yield summary">High-yield summary</button>
+                        </div>
+                    </aside>
+                    <div class="ai-main">
+                        <div id="aiConversation" aria-live="polite">
+                            <div class="empty-state"><div><strong>Start a microbiology conversation.</strong><p>Ask a question, select a context, or use a quick prompt.</p></div></div>
+                        </div>
+                        <div class="ai-composer">
+                            <div class="ai-input-row">
+                                <textarea id="aiInput" rows="2" placeholder="Ask a microbiology question..." aria-label="AI question"></textarea>
+                                <button id="aiSend" class="primary-button" type="button">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="teachZeroModule" class="surface section-stack" aria-labelledby="teachZeroTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="teachZeroTitle" class="section-label">Teach Me From Zero</h2>
+                        <span class="small muted">Stepwise teaching mode.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="toolbar">
+                        <div class="field grow">
+                            <label for="teachTopic">Select topic</label>
+                            <select id="teachTopic"><option value="">Choose a topic</option></select>
+                        </div>
+                        <button id="teachPrevious" class="secondary-button" type="button">Previous</button>
+                        <button id="teachNext" class="primary-button" type="button">Next</button>
+                    </div>
+                    <div id="teachContent" class="workspace">
+                        <div class="empty-state"><div><strong>No lesson selected.</strong><p>Select a topic to begin a structured lesson.</p></div></div>
+                    </div>
+                    <div class="button-row" style="margin-top:12px;">
+                        <button id="teachExplain" class="secondary-button" type="button">Explain</button>
+                        <button id="teachCheck" class="secondary-button" type="button">Check Understanding</button>
+                        <button id="teachFinish" class="primary-button" type="button">Finish</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="highYieldModule" class="surface section-stack" aria-labelledby="highYieldTitle">
+                <div class="surface-header">
+                    <div>
+                        <h2 id="highYieldTitle" class="section-label">High-Yield Mode</h2>
+                        <span class="small muted">Rapid revision content.</span>
+                    </div>
+                </div>
+                <div class="surface-body">
+                    <div class="tag-row">
+                        <button class="tag" type="button" data-topic="Bacteriology">Bacteriology</button>
+                        <button class="tag" type="button" data-topic="Virology">Virology</button>
+                        <button class="tag" type="button" data-topic="Mycology">Mycology</button>
+                        <button class="tag" type="button" data-topic="Parasitology">Parasitology</button>
+                        <button class="tag" type="button" data-topic="Immunology">Immunology</button>
+                        <button class="tag" type="button" data-topic="Antimicrobials">Antimicrobials</button>
+                        <button class="tag" type="button" data-topic="Clinical microbiology">Clinical microbiology</button>
+                    </div>
+                    <div class="spacer-16"></div>
+                    <div id="highYieldContent" class="surface">
+                        <div class="empty-state"><div><strong>No high-yield set selected.</strong><p>Select a category to render rapid revision material.</p></div></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <!-- ORGANISM DETAIL MODAL -->
+    <div id="organismDetailModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="organismDetailModalTitle" hidden>
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 id="organismDetailModalTitle" class="modal-title">Organism Details</h2>
+                <button id="closeOrganismDetail" class="modal-close" type="button" aria-label="Close organism details">×</button>
+            </div>
+            <div id="organismDetailContent" class="modal-body">
+                <div class="empty-state"><div><strong>No organism selected.</strong><p>Choose an organism to view its full profile.</p></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNIVERSAL MODAL -->
+    <div id="microModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="microModalTitle" hidden>
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 id="microModalTitle" class="modal-title"></h2>
+                <button id="microModalClose" class="modal-close" type="button" aria-label="Close dialog">×</button>
+            </div>
+            <div id="microModalContent" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- SETTINGS MODAL -->
+    <div id="settingsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle" hidden>
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2 id="settingsModalTitle" class="modal-title">Microbiology Settings</h2>
+                <button class="modal-close" type="button" data-action="close-settings" aria-label="Close settings">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-grid">
+                    <section class="setting-block">
+                        <h3>Theme</h3>
+                        <div class="field">
+                            <label for="settingsTheme">Interface theme</label>
+                            <select id="settingsTheme">
+                                <option value="light">Light</option>
+                                <option value="system">System</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section class="setting-block">
+                        <h3>AI Provider</h3>
+                        <div class="field">
+                            <label for="aiProvider">Provider</label>
+                            <select id="aiProvider"><option value="">Select provider</option></select>
+                        </div>
+                        <div class="field">
+                            <label for="aiModel">AI model</label>
+                            <select id="aiModel"><option value="">Select model</option></select>
+                        </div>
+                    </section>
+                    <section class="setting-block">
+                        <h3>Data Management</h3>
+                        <p class="small muted">Export, import or reset the Microbiology module data.</p>
+                        <div class="button-row">
+                            <button id="exportMicrobiologyData" class="secondary-button" type="button">Export Data</button>
+                            <button id="importMicrobiologyData" class="secondary-button" type="button">Import Data</button>
+                            <button id="resetMicrobiologyData" class="danger-button" type="button">Reset Module</button>
+                            <input id="microbiologyImportFile" class="hidden-file-input" type="file" accept=".json,application/json" aria-label="Import microbiology data">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- TOAST -->
+    <div id="microToast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- LOADING -->
+    <div id="microLoading" class="loading-overlay" aria-live="polite" aria-busy="false" hidden>
+        <div class="loading-card">
+            <div class="spinner" aria-hidden="true"></div>
+            <span id="microLoadingText">Loading...</span>
+        </div>
+    </div>
+
+    <script src="module.js"></script>
+</body>
+</html>

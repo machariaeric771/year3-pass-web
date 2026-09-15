@@ -1,0 +1,810 @@
+/* ============================================================
+   LAYOUT
+   YEAR 3 STUDY OS
+   ============================================================ */
+
+
+/* ============================================================
+   GLOBAL BOX SIZING
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   ROOT / PAGE
+   ============================================================ */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   APPLICATION ROOT
+   ============================================================ */
+
+#app,
+.app,
+.app-shell {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+
+    width: 260px;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+
+    background: var(--bg-tertiary);
+
+    border-right: 1px solid var(--border-primary);
+
+    box-sizing: border-box;
+
+    transition:
+        width 180ms ease,
+        transform 180ms ease;
+
+    z-index: 100;
+}
+
+
+/* ============================================================
+   SIDEBAR BRAND
+   ============================================================ */
+
+.brand {
+    min-height: 86px;
+    height: 86px;
+
+    flex: 0 0 86px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #292e37;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   BRAND MARK
+   ============================================================ */
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    background: #252b35;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   BRAND TEXT
+   ============================================================ */
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    margin-left: 12px;
+
+    overflow: hidden;
+}
+
+.brand-text strong {
+    font-size: 15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brand-text span {
+    margin-top: 2px;
+
+    color: #8993a2;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+   ============================================================ */
+
+.navigation {
+    flex: 1 1 auto;
+
+    width: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 14px 10px;
+
+    box-sizing: border-box;
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(130, 140, 155, 0.55)
+        transparent;
+}
+
+
+/* ============================================================
+   SIDEBAR SCROLLBAR — CHROME / EDGE / ELECTRON
+   ============================================================ */
+
+.navigation::-webkit-scrollbar {
+    width: 8px;
+}
+
+.navigation::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.navigation::-webkit-scrollbar-thumb {
+    background: rgba(130, 140, 155, 0.45);
+
+    border-radius: 999px;
+
+    border: 2px solid transparent;
+
+    background-clip: padding-box;
+}
+
+.navigation::-webkit-scrollbar-thumb:hover {
+    background: rgba(130, 140, 155, 0.70);
+
+    border: 1px solid transparent;
+
+    background-clip: padding-box;
+}
+
+
+/* ============================================================
+   SIDEBAR FOOTER
+   ============================================================ */
+
+.sidebar-footer {
+    flex: 0 0 auto;
+
+    min-width: 0;
+
+    padding: 16px;
+
+    border-top: 1px solid #292e37;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   MAIN AREA
+   ============================================================ */
+
+.main-area {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 260px;
+
+    width: auto;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition: left 180ms ease;
+}
+
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+
+.topbar {
+    height: 78px;
+    min-height: 78px;
+
+    flex: 0 0 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-width: 0;
+
+    padding: 0 28px;
+
+    background: var(--bg-secondary);
+
+    border-bottom: 1px solid var(--border-primary);
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   TOPBAR LEFT / RIGHT
+   ============================================================ */
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.topbar-left {
+    gap: 18px;
+}
+
+.topbar-right {
+    gap: 12px;
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+/*
+ * IMPORTANT:
+ *
+ * This is the primary scrolling workspace.
+ *
+ * The topbar stays fixed.
+ * The sidebar stays fixed.
+ * Only the content below the topbar scrolls.
+ */
+
+.content {
+    flex: 1 1 0;
+
+    width: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 30px 30px 120px;
+
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(130, 140, 155, 0.60)
+        transparent;
+}
+
+
+/* ============================================================
+   MAIN CONTENT SCROLLBAR
+   ============================================================ */
+
+.content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: rgba(130, 140, 155, 0.50);
+
+    border-radius: 999px;
+
+    border: 2px solid transparent;
+
+    background-clip: padding-box;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: rgba(130, 140, 155, 0.75);
+
+    border: 1px solid transparent;
+
+    background-clip: padding-box;
+}
+
+
+/* ============================================================
+   CONTENT CHILDREN
+   ============================================================ */
+
+.content > * {
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   APPLICATION CONTENT ALIASES
+   ============================================================ */
+
+/*
+ * These selectors are retained because different modules may
+ * use different wrappers.
+ *
+ * They DO NOT create another vertical scrollbar.
+ */
+
+.app-content,
+.main-content,
+#app-content,
+#content {
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   APP CONTENT
+   ============================================================ */
+
+.app-content {
+    width: 100%;
+
+    min-height: 0;
+
+    overflow: visible;
+
+    padding-bottom: 40px;
+}
+
+
+/* ============================================================
+   MAIN CONTENT INNER
+   ============================================================ */
+
+.main-content {
+    width: 100%;
+
+    min-height: 0;
+
+    overflow: visible;
+
+    padding-bottom: 40px;
+}
+
+
+/* ============================================================
+   APP CONTENT ID
+   ============================================================ */
+
+#app-content {
+    width: 100%;
+
+    min-height: 0;
+
+    overflow: visible;
+
+    padding-bottom: 40px;
+}
+
+
+/* ============================================================
+   CONTENT ID
+   ============================================================ */
+
+/*
+ * If your HTML uses #content instead of .content,
+ * make it the same primary scrolling workspace.
+ */
+
+#content {
+    flex: 1 1 0;
+
+    width: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-bottom: 120px;
+
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(130, 140, 155, 0.60)
+        transparent;
+}
+
+
+/* ============================================================
+   #CONTENT SCROLLBAR
+   ============================================================ */
+
+#content::-webkit-scrollbar {
+    width: 10px;
+}
+
+#content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background: rgba(130, 140, 155, 0.50);
+
+    border-radius: 999px;
+
+    border: 2px solid transparent;
+
+    background-clip: padding-box;
+}
+
+#content::-webkit-scrollbar-thumb:hover {
+    background: rgba(130, 140, 155, 0.75);
+
+    border: 1px solid transparent;
+
+    background-clip: padding-box;
+}
+
+
+/* ============================================================
+   MODULE CONTENT
+   ============================================================ */
+
+#content > *,
+.content > * {
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   MEDIA SAFETY
+   ============================================================ */
+
+#content img,
+#content video,
+#content iframe,
+#content canvas,
+.content img,
+.content video,
+.content iframe,
+.content canvas {
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   LONG CODE / PRE
+   ============================================================ */
+
+#content pre,
+.content pre {
+    max-width: 100%;
+
+    overflow-x: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+#content table,
+.content table {
+    max-width: 100%;
+}
+
+
+/* ============================================================
+   TABLE WRAPPERS
+   ============================================================ */
+
+#content .table-wrapper,
+#content .table-responsive,
+.content .table-wrapper,
+.content .table-responsive {
+    max-width: 100%;
+
+    overflow-x: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   CDC MODULE
+   ============================================================ */
+
+#cdcResourceCenter {
+    width: 100%;
+
+    min-width: 0;
+    min-height: 100%;
+
+    box-sizing: border-box;
+
+    padding-bottom: 100px;
+}
+
+
+/* ============================================================
+   CDC CONTENT
+   ============================================================ */
+
+#cdcResourceCenter .cdc-grid,
+#cdcResourceCenter .cdc-dashboard,
+#cdcResourceCenter .cdc-content {
+    max-width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   CDC IMAGES
+   ============================================================ */
+
+#cdcResourceCenter img {
+    max-width: 100%;
+
+    height: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   COLLAPSED SIDEBAR
+   ============================================================ */
+
+.sidebar-collapsed .sidebar {
+    width: 76px;
+}
+
+.sidebar-collapsed .main-area {
+    left: 76px;
+}
+
+
+/* ============================================================
+   COLLAPSED SIDEBAR CONTENT
+   ============================================================ */
+
+.sidebar-collapsed .brand-text,
+.sidebar-collapsed .sidebar-section-label,
+.sidebar-collapsed .nav-section-label,
+.sidebar-collapsed .nav-label,
+.sidebar-collapsed .sidebar-footer span:last-child {
+    display: none;
+}
+
+
+/* ============================================================
+   COLLAPSED SIDEBAR BRAND
+   ============================================================ */
+
+.sidebar-collapsed .brand {
+    justify-content: center;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sidebar-collapsed .brand-text {
+    margin-left: 0;
+}
+
+
+/* ============================================================
+   COLLAPSED NAVIGATION
+   ============================================================ */
+
+.sidebar-collapsed .navigation {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-area {
+        left: 220px;
+    }
+
+    .content {
+        padding: 20px 20px 100px;
+    }
+
+    #content {
+        padding-bottom: 100px;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL SCREEN
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: 68px;
+        min-height: 68px;
+
+        flex-basis: 68px;
+
+        padding: 0 16px;
+    }
+
+    .content {
+        padding: 16px 16px 100px;
+    }
+
+    #content {
+        padding-bottom: 100px;
+    }
+
+    #cdcResourceCenter {
+        padding-bottom: 100px;
+    }
+}
+
+
+/* ============================================================
+   VERY SHORT WINDOWS
+   ============================================================ */
+
+@media (max-height: 650px) {
+
+    .content {
+        padding-bottom: 140px;
+    }
+
+    #content {
+        padding-bottom: 140px;
+    }
+
+    #cdcResourceCenter {
+        padding-bottom: 140px;
+    }
+}
+
+
+/* ============================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sidebar,
+    .main-area {
+        transition: none;
+    }
+
+    .content,
+    #content {
+        scroll-behavior: auto;
+    }
+}
+
+/* =========================================================
+   CONTENT WORKSPACE — NEVER CLIP MODULE CONTENT
+   ========================================================= */
+
+#content,
+.content,
+.app-content,
+.main-content,
+#app-content {
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+}

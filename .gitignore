@@ -1,0 +1,6 @@
+node_modules/
+.env
+DATA/system/*.json
+DATA/modules/**/documents/*
+!DATA/modules/**/documents/.gitkeep
+*.log

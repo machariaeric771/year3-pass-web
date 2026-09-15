@@ -1,0 +1,9 @@
+{
+    "id": "Y3-005-CDC",
+    "name": "CDC Resource Center",
+    "description": "Integrated CDC resource, laboratory diagnostics, DPDx, images, procedures, algorithms, cases, quizzes, microbiology spotter practice, AI assistance and study tools.",
+    "icon": "🦠",
+    "version": "1.0.0",
+    "category": "microbiology",
+    "enabled": true
+}

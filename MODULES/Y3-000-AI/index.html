@@ -1,0 +1,481 @@
+<link rel="stylesheet" href="./style.css">
+
+<section class="ai-assistant">
+
+    <!-- ======================================================
+         HEADER
+         ====================================================== -->
+
+    <header class="ai-header">
+
+        <div class="ai-header-left">
+
+            <div class="ai-header-icon">
+                🤖
+            </div>
+
+            <div class="ai-header-text">
+
+                <h1>AI Study Assistant</h1>
+
+                <p>
+                    Your Year 3 medical study assistant
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="ai-header-right">
+
+            <div
+                id="ai-model-status"
+                class="ai-header-status"
+            >
+                <span class="ai-status-dot"></span>
+                <span>Checking AI...</span>
+            </div>
+
+            <button
+                id="ai-clear-button"
+                class="ai-clear-button"
+                type="button"
+            >
+                Clear Chat
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         MAIN CONTENT
+         ====================================================== -->
+
+    <main class="ai-main">
+
+
+        <!-- ==================================================
+             CHAT SECTION
+             ================================================== -->
+
+        <section class="ai-chat-section">
+
+
+            <!-- CHAT HEADER -->
+
+            <div class="ai-chat-header">
+
+                <div>
+
+                    <span class="ai-section-label">
+                        CONVERSATION
+                    </span>
+
+                    <h2>
+                        Study with AI
+                    </h2>
+
+                </div>
+
+                <span class="ai-chat-state">
+                    Ready
+                </span>
+
+            </div>
+
+
+            <!-- ==================================================
+                 CHAT
+                 ================================================== -->
+
+            <div
+                id="ai-chat"
+                class="ai-chat"
+            >
+
+                <!-- WELCOME -->
+
+                <div
+                    id="ai-welcome"
+                    class="ai-welcome"
+                >
+
+                    <div class="ai-welcome-icon">
+                        🤖
+                    </div>
+
+                    <h2>
+                        What would you like to study?
+                    </h2>
+
+                    <p>
+                        Ask questions, explain difficult concepts,
+                        compare diseases, revise high-yield topics,
+                        or prepare for your Year 3 examinations.
+                    </p>
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="ai-suggestions">
+
+                        <button
+                            type="button"
+                            class="ai-suggestion"
+                            data-prompt="Explain nephrotic syndrome at a Year 3 medical student level."
+                        >
+
+                            <span class="ai-suggestion-icon">
+                                📖
+                            </span>
+
+                            <span class="ai-suggestion-content">
+
+                                <strong>
+                                    Explain a concept
+                                </strong>
+
+                                <small>
+                                    Break down a difficult topic
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="ai-suggestion"
+                            data-prompt="Compare nephritic syndrome and nephrotic syndrome in a high-yield examination table."
+                        >
+
+                            <span class="ai-suggestion-icon">
+                                ⚖️
+                            </span>
+
+                            <span class="ai-suggestion-content">
+
+                                <strong>
+                                    Compare conditions
+                                </strong>
+
+                                <small>
+                                    Identify the important differences
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="ai-suggestion"
+                            data-prompt="Give me a high-yield summary of glomerular diseases for Year 3 medical exams."
+                        >
+
+                            <span class="ai-suggestion-icon">
+                                🎯
+                            </span>
+
+                            <span class="ai-suggestion-content">
+
+                                <strong>
+                                    High-yield revision
+                                </strong>
+
+                                <small>
+                                    Focus on examination essentials
+                                </small>
+
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 INPUT
+                 ================================================== -->
+
+            <div class="ai-input-container">
+
+                <div class="ai-input-box">
+
+                    <textarea
+                        id="ai-input"
+                        class="ai-input"
+                        rows="2"
+                        placeholder="Ask your Year 3 study question..."
+                        autocomplete="off"
+                        spellcheck="true"
+                    ></textarea>
+
+
+                    <button
+                        id="ai-send-button"
+                        class="ai-send-button"
+                        type="button"
+                        aria-label="Ask AI"
+                    >
+
+                        <span>
+                            Ask AI
+                        </span>
+
+                        <span class="ai-send-arrow">
+                            ↑
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="ai-input-footer">
+
+                    <span
+                        id="ai-status"
+                        class="ai-status"
+                    >
+                        Ready
+                    </span>
+
+                    <span class="ai-input-help">
+                        Enter to send · Shift + Enter for new line
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             AI CONFIGURATION
+             ================================================== -->
+
+        <section class="ai-settings-section">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="ai-settings-header">
+
+                <div>
+
+                    <span class="ai-section-label">
+                        AI CONFIGURATION
+                    </span>
+
+                    <h2>
+                        AI Engine
+                    </h2>
+
+                    <p>
+                        Choose how the study assistant should operate.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 MODEL CARD
+                 ================================================== -->
+
+            <div class="ai-model-panel">
+
+
+                <!-- CURRENT MODEL -->
+
+                <div class="ai-current-model">
+
+                    <div class="ai-current-model-icon">
+                        AI
+                    </div>
+
+                    <div class="ai-current-model-info">
+
+                        <span class="ai-current-label">
+                            CURRENT MODEL
+                        </span>
+
+                        <strong id="aiCurrentModelName">
+                            Loading...
+                        </strong>
+
+                        <span id="aiCurrentModelMeta">
+                            Loading model information...
+                        </span>
+
+                    </div>
+
+                    <div class="ai-model-active">
+                        ACTIVE
+                    </div>
+
+                </div>
+
+
+                <!-- CONTROLS -->
+
+                <div class="ai-model-controls">
+
+
+                    <div class="ai-control">
+
+                        <label
+                            for="aiModelSelect"
+                        >
+                            Model
+                        </label>
+
+                        <select
+                            id="aiModelSelect"
+                            class="ai-model-select"
+                        >
+
+                            <option value="">
+                                Loading models...
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="ai-control">
+
+                        <label
+                            for="aiModeSelect"
+                        >
+                            AI Mode
+                        </label>
+
+                        <select
+                            id="aiModeSelect"
+                            class="ai-mode-select"
+                        >
+
+                            <option value="primary">
+                                Best Available
+                            </option>
+
+                            <option value="fallback">
+                                Fallback Mode
+                            </option>
+
+                            <option value="auto">
+                                Auto Router
+                            </option>
+
+                            <option value="free">
+                                Free Models
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="ai-model-status-wrapper">
+
+                        <span class="ai-control-label">
+                            STATUS
+                        </span>
+
+                        <div
+                            id="aiModelStatus"
+                            class="ai-model-status"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     MODEL INFORMATION
+                     ================================================== -->
+
+                <div
+                    id="aiModelDetails"
+                    class="ai-model-details"
+                >
+
+                    <div class="ai-detail">
+
+                        <span>
+                            Category
+                        </span>
+
+                        <strong id="aiModelCategory">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="ai-detail">
+
+                        <span>
+                            Provider
+                        </span>
+
+                        <strong id="aiModelProvider">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="ai-detail">
+
+                        <span>
+                            Access
+                        </span>
+
+                        <strong id="aiModelAccess">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="ai-model-description">
+
+                    <span class="ai-info-icon">
+                        i
+                    </span>
+
+                    <p id="aiModelDescription">
+                        Select the model used for this study session.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>

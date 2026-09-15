@@ -1,0 +1,1663 @@
+<div class="notes-module-root app-shell">
+<aside class="notes-sidebar">
+    <div class="notes-nav-head"><div><div class="eyebrow">WORKSPACE</div><h2>Notes</h2></div><button class="icon-btn subtle" id="toggleNotesNav" title="Collapse navigation" aria-label="Collapse notes navigation">‹</button></div>
+    <button class="new-note-side" id="newNote"><span>＋</span> New Note <kbd>N</kbd></button>
+    <div class="notes-nav-group" id="noteFilters">
+      <button class="note-nav active" data-filter="all"><span>▤</span>All Notes <b>42</b></button><button class="note-nav" data-filter="recent"><span>◷</span>Recent <b>8</b></button><button class="note-nav" data-filter="favorites"><span>☆</span>Favorites <b>12</b></button><button class="note-nav" data-filter="archived"><span>□</span>Archived</button>
+    </div>
+    <div class="notes-nav-group"><div class="group-title">SUBJECTS</div>
+      <button class="note-nav subject-filter" data-subject="Anatomy"><span class="dot anatomy"></span>Anatomy <b>7</b></button><button class="note-nav subject-filter" data-subject="Physiology"><span class="dot physiology"></span>Physiology <b>9</b></button><button class="note-nav subject-filter" data-subject="Pharmacology"><span class="dot pharma"></span>Pharmacology <b>6</b></button><button class="note-nav subject-filter" data-subject="Microbiology"><span class="dot micro"></span>Microbiology <b>8</b></button><button class="note-nav subject-filter" data-subject="Pathology"><span class="dot pathology"></span>Pathology <b>10</b></button><button class="note-nav subject-filter" data-subject="Neuroanatomy"><span class="dot neuro"></span>Neuroanatomy <b>5</b></button><button class="note-nav subject-filter" data-subject="Obstetrics &amp; Gynaecology"><span class="dot obgyn"></span>Obstetrics &amp; Gynaecology <b>4</b></button>
+    </div>
+    <div class="notes-nav-group tags-group"><div class="group-title">TAGS</div><div class="tag-cloud"><button data-tag="High Yield">High Yield</button><button data-tag="Clinical">Clinical</button><button data-tag="Exam">Exam</button><button data-tag="Mechanism">Mechanism</button><button data-tag="Drugs">Drugs</button><button data-tag="Definitions">Definitions</button></div></div>
+    <div class="sync-status"><span>✓</span> All notes saved</div>
+  </aside>
+
+  <main class="main-workspace">
+    <header class="workspace-header"><div><div class="breadcrumb">NOTES <span>/</span> ALL NOTES</div><h1>Notes</h1><p>Capture, organize and connect your medical knowledge.</p></div><div class="header-actions"><button class="ghost-btn" id="importBtn">⇧ <span>Import</span></button><button class="ghost-btn" id="searchBtn">⌕ <span>Search</span></button><button class="ghost-btn" id="fullscreenBtn" title="Full screen">⛶ <span>Full screen</span></button><button class="primary-btn" id="newNoteTop">＋ New Note</button></div></header>
+    <section class="continue-strip"><div class="section-heading-row"><div><span class="section-kicker">CONTINUE STUDYING</span><span class="section-caption">Recently opened</span></div><button class="text-btn" id="viewRecent">View all recent →</button></div><div class="recent-grid">
+      <button class="recent-card selected-recent" data-note="Acute Kidney Injury"><div class="recent-accent renal"></div><div class="recent-copy"><span class="subject-pill pathology">Pathology</span><strong>Acute Kidney Injury</strong><span class="recent-meta">82% reviewed · Edited 2h ago</span></div><div class="progress"><span style="width:82%"></span></div><span class="recent-arrow">↗</span></button>
+      <button class="recent-card" data-note="Pharmacology of Autonomic Drugs"><div class="recent-accent pharma"></div><div class="recent-copy"><span class="subject-pill pharmacology">Pharmacology</span><strong>Autonomic Pharmacology</strong><span class="recent-meta">64% reviewed · Yesterday</span></div><div class="progress"><span style="width:64%"></span></div><span class="recent-arrow">↗</span></button>
+      <button class="recent-card" data-note="Brainstem Lesions"><div class="recent-accent neuro"></div><div class="recent-copy"><span class="subject-pill neuroanatomy">Neuroanatomy</span><strong>Brainstem Lesions</strong><span class="recent-meta">41% reviewed · 2d ago</span></div><div class="progress"><span style="width:41%"></span></div><span class="recent-arrow">↗</span></button>
+      <button class="quick-capture" id="quickCapture"><span class="capture-icon">✎</span><strong>Quick Capture</strong><small>Jot down a thought, question or concept</small><kbd>Q</kbd></button>
+    </div></section>
+    <section class="notes-toolbar"><div class="search-field"><span>⌕</span><input id="noteSearch" type="search" placeholder="Search notes, concepts, tags…"><kbd>⌘ F</kbd></div><button class="tool-btn" id="filterBtn">⌘ Filter <span class="count-badge">0</span></button><button class="tool-btn" id="sortBtn">↕ Sort <span class="down">⌄</span></button><button class="tool-btn" id="subjectBtn">▣ Subject <span class="down">⌄</span></button><button class="tool-btn" id="tagsBtn">◇ Tags <span class="down">⌄</span></button><div class="toolbar-spacer"></div><div class="view-toggle"><button class="view active" title="Grid">▦</button><button class="view" title="List">☷</button></div></section>
+    <div class="content-layout">
+      <section class="note-library"><div class="library-header"><div><strong id="noteCount">9 notes</strong><span> · Updated recently</span></div><button class="compact-btn" id="sortCompact">Recently edited ⌄</button></div><div class="notes-grid" id="notesGrid">
+        <article class="note-card selected" data-title="Acute Kidney Injury" data-subject="Pathology" data-tags="Renal High Yield Clinical" data-recent="true"><div class="note-card-top"><span class="subject-pill pathology">Pathology</span><button class="star favorite active">★</button></div><h3>Acute Kidney Injury</h3><p>AKI is characterized by an abrupt decline in renal function, causing accumulation of nitrogenous waste products and disturbances in fluid, electrolyte and acid–base balance.</p><div class="tag-row"><span>Renal</span><span>High Yield</span><span>Clinical</span></div><div class="note-footer"><span>Edited 2h ago</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Renal Pathophysiology" data-subject="Physiology" data-tags="Renal Mechanism" data-recent="true"><div class="note-card-top"><span class="subject-pill physiology">Physiology</span><button class="star favorite">☆</button></div><h3>Renal Pathophysiology</h3><p>How altered glomerular filtration, tubular handling and renal blood flow produce the major clinical patterns of kidney disease.</p><div class="tag-row"><span>Renal</span><span>Mechanism</span></div><div class="note-footer"><span>Edited today</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Pharmacology of Autonomic Drugs" data-subject="Pharmacology" data-tags="ANS Drugs Exam" data-recent="true"><div class="note-card-top"><span class="subject-pill pharmacology">Pharmacology</span><button class="star favorite">☆</button></div><h3>Pharmacology of Autonomic Drugs</h3><p>Cholinergic and adrenergic agents, receptor selectivity, major mechanisms of action, adverse effects and clinical uses.</p><div class="tag-row"><span>ANS</span><span>Drugs</span><span>Exam</span></div><div class="note-footer"><span>Edited yesterday</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Staphylococcus aureus" data-subject="Microbiology" data-tags="Bacteriology Clinical Exam"><div class="note-card-top"><span class="subject-pill microbiology">Microbiology</span><button class="star favorite">☆</button></div><h3>Staphylococcus aureus</h3><p>Gram-positive cocci in clusters. Important cause of skin, soft-tissue, bloodstream and hospital-acquired infections.</p><div class="tag-row"><span>Bacteriology</span><span>Clinical</span><span>Exam</span></div><div class="note-footer"><span>Edited 2d ago</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Cardiac Cycle" data-subject="Physiology" data-tags="Cardiovascular Physiology"><div class="note-card-top"><span class="subject-pill physiology">Physiology</span><button class="star favorite">☆</button></div><h3>Cardiac Cycle</h3><p>The cardiac cycle consists of systole and diastole. Pressure changes open and close valves and determine ventricular filling and ejection.</p><div class="tag-row"><span>Cardiovascular</span><span>Physiology</span></div><div class="note-footer"><span>Edited 2d ago</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Brainstem Lesions" data-subject="Neuroanatomy" data-tags="CNS Clinical Correlation" data-recent="true"><div class="note-card-top"><span class="subject-pill neuroanatomy">Neuroanatomy</span><button class="star favorite">☆</button></div><h3>Brainstem Lesions</h3><p>Clinical syndromes resulting from lesions in the midbrain, pons and medulla, organized around long-tract and cranial-nerve findings.</p><div class="tag-row"><span>CNS</span><span>Clinical Correlation</span></div><div class="note-footer"><span>Edited 3d ago</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Cranial Nerve Lesions" data-subject="Neuroanatomy" data-tags="CNS Localization"><div class="note-card-top"><span class="subject-pill neuroanatomy">Neuroanatomy</span><button class="star favorite">☆</button></div><h3>Cranial Nerve Lesions</h3><p>A practical localization framework linking cranial nerve deficits to the brainstem level and common clinical syndromes.</p><div class="tag-row"><span>CNS</span><span>Localization</span></div><div class="note-footer"><span>Edited 4d ago</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Antibiotic Mechanisms" data-subject="Microbiology" data-tags="Mechanism High Yield"><div class="note-card-top"><span class="subject-pill microbiology">Microbiology</span><button class="star favorite">☆</button></div><h3>Antibiotic Mechanisms</h3><p>Major antimicrobial targets: cell-wall synthesis, protein synthesis, nucleic acid synthesis, folate metabolism and membranes.</p><div class="tag-row"><span>Mechanism</span><span>High Yield</span></div><div class="note-footer"><span>Edited 5d ago</span><button class="more">•••</button></div></article>
+        <article class="note-card" data-title="Acid–Base Disorders" data-subject="Physiology" data-tags="ABG Exam Clinical"><div class="note-card-top"><span class="subject-pill physiology">Physiology</span><button class="star favorite">☆</button></div><h3>Acid–Base Disorders</h3><p>Interpret pH, PaCO₂ and bicarbonate systematically, then assess compensation and identify the primary disorder.</p><div class="tag-row"><span>ABG</span><span>Exam</span><span>Clinical</span></div><div class="note-footer"><span>Edited 6d ago</span><button class="more">•••</button></div></article>
+      </div></section>
+
+      <section class="editor-panel"><div class="editor-header"><div class="editor-title-wrap"><div class="doc-icon">▤</div><div><div class="editor-title-line"><h2 id="editorTitle">Acute Kidney Injury</h2><button class="star active" id="editorFavorite">★</button></div><div class="editor-meta" id="editorMeta"><span>Pathology</span><i>•</i><span>Renal System</span><i>•</i><span class="saved">✓ Saved</span></div></div></div><div class="editor-head-actions"><button class="icon-btn" title="Share" id="shareBtn">↗</button><button class="icon-btn" title="More" id="editorMore">•••</button><button class="icon-btn" title="Close editor" id="closeEditor">×</button></div></div>
+
+        <div class="format-toolbar">
+
+    <!-- =========================================================
+         TEXT FORMATTING
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="bold"
+        title="Bold"
+        aria-label="Bold"
+    >
+        <strong>B</strong>
+    </button>
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="italic"
+        title="Italic"
+        aria-label="Italic"
+    >
+        <em>I</em>
+    </button>
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="underline"
+        title="Underline"
+        aria-label="Underline"
+    >
+        <u>U</u>
+    </button>
+
+
+    <!-- =========================================================
+         TEXT COLOR
+         ========================================================= -->
+
+    <div
+        class="text-color-picker"
+        title="Text color"
+        aria-label="Text color"
+    >
+
+        <button
+            type="button"
+            class="text-color-option"
+            data-text-color="#000000"
+            title="Black"
+            aria-label="Black text"
+        >
+            <span style="color:#000000;">A</span>
+        </button>
+
+        <button
+            type="button"
+            class="text-color-option"
+            data-text-color="#e53935"
+            title="Red"
+            aria-label="Red text"
+        >
+            <span style="color:#e53935;">A</span>
+        </button>
+
+        <button
+            type="button"
+            class="text-color-option"
+            data-text-color="#1e88e5"
+            title="Blue"
+            aria-label="Blue text"
+        >
+            <span style="color:#1e88e5;">A</span>
+        </button>
+
+        <button
+            type="button"
+            class="text-color-option"
+            data-text-color="#43a047"
+            title="Green"
+            aria-label="Green text"
+        >
+            <span style="color:#43a047;">A</span>
+        </button>
+
+        <button
+            type="button"
+            class="text-color-option"
+            data-text-color="#fb8c00"
+            title="Orange"
+            aria-label="Orange text"
+        >
+            <span style="color:#fb8c00;">A</span>
+        </button>
+
+        <button
+            type="button"
+            class="text-color-option"
+            data-text-color="#8e24aa"
+            title="Purple"
+            aria-label="Purple text"
+        >
+            <span style="color:#8e24aa;">A</span>
+        </button>
+
+    </div>
+
+
+    <!-- =========================================================
+         LISTS
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="insertUnorderedList"
+        title="Bulleted list"
+        aria-label="Bulleted list"
+    >
+        ••
+    </button>
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="insertOrderedList"
+        title="Numbered list"
+        aria-label="Numbered list"
+    >
+        1.
+    </button>
+
+
+    <!-- =========================================================
+         ALIGNMENT
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="justifyLeft"
+        title="Align left"
+        aria-label="Align left"
+    >
+        ≡
+    </button>
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="justifyCenter"
+        title="Align center"
+        aria-label="Align center"
+    >
+        ≡
+    </button>
+
+    <button
+        type="button"
+        class="format-btn"
+        data-command="justifyRight"
+        title="Align right"
+        aria-label="Align right"
+    >
+        ≡
+    </button>
+
+
+    <!-- =========================================================
+         PARAGRAPH / HEADINGS
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-select"
+        title="Text format"
+        aria-label="Text format"
+    >
+        Paragraph
+        <span aria-hidden="true">▾</span>
+    </button>
+
+
+    <!-- =========================================================
+         LINK
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn"
+        id="insertLinkBtn"
+        title="Insert link"
+        aria-label="Insert link"
+    >
+        🔗
+    </button>
+
+
+    <!-- =========================================================
+         TABLE
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn"
+        id="insertTableBtn"
+        title="Insert table"
+        aria-label="Insert table"
+    >
+        ▦
+    </button>
+
+
+    <!-- =========================================================
+         IMAGE
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn"
+        id="insertImageBtn"
+        title="Insert image"
+        aria-label="Insert image"
+    >
+        🖼
+    </button>
+
+
+    <!-- =========================================================
+         AI ASSISTANT
+         IMPORTANT:
+         Existing Notes JavaScript expects #askAi
+         ========================================================= -->
+
+    <button
+        type="button"
+        class="format-btn ai-trigger"
+        id="askAi"
+        title="Ask AI about this note"
+        aria-label="Ask AI about this note"
+    >
+        ✦ Ask AI
+    </button>
+
+</div>
+        <div class="ai-context">
+
+    <div class="ai-context-head">
+        <span>✦</span>
+        <strong>AI Assistant</strong>
+        <span class="ai-context-hint">Work with the selected note</span>
+    </div>
+
+    <div class="ai-question-area">
+        <textarea
+            id="aiQuestion"
+            class="ai-question"
+            placeholder="Ask anything about this note..."
+            rows="3"
+        ></textarea>
+
+        <button
+            type="button"
+            id="aiAskButton"
+            class="ai-ask-button"
+        >
+            ✦ Ask AI
+        </button>
+    </div>
+
+    <div class="ai-quick-label">
+        QUICK ACTIONS
+    </div>
+
+    <div class="ai-actions">
+        <button data-ai="Explain">Explain</button>
+        <button data-ai="Summarize">Summarize</button>
+        <button data-ai="Generate MCQs">Generate MCQs</button>
+        <button data-ai="Create Flashcards">Create Flashcards</button>
+        <button data-ai="Simplify">Simplify</button>
+    </div>
+
+    <div
+        class="ai-response-container"
+        id="aiResponseContainer"
+        style="display:none;"
+    >
+
+        <div class="ai-response-head">
+            <strong>AI RESPONSE</strong>
+
+            <span
+                id="aiResponseStatus"
+                class="ai-response-status"
+            ></span>
+        </div>
+
+        <div
+            id="aiResponse"
+            class="ai-response"
+        ></div>
+
+        <div class="ai-response-actions">
+
+            <button
+                type="button"
+                id="aiCopyResponse"
+            >
+                Copy
+            </button>
+
+            <button
+                type="button"
+                id="aiSaveResponse"
+            >
+                Save to bottom of note
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="editor-body" id="editorBody" contenteditable="true" spellcheck="false">
+    ...
+</div>
+      <aside class="context-panel"><div class="context-head"><span>NOTE INFORMATION</span><button class="info">i</button></div><div class="context-section"><label>SUBJECT</label><div class="context-value" id="contextSubject"><span class="subject-pill pathology">Pathology</span></div></div><div class="context-section"><label>SYSTEM</label><div class="context-value" id="contextSystem">Renal</div></div><div class="context-section"><label>TAGS</label><div class="context-tags" id="contextTags"><span>High Yield</span><span>Clinical</span><span>Exam</span><button id="addTag">＋ Add tag</button></div></div><div class="context-section metadata"><div><label>CREATED</label><p id="createdDate">04 Sep 2026</p></div><div><label>LAST EDITED</label><p id="editedDate">Today, 09:14</p></div><div class="metric-row"><div><label>WORD COUNT</label><p id="wordCount">842</p></div><div><label>READING TIME</label><p id="readingTime">4 min</p></div></div></div><div class="context-divider"></div><div class="context-head related-head"><span>RELATED NOTES</span><span class="link-symbol">↗</span></div><div class="related-list"><button data-related="Chronic Kidney Disease"><span class="related-dot"></span><div><strong>Chronic Kidney Disease</strong><small>Pathology · Renal</small></div><span>›</span></button><button data-related="Acid–Base Disorders"><span class="related-dot"></span><div><strong>Acid–Base Disorders</strong><small>Physiology · Clinical</small></div><span>›</span></button><button data-related="Glomerular Disease"><span class="related-dot"></span><div><strong>Glomerular Disease</strong><small>Pathology · Renal</small></div><span>›</span></button><button data-related="Renal Pharmacology"><span class="related-dot"></span><div><strong>Renal Pharmacology</strong><small>Pharmacology · Drugs</small></div><span>›</span></button></div><button class="related-all" id="relatedAll">View all related notes</button></aside>
+    </div>
+  </main>
+</div>
+<input id="importFile" type="file" accept=".json,.md,.txt,text/plain,application/json" hidden>
+  <div class="toast" id="toast"></div>
+
+<style>
+:root{--bg:#0a0f17;--bg-2:#0d131d;--panel:#101823;--panel-2:#131d29;--panel-3:#172230;--border:#263342;--border-soft:#1d2936;--text:#eef3f8;--muted:#91a0b2;--muted-2:#667587;--accent:#6f8ff7;--accent-2:#829eff;--success:#6fce9b;--warning:#e7b765;--path:#d58a8a;--phys:#79b7ef;--pharma:#b29af4;--micro:#74cbb0;--neuro:#8fa2ff;--obgyn:#e39bb9;--shadow:0 18px 50px rgba(0,0,0,.22);--r:10px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text)}button,input{font:inherit}.app-shell{display:grid;grid-template-columns:220px 190px minmax(0,1fr);width:100%;height:100%;background:radial-gradient(circle at 80% 0%,rgba(111,143,247,.06),transparent 28%),var(--bg)}button{border:0;color:inherit;background:none;cursor:pointer}.app-sidebar,.notes-sidebar{min-width:0;background:rgba(13,19,29,.97);border-right:1px solid var(--border-soft);display:flex;flex-direction:column}.app-sidebar{padding:20px 12px 12px}.brand{display:flex;gap:10px;align-items:center;padding:0 8px 22px}.brand-mark{width:34px;height:34px;border:1px solid #34465b;border-radius:9px;display:grid;place-items:center;color:var(--accent);font-size:18px}.brand-title{font-size:11px;font-weight:800;letter-spacing:.11em}.brand-title span{color:var(--accent)}.brand-subtitle{font-size:9px;color:var(--muted-2);margin-top:3px}.global-search{display:flex;align-items:center;gap:8px;width:100%;padding:9px 10px;border:1px solid var(--border-soft);border-radius:8px;color:var(--muted);margin-bottom:16px;text-align:left}.global-search .icon{font-size:17px}.global-search kbd,.new-note-side kbd,.search-field kbd{margin-left:auto;color:var(--muted-2);font-size:9px}.primary-nav{display:flex;flex-direction:column;gap:3px}.primary-nav a{display:flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:12px;padding:9px 10px;border-radius:8px}.primary-nav a:hover,.primary-nav a.active{background:var(--panel-3);color:var(--text)}.nav-icon{width:18px;text-align:center;color:#8190a3}.nav-section-label{font-size:9px;letter-spacing:.14em;color:var(--muted-2);padding:18px 10px 7px}.tools-nav{margin-bottom:10px}.sidebar-footer{margin-top:auto}.footer-btn{width:100%;display:flex;gap:10px;align-items:center;padding:9px 10px;color:var(--muted);font-size:12px}.profile{display:flex;align-items:center;gap:9px;padding:10px 7px;border-top:1px solid var(--border-soft)}.avatar{width:29px;height:29px;border-radius:50%;background:var(--panel-3);display:grid;place-items:center;font-size:9px;color:var(--accent)}.profile-copy{min-width:0;display:flex;flex-direction:column;gap:2px}.profile-copy strong{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.profile-copy span{font-size:8px;color:var(--muted-2)}.chevron{margin-left:auto;color:var(--muted-2)}.notes-sidebar{padding:19px 10px 12px;background:#0d141e}.notes-nav-head{display:flex;align-items:flex-start;justify-content:space-between;padding:0 5px 16px}.eyebrow,.section-kicker,.group-title,.context-head>span,.context-section label,.doc-kicker{font-size:8px;letter-spacing:.13em;color:var(--muted-2);font-weight:700}.notes-nav-head h2{margin:4px 0 0;font-size:18px}.icon-btn{width:30px;height:30px;border:1px solid var(--border);border-radius:7px;color:var(--muted);display:grid;place-items:center}.icon-btn.subtle{border:0}.new-note-side{display:flex;align-items:center;gap:7px;width:100%;padding:10px 11px;background:var(--accent);color:#08101e;border-radius:8px;font-weight:750;font-size:11px;margin-bottom:14px}.new-note-side span{font-size:16px}.notes-nav-group{padding:3px 0 12px}.note-nav{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:7px 8px;border-radius:7px;color:var(--muted);font-size:10px}.note-nav:hover,.note-nav.active{background:var(--panel-3);color:var(--text)}.note-nav b{margin-left:auto;font-size:9px;color:var(--muted-2);font-weight:600}.group-title{padding:7px 8px}.dot{width:7px;height:7px;border-radius:50%;background:var(--muted-2);display:inline-block}.dot.anatomy{background:#a9a4e8}.dot.physiology{background:var(--phys)}.dot.pharma{background:var(--pharma)}.dot.micro{background:var(--micro)}.dot.pathology{background:var(--path)}.dot.neuro{background:var(--neuro)}.dot.obgyn{background:var(--obgyn)}.tag-cloud{display:flex;flex-wrap:wrap;gap:5px;padding:2px 5px}.tag-cloud button,.tag-row span,.context-tags span{font-size:8px;color:#aebaca;background:#172230;border:1px solid #243344;border-radius:999px;padding:4px 6px}.sync-status{margin-top:auto;border-top:1px solid var(--border-soft);padding:10px 5px 1px;font-size:8px;color:var(--success)}.main-workspace{min-width:0;display:flex;flex-direction:column;overflow:hidden}.workspace-header{display:flex;justify-content:space-between;gap:20px;padding:24px 26px 16px;border-bottom:1px solid var(--border-soft)}.breadcrumb{font-size:8px;letter-spacing:.12em;color:var(--muted-2)}.breadcrumb span{padding:0 4px}.workspace-header h1{font-size:25px;margin:7px 0 3px}.workspace-header p{font-size:10px;color:var(--muted);margin:0}.header-actions{display:flex;align-items:center;gap:7px}.ghost-btn,.primary-btn,.tool-btn,.compact-btn{border:1px solid var(--border);border-radius:7px;padding:8px 10px;font-size:9px;background:var(--panel);color:var(--muted)}.primary-btn{background:var(--accent);color:#08101e;border-color:var(--accent);font-weight:800}.continue-strip{padding:13px 26px 11px}.section-heading-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.section-caption{font-size:9px;color:var(--muted-2);margin-left:8px}.text-btn{font-size:9px;color:var(--accent-2)}.recent-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.recent-card,.quick-capture{position:relative;min-width:0;min-height:76px;text-align:left;border:1px solid var(--border-soft);background:var(--panel);border-radius:9px;padding:10px 10px 12px;overflow:hidden}.recent-card:hover,.recent-card.selected-recent{border-color:#34465f}.recent-accent{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}.recent-accent.renal{background:var(--path)}.recent-accent.pharma{background:var(--pharma)}.recent-accent.neuro{background:var(--neuro)}.recent-copy{display:flex;flex-direction:column;gap:5px;padding-left:3px}.recent-copy strong{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.recent-meta{font-size:8px;color:var(--muted-2)}.subject-pill{display:inline-flex;align-items:center;width:max-content;padding:3px 6px;border-radius:999px;font-size:7px;font-weight:750;border:1px solid currentColor}.subject-pill.pathology{color:var(--path);background:rgba(213,138,138,.08)}.subject-pill.physiology{color:var(--phys);background:rgba(121,183,239,.08)}.subject-pill.pharmacology{color:var(--pharma);background:rgba(178,154,244,.08)}.subject-pill.microbiology{color:var(--micro);background:rgba(116,203,176,.08)}.subject-pill.neuroanatomy{color:var(--neuro);background:rgba(143,162,255,.08)}.progress{position:absolute;left:10px;right:28px;bottom:7px;height:2px;background:#1d2936;border-radius:3px}.progress span{display:block;height:100%;background:var(--accent)}.recent-arrow{position:absolute;right:9px;top:10px;color:var(--muted-2)}.quick-capture{display:flex;flex-direction:column;justify-content:center;padding-left:38px}.capture-icon{position:absolute;left:12px;top:12px;color:var(--accent);font-size:18px}.quick-capture strong{font-size:10px}.quick-capture small{font-size:8px;color:var(--muted-2);margin-top:4px}.quick-capture kbd{position:absolute;right:9px;top:9px;font-size:8px;color:var(--muted-2)}.notes-toolbar{display:flex;gap:6px;align-items:center;padding:8px 26px;border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft)}.search-field{display:flex;align-items:center;gap:7px;min-width:250px;flex:1;max-width:390px;background:var(--panel);border:1px solid var(--border);border-radius:7px;padding:7px 9px;color:var(--muted-2)}.search-field input{border:0;outline:0;background:transparent;color:var(--text);width:100%;font-size:9px}.toolbar-spacer{flex:1}.view-toggle{display:flex;border:1px solid var(--border);border-radius:7px;overflow:hidden}.view{padding:6px 8px;color:var(--muted-2);font-size:11px}.view.active{background:var(--panel-3);color:var(--text)}.content-layout{display:grid;grid-template-columns:265px minmax(440px,1fr) 205px;min-height:0;flex:1}.note-library,.editor-panel,.context-panel{min-width:0;min-height:0}.note-library{border-right:1px solid var(--border-soft);overflow:auto;padding:12px}.library-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.library-header strong{font-size:9px}.library-header span{font-size:8px;color:var(--muted-2)}.compact-btn{padding:5px 6px;font-size:7px}.notes-grid{display:grid;gap:8px}.notes-grid.list-mode{grid-template-columns:1fr}.notes-grid.list-mode .note-card{min-height:75px}.note-card{border:1px solid var(--border-soft);border-radius:9px;background:var(--panel);padding:10px;cursor:pointer}.note-card:hover,.note-card.selected{border-color:#3a4c64;box-shadow:0 6px 20px rgba(0,0,0,.12)}.note-card-top{display:flex;justify-content:space-between;align-items:center}.star{color:#59687b;font-size:13px;padding:0}.star.active{color:var(--warning)}.note-card h3{font-size:11px;margin:9px 0 5px}.note-card p{font-size:8px;line-height:1.55;color:var(--muted);margin:0 0 8px}.tag-row{display:flex;gap:4px;flex-wrap:wrap}.tag-row span{font-size:7px;padding:3px 5px}.note-footer{display:flex;align-items:center;justify-content:space-between;color:var(--muted-2);font-size:7px;margin-top:9px}.more{color:var(--muted-2);padding:0}.editor-panel{display:flex;flex-direction:column;overflow:hidden;background:#0f1722}.editor-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border-soft)}.editor-title-wrap{display:flex;align-items:center;gap:9px;min-width:0}.doc-icon{width:31px;height:31px;border:1px solid var(--border);border-radius:8px;display:grid;place-items:center;color:var(--accent)}.editor-title-line{display:flex;align-items:center;gap:6px}.editor-title-line h2{font-size:13px;margin:0}.editor-meta{display:flex;gap:6px;align-items:center;font-size:7px;color:var(--muted-2);margin-top:3px}.saved{color:var(--success)}.editor-head-actions{display:flex;gap:4px}.format-toolbar{display:flex;align-items:center;gap:2px;padding:6px 14px;border-bottom:1px solid var(--border-soft);background:#0d141e}.format-toolbar button{padding:5px 6px;color:var(--muted);font-size:10px;border-radius:5px}.format-toolbar button:hover{background:var(--panel-3);color:var(--text)}.divider{height:18px;width:1px;background:var(--border);margin:0 4px}.format-select{border:1px solid var(--border)!important}.highlight-tool{color:var(--warning)!important}.ai-trigger{margin-left:auto!important;color:var(--accent-2)!important;border:1px solid #33466b!important}.editor-body{overflow:auto;padding:22px 30px 30px;outline:none;font-size:10px;line-height:1.65}.doc-kicker{margin-bottom:6px}.editor-body h1{font-size:23px;line-height:1.2;margin:0 0 15px}.muted-title{color:var(--muted-2);font-weight:500}.editor-body h2{font-size:13px;margin:20px 0 8px}.medical-callout{border:1px solid #344358;border-radius:8px;background:#121d2a;padding:11px 13px;margin:13px 0}.medical-callout.definition{border-left:3px solid var(--accent)}.medical-callout.high-yield{border-left:3px solid var(--warning)}.callout-label{display:flex;align-items:center;gap:6px;font-size:8px;letter-spacing:.1em;font-weight:800;color:var(--muted)}.callout-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.callout-star{color:var(--warning)}.medical-callout p{margin:7px 0 0;color:#c0cad6;font-size:9px}.ai-context{border:1px solid #293a52;border-radius:8px;background:#101a27;padding:10px;margin:14px 0}.ai-context-head{display:flex;gap:6px;align-items:center;font-size:8px}.ai-context-hint{color:var(--muted-2);margin-left:auto}.ai-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.ai-actions button{font-size:7px;border:1px solid var(--border);padding:5px 7px;border-radius:5px;color:#b7c4d4;background:#141f2c}.clinical-list{padding-left:17px}.clinical-list li{margin:5px 0}.cause-table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:8px}.cause-table th,.cause-table td{border:1px solid var(--border);padding:8px;vertical-align:top;text-align:left}.cause-table th{font-size:8px;background:#131d29}.cause-table th small{display:block;color:var(--muted-2);font-weight:500;margin-top:2px}.cause-table td{color:#bac6d3;line-height:1.6}.cause-table td span{color:var(--accent)}.two-column{display:grid;grid-template-columns:1fr 1fr;gap:15px}.two-column ol{padding-left:17px}.exam-tip{border:1px solid #35465a;border-radius:8px;padding:11px;background:#131d29;align-self:start}.exam-tip p{font-size:9px;color:#bdc8d5;margin:8px 0 0}.image-placeholder{border:1px dashed #3b4b5d;border-radius:9px;min-height:110px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);margin-top:16px}.image-icon{font-size:24px;color:var(--muted-2)}.image-placeholder strong,.image-placeholder span{display:block}.image-placeholder strong{font-size:9px}.image-placeholder span{font-size:7px;color:var(--muted-2);margin-top:3px}.editor-status{display:flex;justify-content:space-between;padding:7px 14px;border-top:1px solid var(--border-soft);font-size:7px;color:var(--muted-2)}.context-panel{border-left:1px solid var(--border-soft);padding:14px 12px;overflow:auto}.context-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.info{width:16px;height:16px;border:1px solid var(--border);border-radius:50%;font-size:8px;color:var(--muted-2)}.context-section{padding-bottom:14px}.context-section label{display:block;margin-bottom:6px}.context-value{font-size:9px;color:#c4ceda}.context-tags{display:flex;gap:5px;flex-wrap:wrap}.context-tags button{font-size:8px;color:var(--accent-2)}.metadata{display:grid;gap:10px}.metadata p{margin:0;font-size:9px;color:#c1cbd7}.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.context-divider{height:1px;background:var(--border-soft);margin:2px 0 14px}.related-head{margin-bottom:8px}.link-symbol{color:var(--muted-2)}.related-list{display:flex;flex-direction:column;gap:2px}.related-list button{display:grid;grid-template-columns:7px 1fr 10px;align-items:center;gap:7px;text-align:left;padding:8px 4px;border-radius:6px}.related-list button:hover{background:var(--panel-3)}.related-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.related-list strong{display:block;font-size:8px}.related-list small{font-size:7px;color:var(--muted-2)}.related-list button>span:last-child{color:var(--muted-2)}.related-all{width:100%;font-size:8px;color:var(--accent-2);text-align:left;padding:9px 4px}.toast{position:fixed;right:20px;bottom:18px;background:#172230;border:1px solid #34455a;color:var(--text);padding:9px 12px;border-radius:8px;font-size:9px;opacity:0;transform:translateY(8px);pointer-events:none;transition:.18s;box-shadow:var(--shadow);z-index:100}.toast.show{opacity:1;transform:translateY(0)}@media(max-width:1200px){.content-layout{grid-template-columns:235px minmax(400px,1fr)}.context-panel{display:none}.app-shell{grid-template-columns:205px 175px minmax(0,1fr)}.recent-grid{grid-template-columns:repeat(3,1fr)}.quick-capture{display:none}}@media(max-width:980px){.app-shell{grid-template-columns:190px minmax(0,1fr)}.notes-sidebar{display:none}.content-layout{grid-template-columns:220px minmax(0,1fr)}.header-actions .ghost-btn span{display:none}.recent-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* =========================================================
+   YEAR 3 STUDY OS NOTES — THEME + LAYOUT OVERRIDES
+   ========================================================= */
+.app-shell{grid-template-columns:minmax(0,1fr)!important;width:100%;height:100%;}
+.app-sidebar{display:none!important;}
+.notes-sidebar{min-width:0;transition:width .2s ease, padding .2s ease, border .2s ease;position:relative;}
+.notes-sidebar.collapsed{width:58px;padding-left:8px;padding-right:8px;}
+.notes-sidebar.collapsed .notes-nav-head>div,.notes-sidebar.collapsed .new-note-side,.notes-sidebar.collapsed .notes-nav-group,.notes-sidebar.collapsed .sync-status{display:none;}
+.notes-sidebar.collapsed .notes-nav-head{justify-content:center;}
+.notes-sidebar.collapsed #toggleNotesNav{transform:rotate(180deg);}
+.notes-module-root{--bg:#f5f7fa;--bg-2:#eef2f6;--panel:#ffffff;--panel-2:#f8fafc;--panel-3:#f1f5f9;--border:#d9e1ea;--border-soft:#e7ecf2;--text:#17202b;--muted:#657487;--muted-2:#8b98a8;--accent:#526ee8;--accent-2:#3f5fd8;--success:#21865a;--warning:#a56b10;--shadow:0 12px 35px rgba(22,34,48,.10);--r:10px;}
+[data-theme="dark"] .notes-module-root{--bg:#0a0f17;--bg-2:#0d131d;--panel:#101823;--panel-2:#131d29;--panel-3:#172230;--border:#263342;--border-soft:#1d2936;--text:#eef3f8;--muted:#91a0b2;--muted-2:#667587;--accent:#6f8ff7;--accent-2:#829eff;--success:#6fce9b;--warning:#e7b765;--shadow:0 18px 50px rgba(0,0,0,.22);}
+.notes-module-root,.notes-module-root *{scrollbar-color:var(--border) transparent;}
+.notes-module-root .main-workspace{min-width:0;background:var(--bg);color:var(--text);}
+.notes-module-root .notes-sidebar{background:var(--panel);border-right:1px solid var(--border);color:var(--text);}
+.notes-module-root .editor-panel,.notes-module-root .note-library,.notes-module-root .context-panel,.notes-module-root .continue-strip,.notes-module-root .notes-toolbar{background:var(--panel);}
+.notes-module-root .notes-grid.list-mode{grid-template-columns:1fr;}
+.notes-module-root .notes-grid.list-mode .note-card{min-height:110px;}
+.notes-module-root .editor-panel.editor-closed .format-toolbar,.notes-module-root .editor-panel.editor-closed .editor-body,.notes-module-root .editor-panel.editor-closed .editor-status{display:none;}
+.notes-module-root.notes-fullscreen{position:fixed;inset:0;z-index:9999;width:100vw;height:100vh;background:var(--bg);}
+.notes-module-root.notes-fullscreen .notes-sidebar{display:none;}
+.notes-module-root.notes-fullscreen .content-layout{grid-template-columns:300px minmax(0,1fr) 235px;}
+.notes-module-root.notes-fullscreen .editor-panel{min-width:0;}
+.notes-module-root .dropdown-menu{position:fixed;z-index:10001;min-width:170px;background:var(--panel);border:1px solid var(--border);border-radius:9px;box-shadow:var(--shadow);padding:6px;}
+.notes-module-root .dropdown-menu button{display:block;width:100%;padding:8px 10px;border:0;background:transparent;color:var(--text);text-align:left;border-radius:6px;cursor:pointer;font-size:12px;}
+.notes-module-root .dropdown-menu button:hover{background:var(--panel-3);}
+.notes-module-root .format-toolbar button,.notes-module-root .tool-btn,.notes-module-root .ghost-btn,.notes-module-root .primary-btn,.notes-module-root .new-note-side,.notes-module-root .note-nav,.notes-module-root .tag-cloud button,.notes-module-root .view,.notes-module-root .icon-btn{cursor:pointer;}
+.notes-module-root .editor-body:focus{outline:none;}
+.notes-module-root .notes-nav-head{border-bottom:1px solid var(--border-soft);}
+.notes-module-root .toast{background:var(--panel-2);border-color:var(--border);color:var(--text);}
+@media(max-width:980px){.notes-module-root .content-layout{grid-template-columns:1fr;}.notes-module-root .note-library{display:none;}.notes-module-root .context-panel{display:none;}.notes-module-root .notes-sidebar{width:190px;}.notes-module-root.notes-fullscreen .notes-sidebar{display:none;}.notes-module-root.notes-fullscreen .note-library{display:block;}}
+
+/* =========================================================
+   NOTES — COMPLETE LIGHT THEME FIX
+   ========================================================= */
+
+/* LIGHT MODE — DEFAULT */
+.notes-module-root {
+    --notes-bg: #f5f7fa;
+    --notes-surface: #ffffff;
+    --notes-surface-alt: #f8fafc;
+    --notes-surface-hover: #f1f5f9;
+
+    --notes-border: #d9e0e8;
+    --notes-border-light: #e8edf3;
+
+    --notes-text: #172033;
+    --notes-text-secondary: #475467;
+    --notes-text-muted: #667085;
+
+    --notes-accent: #2563eb;
+    --notes-accent-light: #eff6ff;
+
+    background: #f5f7fa !important;
+    color: #172033 !important;
+}
+
+
+/* =========================================================
+   EVERY MAJOR NOTES SECTION
+   ========================================================= */
+
+.notes-module-root .main-workspace,
+.notes-module-root .main-header,
+.notes-module-root .workspace-header,
+.notes-module-root .recent-section,
+.notes-module-root .notes-toolbar,
+.notes-module-root .library-header,
+.notes-module-root .notes-library,
+.notes-module-root .library-panel,
+.notes-module-root .editor-panel,
+.notes-module-root .context-panel {
+    background: #ffffff !important;
+    color: #172033 !important;
+}
+
+
+/* Main outer background */
+.notes-module-root .main-workspace {
+    background: #f5f7fa !important;
+}
+
+
+/* =========================================================
+   NOTE CARDS
+   ========================================================= */
+
+.notes-module-root .note-card,
+.notes-module-root .recent-card {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+/* Card hover */
+.notes-module-root .note-card:hover,
+.notes-module-root .recent-card:hover {
+    background: #f8fafc !important;
+}
+
+
+/* Selected card */
+.notes-module-root .note-card.selected,
+.notes-module-root .recent-card.selected-recent {
+    background: #eff6ff !important;
+    border-color: #2563eb !important;
+}
+
+
+/* Card headings */
+.notes-module-root .note-card h3,
+.notes-module-root .recent-card h3 {
+    color: #172033 !important;
+}
+
+
+/* Card descriptions */
+.notes-module-root .note-card p,
+.notes-module-root .recent-card p {
+    color: #667085 !important;
+}
+
+
+/* =========================================================
+   ALL BUTTONS
+   ========================================================= */
+
+/*
+   This is important because some of your existing buttons
+   have dark backgrounds defined elsewhere.
+*/
+
+.notes-module-root button {
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+/* Button hover */
+.notes-module-root button:hover {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+}
+
+
+/* Active buttons */
+.notes-module-root button.active,
+.notes-module-root button.selected {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+
+    border-color: #bfdbfe !important;
+}
+
+
+/* =========================================================
+   ICON BUTTONS
+   ========================================================= */
+
+.notes-module-root .icon-btn,
+.notes-module-root .tool-btn,
+.notes-module-root .view,
+.notes-module-root .more,
+.notes-module-root .star {
+    background: transparent !important;
+    color: #667085 !important;
+    border-color: transparent !important;
+}
+
+
+.notes-module-root .icon-btn:hover,
+.notes-module-root .tool-btn:hover,
+.notes-module-root .view:hover,
+.notes-module-root .more:hover,
+.notes-module-root .star:hover {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+}
+
+
+/* Favorite active */
+.notes-module-root .star.active,
+.notes-module-root .favorite.active {
+    color: #f59e0b !important;
+    background: transparent !important;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTONS
+   ========================================================= */
+
+.notes-module-root .primary-btn,
+.notes-module-root .primary,
+.notes-module-root button.primary,
+.notes-module-root #newNote,
+.notes-module-root #newNoteTop {
+    background: #2563eb !important;
+    color: #ffffff !important;
+
+    border-color: #2563eb !important;
+}
+
+
+.notes-module-root .primary-btn:hover,
+.notes-module-root .primary:hover,
+.notes-module-root button.primary:hover,
+.notes-module-root #newNote:hover,
+.notes-module-root #newNoteTop:hover {
+    background: #1d4ed8 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SEARCH BOXES
+   ========================================================= */
+
+.notes-module-root .search-wrap {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root .search-wrap input,
+.notes-module-root #noteSearch {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: transparent !important;
+}
+
+
+.notes-module-root #noteSearch::placeholder {
+    color: #98a2b3 !important;
+}
+
+
+/* =========================================================
+   ALL INPUTS / TEXTAREAS / SELECTS
+   ========================================================= */
+
+.notes-module-root input,
+.notes-module-root textarea,
+.notes-module-root select {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root input::placeholder,
+.notes-module-root textarea::placeholder {
+    color: #98a2b3 !important;
+}
+
+
+.notes-module-root input:focus,
+.notes-module-root textarea:focus,
+.notes-module-root select:focus {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #2563eb !important;
+
+    outline: none !important;
+}
+
+
+/* =========================================================
+   EDITOR
+   ========================================================= */
+
+.notes-module-root .editor-panel {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root #editorTitle {
+    color: #172033 !important;
+}
+
+
+.notes-module-root #editorMeta {
+    color: #667085 !important;
+}
+
+
+/* Actual writing area */
+.notes-module-root #editorBody,
+.notes-module-root .editor-body {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+/* Text inside editor */
+.notes-module-root #editorBody h1,
+.notes-module-root #editorBody h2,
+.notes-module-root #editorBody h3,
+.notes-module-root #editorBody h4,
+.notes-module-root .editor-body h1,
+.notes-module-root .editor-body h2,
+.notes-module-root .editor-body h3,
+.notes-module-root .editor-body h4 {
+    color: #172033 !important;
+}
+
+
+.notes-module-root #editorBody p,
+.notes-module-root .editor-body p {
+    color: #344054 !important;
+}
+
+
+.notes-module-root #editorBody li,
+.notes-module-root .editor-body li {
+    color: #344054 !important;
+}
+
+
+.notes-module-root #editorBody blockquote,
+.notes-module-root .editor-body blockquote {
+    color: #475467 !important;
+    background: #f8fafc !important;
+
+    border-left-color: #2563eb !important;
+}
+
+
+/* =========================================================
+   FORMAT TOOLBAR
+   ========================================================= */
+
+.notes-module-root .format-toolbar,
+.notes-module-root .editor-toolbar {
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root .format-toolbar button,
+.notes-module-root .editor-toolbar button {
+    background: #ffffff !important;
+    color: #344054 !important;
+}
+
+
+.notes-module-root .format-toolbar button:hover,
+.notes-module-root .editor-toolbar button:hover {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.notes-module-root .tag-row span,
+.notes-module-root #contextTags span,
+.notes-module-root .tag-cloud button {
+    background: #eef2f6 !important;
+    color: #344054 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+/* Add tag */
+.notes-module-root #addTag {
+    background: transparent !important;
+    color: #2563eb !important;
+    border-color: transparent !important;
+}
+
+
+/* =========================================================
+   CONTEXT PANEL
+   ========================================================= */
+
+.notes-module-root .context-panel {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root .context-panel h1,
+.notes-module-root .context-panel h2,
+.notes-module-root .context-panel h3,
+.notes-module-root .context-panel h4 {
+    color: #172033 !important;
+}
+
+
+.notes-module-root .context-panel p,
+.notes-module-root .context-panel small,
+.notes-module-root .context-panel label {
+    color: #667085 !important;
+}
+
+
+/* =========================================================
+   RECENT SECTION
+   ========================================================= */
+
+.notes-module-root .recent-section {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+/* =========================================================
+   HEADINGS / LABELS
+   ========================================================= */
+
+.notes-module-root h1,
+.notes-module-root h2,
+.notes-module-root h3,
+.notes-module-root h4,
+.notes-module-root h5,
+.notes-module-root h6 {
+    color: #172033 !important;
+}
+
+
+.notes-module-root label {
+    color: #475467 !important;
+}
+
+
+/* =========================================================
+   MUTED TEXT
+   ========================================================= */
+
+.notes-module-root .muted,
+.notes-module-root .secondary,
+.notes-module-root .note-footer,
+.notes-module-root .editor-status,
+.notes-module-root .editor-meta {
+    color: #667085 !important;
+}
+
+
+/* =========================================================
+   DROPDOWN MENUS
+   ========================================================= */
+
+.dropdown-menu {
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border: 1px solid #d9e0e8 !important;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.14) !important;
+}
+
+
+.dropdown-menu button {
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border: 0 !important;
+}
+
+
+.dropdown-menu button:hover {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+}
+
+
+/* =========================================================
+   TOOLBAR / FILTER BUTTONS
+   ========================================================= */
+
+.notes-module-root #filterBtn,
+.notes-module-root #sortBtn,
+.notes-module-root #subjectBtn,
+.notes-module-root #tagsBtn,
+.notes-module-root #sortCompact,
+.notes-module-root #searchBtn,
+.notes-module-root #importBtn,
+.notes-module-root #fullscreenBtn,
+.notes-module-root #shareBtn,
+.notes-module-root #editorMore,
+.notes-module-root #closeEditor,
+.notes-module-root #insertTableBtn,
+.notes-module-root #insertLinkBtn,
+.notes-module-root #insertImageBtn,
+.notes-module-root #askAi {
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root #filterBtn:hover,
+.notes-module-root #sortBtn:hover,
+.notes-module-root #subjectBtn:hover,
+.notes-module-root #tagsBtn:hover,
+.notes-module-root #sortCompact:hover,
+.notes-module-root #searchBtn:hover,
+.notes-module-root #importBtn:hover,
+.notes-module-root #fullscreenBtn:hover,
+.notes-module-root #shareBtn:hover,
+.notes-module-root #editorMore:hover,
+.notes-module-root #closeEditor:hover,
+.notes-module-root #insertTableBtn:hover,
+.notes-module-root #insertLinkBtn:hover,
+.notes-module-root #insertImageBtn:hover,
+.notes-module-root #askAi:hover {
+    background: #f1f5f9 !important;
+    color: #172033 !important;
+}
+
+
+/* =========================================================
+   AI ACTIONS
+   ========================================================= */
+
+.notes-module-root .ai-actions button {
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border-color: #d9e0e8 !important;
+}
+
+
+.notes-module-root .ai-actions button:hover {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+
+    border-color: #bfdbfe !important;
+}
+
+
+/* =========================================================
+   LIGHT MODE — REMOVE COMMON DARK HARD-CODED VALUES
+   ========================================================= */
+
+.notes-module-root [style*="background"],
+.notes-module-root [style*="background-color"] {
+    /*
+       Do not globally override inline styles here.
+       Component-specific rules above take priority.
+    */
+}
+
+
+/* =========================================================
+   DARK MODE
+   ONLY ACTIVATED BY THE MAIN APP
+   ========================================================= */
+
+html[data-theme="dark"] .notes-module-root {
+
+    --notes-bg: #0b111b;
+    --notes-surface: #111827;
+    --notes-surface-alt: #151e2d;
+    --notes-surface-hover: #1c2738;
+
+    --notes-border: #293548;
+    --notes-border-light: #344054;
+
+    --notes-text: #f2f4f7;
+    --notes-text-secondary: #d0d5dd;
+    --notes-text-muted: #98a2b3;
+
+    --notes-accent: #60a5fa;
+    --notes-accent-light: rgba(96,165,250,.12);
+
+    background: #0b111b !important;
+    color: #f2f4f7 !important;
+}
+
+
+/* Dark-mode surfaces */
+html[data-theme="dark"] .notes-module-root .main-workspace,
+html[data-theme="dark"] .notes-module-root .main-header,
+html[data-theme="dark"] .notes-module-root .workspace-header,
+html[data-theme="dark"] .notes-module-root .recent-section,
+html[data-theme="dark"] .notes-module-root .notes-toolbar,
+html[data-theme="dark"] .notes-module-root .library-header,
+html[data-theme="dark"] .notes-module-root .notes-library,
+html[data-theme="dark"] .notes-module-root .library-panel,
+html[data-theme="dark"] .notes-module-root .editor-panel,
+html[data-theme="dark"] .notes-module-root .context-panel {
+    background: #111827 !important;
+    color: #f2f4f7 !important;
+}
+
+
+/* Dark editor */
+html[data-theme="dark"] .notes-module-root #editorBody,
+html[data-theme="dark"] .notes-module-root .editor-body {
+    background: #111827 !important;
+    color: #f2f4f7 !important;
+}
+
+
+/* Dark cards */
+html[data-theme="dark"] .notes-module-root .note-card,
+html[data-theme="dark"] .notes-module-root .recent-card {
+    background: #111827 !important;
+    color: #f2f4f7 !important;
+
+    border-color: #293548 !important;
+}
+
+
+/* Dark inputs */
+html[data-theme="dark"] .notes-module-root input,
+html[data-theme="dark"] .notes-module-root textarea,
+html[data-theme="dark"] .notes-module-root select {
+    background: #151e2d !important;
+    color: #f2f4f7 !important;
+
+    border-color: #293548 !important;
+}
+
+
+/* Dark buttons */
+html[data-theme="dark"] .notes-module-root button {
+    background: #151e2d !important;
+    color: #d0d5dd !important;
+
+    border-color: #293548 !important;
+}
+
+
+/* Dark toolbar */
+html[data-theme="dark"] .notes-module-root .format-toolbar,
+html[data-theme="dark"] .notes-module-root .editor-toolbar {
+    background: #111827 !important;
+    color: #f2f4f7 !important;
+
+    border-color: #293548 !important;
+}
+
+
+/* Dark dropdown */
+html[data-theme="dark"] .dropdown-menu {
+    background: #111827 !important;
+    color: #f2f4f7 !important;
+
+    border-color: #293548 !important;
+}
+
+
+html[data-theme="dark"] .dropdown-menu button {
+    background: #111827 !important;
+    color: #d0d5dd !important;
+}
+
+
+html[data-theme="dark"] .dropdown-menu button:hover {
+    background: #1c2738 !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   LIGHT MODE IS THE DEFAULT.
+   DARK MODE EXISTS ONLY UNDER html[data-theme="dark"].
+   ========================================================= */
+   /* =========================================================
+   HIDE NOTE INFORMATION PANEL
+   ========================================================= */
+
+.notes-module-root .context-panel {
+    display: none !important;
+}
+
+.notes-module-root .content-layout {
+    grid-template-columns: 265px minmax(0, 1fr) !important;
+}
+
+/* =========================================================
+   NOTES FULLSCREEN MODE
+   ========================================================= */
+
+.notes-module-root.notes-fullscreen {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 99999 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+    background: var(--bg) !important;
+}
+
+/* Hide everything except the editor */
+.notes-module-root.notes-fullscreen .notes-sidebar,
+.notes-module-root.notes-fullscreen .topbar,
+.notes-module-root.notes-fullscreen .note-library,
+.notes-module-root.notes-fullscreen .context-panel {
+    display: none !important;
+}
+
+/* Main workspace fills the entire app */
+.notes-module-root.notes-fullscreen .main-workspace {
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Content layout becomes a single column */
+.notes-module-root.notes-fullscreen .content-layout {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Editor takes everything */
+.notes-module-root.notes-fullscreen .editor-panel {
+    display: flex !important;
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Make the editor itself spacious */
+.notes-module-root.notes-fullscreen .editor-body {
+    width: 100% !important;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Fullscreen back button */
+.notes-fullscreen-back {
+    position: fixed !important;
+    top: 18px !important;
+    left: 18px !important;
+    z-index: 100001 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    padding: 9px 14px !important;
+    border-radius: 8px !important;
+
+    background: var(--panel) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08) !important;
+}
+
+.notes-fullscreen-back:hover {
+    background: var(--bg-2) !important;
+}
+
+/* =========================================================
+   NOTES AI PANEL — VISIBILITY FIX
+   ========================================================= */
+
+.notes-module-root .ai-context {
+    display: none !important;
+    margin: 12px 16px;
+    padding: 12px;
+    background: #f8fafc;
+    border: 1px solid #d9e0e8;
+    border-radius: 10px;
+    color: #172033;
+}
+
+.notes-module-root .ai-context.ai-context-open {
+    display: block !important;
+}
+
+.notes-module-root .ai-context-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.notes-module-root .ai-context-hint {
+    margin-left: auto;
+    color: #667085;
+}
+
+.notes-module-root .ai-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.notes-module-root .ai-actions button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px !important;
+    background: #ffffff !important;
+    color: #344054 !important;
+    border: 1px solid #d9e0e8 !important;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.notes-module-root .ai-actions button:hover {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    border-color: #bfdbfe !important;
+}
+
+/* =========================================================
+   NOTES AI ASSISTANT
+   ========================================================= */
+
+.notes-module-root .ai-context {
+    display: none !important;
+    margin: 12px 16px;
+    padding: 14px;
+    background: #f8fafc !important;
+    border: 1px solid #d9e0e8 !important;
+    border-radius: 10px;
+    color: #172033 !important;
+}
+
+.notes-module-root .ai-context.ai-context-open {
+    display: block !important;
+}
+
+/* Header */
+
+.notes-module-root .ai-context-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.notes-module-root .ai-context-head strong {
+    color: #172033 !important;
+}
+
+.notes-module-root .ai-context-hint {
+    margin-left: auto;
+    color: #667085 !important;
+    font-size: 12px;
+}
+
+/* Question */
+
+.notes-module-root .ai-question-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.notes-module-root .ai-question {
+    width: 100%;
+    min-height: 76px;
+    box-sizing: border-box;
+    resize: vertical;
+
+    padding: 10px 12px;
+
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border: 1px solid #d9e0e8 !important;
+    border-radius: 8px;
+
+    font: inherit;
+    line-height: 1.5;
+
+    outline: none;
+}
+
+.notes-module-root .ai-question:focus {
+    border-color: #93c5fd !important;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.10);
+}
+
+.notes-module-root .ai-question::placeholder {
+    color: #98a2b3 !important;
+}
+
+/* Ask button */
+
+.notes-module-root .ai-ask-button {
+    align-self: flex-end;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 16px !important;
+
+    background: #2563eb !important;
+    color: #ffffff !important;
+
+    border: none !important;
+    border-radius: 7px;
+
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.notes-module-root .ai-ask-button:hover {
+    background: #1d4ed8 !important;
+}
+
+/* Quick actions */
+
+.notes-module-root .ai-quick-label {
+    margin-top: 14px;
+    margin-bottom: 7px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+
+    color: #667085 !important;
+}
+
+.notes-module-root .ai-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.notes-module-root .ai-actions button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 11px !important;
+
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border: 1px solid #d9e0e8 !important;
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.notes-module-root .ai-actions button:hover {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    border-color: #bfdbfe !important;
+}
+
+/* Response */
+
+.notes-module-root .ai-response-container {
+    margin-top: 14px;
+
+    border-top: 1px solid #d9e0e8;
+    padding-top: 14px;
+}
+
+.notes-module-root .ai-response-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.notes-module-root .ai-response-head strong {
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: #344054 !important;
+}
+
+.notes-module-root .ai-response-status {
+    font-size: 11px;
+    color: #667085 !important;
+}
+
+.notes-module-root .ai-response {
+    min-height: 50px;
+    max-height: 420px;
+    overflow-y: auto;
+
+    padding: 13px;
+
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    border: 1px solid #d9e0e8 !important;
+    border-radius: 8px;
+
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Response buttons */
+
+.notes-module-root .ai-response-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+
+    margin-top: 9px;
+}
+
+.notes-module-root .ai-response-actions button {
+    padding: 7px 11px !important;
+
+    background: #ffffff !important;
+    color: #344054 !important;
+
+    border: 1px solid #d9e0e8 !important;
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.notes-module-root .ai-response-actions button:hover {
+    background: #eff6ff !important;
+    color: #2563eb !important;
+}
+
+.notes-module-root .ai-response {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   NOTES — CREATE NOTE DIALOG
+   ========================================================= */
+
+.notes-module-root .notes-create-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+
+.notes-module-root .notes-dialog-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(3px);
+}
+
+
+.notes-module-root .notes-dialog {
+    position: relative;
+    z-index: 1;
+
+    width: min(460px, 100%);
+
+    background: #ffffff;
+
+    border: 1px solid #dfe4ea;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+}
+
+
+.notes-module-root .notes-dialog-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #e8ecf0;
+}
+
+
+.notes-module-root .notes-dialog-title {
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #17202a;
+}
+
+
+.notes-module-root .notes-dialog-subtitle {
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #718096;
+}
+
+
+.notes-module-root .notes-dialog-close {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+.notes-module-root .notes-dialog-close:hover {
+    background: #f1f5f9;
+
+    color: #1e293b;
+}
+
+
+.notes-module-root .notes-dialog-body {
+    padding: 22px;
+}
+
+
+.notes-module-root .notes-dialog-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #475569;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+}
+
+
+.notes-module-root .notes-dialog-input {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-bottom: 18px;
+
+    padding: 11px 13px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #17202a;
+
+    font: inherit;
+
+    font-size: 14px;
+}
+
+
+.notes-module-root .notes-dialog-input:focus {
+    border-color: #64748b;
+
+    box-shadow:
+        0 0 0 3px rgba(100, 116, 139, 0.12);
+}
+
+
+.notes-module-root .notes-dialog-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 16px 22px;
+
+    border-top: 1px solid #e8ecf0;
+
+    background: #f8fafc;
+}
+
+
+.notes-module-root .notes-dialog-button {
+    min-width: 100px;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    font: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.notes-module-root .notes-dialog-button.secondary {
+    border: 1px solid #cbd5e1;
+
+    background: #ffffff;
+
+    color: #475569;
+}
+
+
+.notes-module-root .notes-dialog-button.secondary:hover {
+    background: #f1f5f9;
+}
+
+
+.notes-module-root .notes-dialog-button.primary {
+    border: 1px solid #334155;
+
+    background: #334155;
+
+    color: #ffffff;
+}
+
+
+.notes-module-root .notes-dialog-button.primary:hover {
+    background: #1e293b;
+}
+</style>

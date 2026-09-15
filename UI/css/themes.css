@@ -1,0 +1,981 @@
+/* ============================================================
+   YEAR 3 STUDY OS
+   PREMIUM THEME SYSTEM
+   ============================================================ */
+
+:root {
+    color-scheme: dark;
+
+    /* --------------------------------------------------------
+       DARK
+       -------------------------------------------------------- */
+
+    --bg-primary: #0b0f14;
+    --bg-secondary: #11161d;
+    --bg-tertiary: #171d25;
+
+    --surface: #151b23;
+    --surface-raised: #1b222c;
+    --surface-hover: #202832;
+
+    --input-bg: #0d1218;
+
+    --border: #29313c;
+    --border-strong: #374151;
+
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #8b97a7;
+    --text-faint: #64748b;
+
+    --accent: #4f8df7;
+    --accent-hover: #3b7bea;
+    --accent-light: rgba(79, 141, 247, 0.12);
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    --shadow: rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================================================
+   PREMIUM LIGHT MODE
+   ============================================================ */
+
+html[data-theme="light"] {
+
+    color-scheme: light;
+
+    /* --------------------------------------------------------
+       WORKSPACE
+       -------------------------------------------------------- */
+
+    --bg-primary: #eef2f6;
+    --bg-secondary: #f7f9fb;
+    --bg-tertiary: #e9eef3;
+
+    /* --------------------------------------------------------
+       SURFACES
+       -------------------------------------------------------- */
+
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --surface-hover: #f5f8fb;
+
+    /* --------------------------------------------------------
+       INPUTS
+       -------------------------------------------------------- */
+
+    --input-bg: #ffffff;
+
+    /* --------------------------------------------------------
+       BORDERS
+       -------------------------------------------------------- */
+
+    --border: #dce2e8;
+    --border-strong: #c5cdd6;
+
+    /* --------------------------------------------------------
+       TEXT
+       -------------------------------------------------------- */
+
+    --text: #17212b;
+    --text-secondary: #465363;
+    --text-muted: #718096;
+    --text-faint: #9aa6b2;
+
+    /* --------------------------------------------------------
+       ACCENT
+       -------------------------------------------------------- */
+
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-light: #eaf2ff;
+
+    /* --------------------------------------------------------
+       STATUS
+       -------------------------------------------------------- */
+
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #dc2626;
+
+    /* --------------------------------------------------------
+       SHADOW
+       -------------------------------------------------------- */
+
+    --shadow: rgba(30, 41, 59, 0.08);
+}
+
+
+/* ============================================================
+   APPLICATION ROOT
+   ============================================================ */
+
+html,
+body {
+    background: var(--bg-primary);
+    color: var(--text);
+}
+
+body {
+    transition:
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+
+/* ============================================================
+   MAIN STRUCTURE
+   ============================================================ */
+
+.sidebar {
+    background: var(--bg-secondary);
+    border-right-color: var(--border);
+}
+
+.main-area {
+    background: var(--bg-primary);
+}
+
+.topbar {
+    background: var(--surface);
+    border-bottom-color: var(--border);
+}
+
+.content {
+    background: var(--bg-primary);
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.brand {
+    background: var(--surface);
+    border-bottom-color: var(--border);
+}
+
+.brand-mark {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.brand-text strong {
+    color: var(--text);
+}
+
+.brand-text span {
+    color: var(--text-muted);
+}
+
+.navigation {
+    background: var(--bg-secondary);
+}
+
+.sidebar-footer {
+    background: var(--surface);
+    border-top-color: var(--border);
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+.nav-item {
+    color: var(--text-secondary);
+}
+
+.nav-item:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+}
+
+.nav-item.active {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.nav-item.active svg,
+.nav-item.active .nav-icon {
+    color: var(--accent);
+}
+
+
+/* ============================================================
+   CONTENT SURFACES
+   ============================================================ */
+
+.card,
+.panel,
+.surface,
+.module-card,
+.dashboard-card {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+
+    box-shadow:
+        0 1px 2px var(--shadow);
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text);
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+.text-muted,
+.muted {
+    color: var(--text-muted);
+}
+
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+
+input,
+textarea,
+select {
+    background: var(--input-bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: var(--border-strong);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px var(--accent-light);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-faint);
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+button {
+    color: var(--text);
+}
+
+button:not(.primary-button):not(.notes-primary-btn) {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+button:not(.primary-button):not(.notes-primary-btn):hover {
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+}
+
+
+/* ============================================================
+   PRIMARY BUTTONS
+   ============================================================ */
+
+.primary-button,
+.notes-primary-btn {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+.primary-button:hover,
+.notes-primary-btn:hover {
+    background: var(--accent-hover);
+}
+
+
+/* ============================================================
+   DIVIDERS
+   ============================================================ */
+
+hr,
+.divider {
+    border-color: var(--border);
+}
+
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+
+input[type="search"] {
+    background: var(--surface);
+}
+
+
+/* ============================================================
+   NOTES MODULE
+   ============================================================ */
+
+.notes-library {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.note-card {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.note-card:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+}
+
+.note-card.active {
+    background: var(--accent-light);
+    border-color: var(--accent);
+}
+
+.note-content-area textarea {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.note-content-area textarea:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px var(--accent-light);
+}
+
+
+/* ============================================================
+   NOTES GROUP HEADERS
+   ============================================================ */
+
+.notes-subject-header {
+    color: var(--text);
+    border-bottom-color: var(--border);
+}
+
+.notes-subject-header span {
+    color: var(--text-muted);
+}
+
+
+/* ============================================================
+   AI
+   ============================================================ */
+
+.ai-message-assistant {
+    color: var(--text);
+}
+
+.ai-message-body,
+.ai-response,
+.ai-response-paragraph {
+    color: var(--text);
+}
+
+
+/* ============================================================
+   LOADING / PLACEHOLDER AREAS
+   ============================================================ */
+
+.module-placeholder,
+.loading-state,
+.error-state {
+    color: var(--text);
+}
+
+.module-placeholder p,
+.loading-state p,
+.error-state p {
+    color: var(--text-muted);
+}
+
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        transform 120ms ease;
+}
+
+.theme-toggle:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+}
+
+.theme-toggle:active {
+    transform: scale(0.94);
+}
+
+
+/* ============================================================
+   LIGHT MODE — PREMIUM DEPTH
+   ============================================================ */
+
+html[data-theme="light"] .topbar {
+    box-shadow:
+        0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme="light"] .sidebar {
+    box-shadow:
+        1px 0 0 rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme="light"] .card,
+html[data-theme="light"] .panel,
+html[data-theme="light"] .module-card,
+html[data-theme="light"] .dashboard-card {
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 3px 10px rgba(15, 23, 42, 0.025);
+}
+
+
+/* ============================================================
+   LIGHT MODE — SELECTION
+   ============================================================ */
+
+html[data-theme="light"] ::selection {
+    background: #dbeafe;
+    color: #17212b;
+}
+
+
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
+
+* {
+    scrollbar-color:
+        var(--border-strong)
+        transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--text-faint);
+}
+
+
+/* ============================================================
+   THEME TRANSITIONS
+   ============================================================ */
+
+.sidebar,
+.main-area,
+.topbar,
+.content,
+.card,
+.panel,
+.surface,
+.module-card,
+.dashboard-card,
+.notes-library,
+.note-card,
+input,
+textarea,
+select,
+button {
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+/* ============================================================
+   LIGHT MODE — CRISP / HIGH CLARITY TEXT
+   ============================================================ */
+
+html[data-theme="light"] {
+
+    --text: #111827;
+    --text-secondary: #273444;
+    --text-muted: #4b5563;
+    --text-faint: #6b7280;
+
+    --border: #d1d5db;
+    --border-strong: #b8c0ca;
+}
+
+
+/* ------------------------------------------------------------
+   MAIN TEXT
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] body {
+    color: #111827;
+}
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6,
+html[data-theme="light"] strong,
+html[data-theme="light"] b {
+    color: #111827;
+}
+
+
+/* ------------------------------------------------------------
+   NORMAL PARAGRAPH / CONTENT TEXT
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] p,
+html[data-theme="light"] span,
+html[data-theme="light"] label,
+html[data-theme="light"] li,
+html[data-theme="light"] td,
+html[data-theme="light"] th {
+    color: #273444;
+}
+
+
+/* ------------------------------------------------------------
+   NAVIGATION
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .nav-item {
+    color: #273444;
+}
+
+html[data-theme="light"] .nav-item:hover {
+    color: #111827;
+}
+
+html[data-theme="light"] .nav-item.active {
+    color: #1d4ed8;
+}
+
+
+/* ------------------------------------------------------------
+   TOPBAR
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .topbar {
+    color: #111827;
+}
+
+html[data-theme="light"] .topbar * {
+    color: inherit;
+}
+
+
+/* ------------------------------------------------------------
+   SIDEBAR
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .sidebar {
+    color: #111827;
+}
+
+html[data-theme="light"] .sidebar * {
+    color: inherit;
+}
+
+
+/* ------------------------------------------------------------
+   MUTED TEXT
+   Keep muted text readable — not faded
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .text-muted,
+html[data-theme="light"] .muted,
+html[data-theme="light"] .description,
+html[data-theme="light"] .secondary-text {
+    color: #4b5563;
+}
+
+
+/* ------------------------------------------------------------
+   SMALL / FAINT TEXT
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .text-faint {
+    color: #6b7280;
+}
+
+
+/* ------------------------------------------------------------
+   INPUTS
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+    color: #111827;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+
+
+/* ------------------------------------------------------------
+   NOTES
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .note-card {
+    color: #111827;
+}
+
+html[data-theme="light"] .note-card * {
+    color: inherit;
+}
+
+html[data-theme="light"] .note-content-area textarea {
+    color: #111827;
+}
+
+html[data-theme="light"] .notes-subject-header {
+    color: #111827;
+}
+
+
+/* ------------------------------------------------------------
+   AI RESPONSE
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .ai-message-body,
+html[data-theme="light"] .ai-response,
+html[data-theme="light"] .ai-response-paragraph,
+html[data-theme="light"] .ai-response-section,
+html[data-theme="light"] .ai-response-list,
+html[data-theme="light"] .ai-response-list li {
+    color: #111827;
+}
+
+
+/* ------------------------------------------------------------
+   PLACEHOLDERS / EMPTY STATES
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .module-placeholder p,
+html[data-theme="light"] .loading-state p,
+html[data-theme="light"] .error-state p {
+    color: #4b5563;
+}
+
+html[data-theme="light"] .notes-empty-state p {
+    color: #4b5563;
+}
+
+
+/* ------------------------------------------------------------
+   FORM LABELS
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] label {
+    color: #273444;
+    font-weight: 500;
+}
+
+
+/* ------------------------------------------------------------
+   BUTTON TEXT
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] button {
+    color: #111827;
+}
+
+html[data-theme="light"] .primary-button,
+html[data-theme="light"] .notes-primary-btn {
+    color: #ffffff;
+}
+
+
+/* ------------------------------------------------------------
+   BADGES / TAGS
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .badge,
+html[data-theme="light"] .tag {
+    color: #273444;
+}
+
+
+/* ------------------------------------------------------------
+   ICONS
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] svg {
+    color: currentColor;
+}
+
+
+/* ------------------------------------------------------------
+   LINKS
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] a {
+    color: #1d4ed8;
+}
+
+html[data-theme="light"] a:hover {
+    color: #1e40af;
+}
+/* ============================================================
+   FINAL LIGHT MODE TEXT OVERRIDE
+   Applies whenever light mode is active
+   ============================================================ */
+
+html[data-theme="light"],
+html[data-theme="light"] body {
+    color: #111827;
+}
+
+
+/* Main readable text */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6,
+html[data-theme="light"] p,
+html[data-theme="light"] span,
+html[data-theme="light"] label,
+html[data-theme="light"] li,
+html[data-theme="light"] td,
+html[data-theme="light"] th,
+html[data-theme="light"] strong,
+html[data-theme="light"] b {
+    color: #273444;
+}
+
+
+/* Headings should be strongest */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6 {
+    color: #111827;
+}
+
+
+/* Sidebar */
+html[data-theme="light"] .sidebar,
+html[data-theme="light"] .sidebar * {
+    color: #273444;
+}
+
+html[data-theme="light"] .brand-text strong {
+    color: #111827;
+}
+
+html[data-theme="light"] .brand-text span {
+    color: #4b5563;
+}
+
+
+/* Navigation */
+html[data-theme="light"] .nav-item {
+    color: #273444;
+}
+
+html[data-theme="light"] .nav-item:hover {
+    color: #111827;
+}
+
+html[data-theme="light"] .nav-item.active {
+    color: #1d4ed8;
+}
+
+
+/* Topbar */
+html[data-theme="light"] .topbar,
+html[data-theme="light"] .topbar * {
+    color: #273444;
+}
+
+html[data-theme="light"] #page-title {
+    color: #111827;
+}
+
+
+/* Normal secondary text */
+html[data-theme="light"] .text-muted,
+html[data-theme="light"] .muted,
+html[data-theme="light"] .description,
+html[data-theme="light"] .secondary-text {
+    color: #4b5563;
+}
+
+
+/* Small metadata — still readable */
+html[data-theme="light"] .text-faint,
+html[data-theme="light"] small {
+    color: #6b7280;
+}
+
+
+/* Inputs */
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+    color: #111827;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+    color: #6b7280;
+    opacity: 1;
+}
+
+
+/* Buttons */
+html[data-theme="light"] button {
+    color: #111827;
+}
+
+html[data-theme="light"] .primary-button,
+html[data-theme="light"] .notes-primary-btn {
+    color: #ffffff;
+}
+
+
+/* Cards */
+html[data-theme="light"] .card,
+html[data-theme="light"] .panel,
+html[data-theme="light"] .surface,
+html[data-theme="light"] .module-card,
+html[data-theme="light"] .dashboard-card {
+    color: #273444;
+}
+
+html[data-theme="light"] .card *,
+html[data-theme="light"] .panel *,
+html[data-theme="light"] .surface *,
+html[data-theme="light"] .module-card *,
+html[data-theme="light"] .dashboard-card * {
+    color: inherit;
+}
+
+
+/* Notes */
+html[data-theme="light"] .notes-library,
+html[data-theme="light"] .notes-library * {
+    color: #273444;
+}
+
+html[data-theme="light"] .note-card,
+html[data-theme="light"] .note-card * {
+    color: #273444;
+}
+
+html[data-theme="light"] .note-card.active,
+html[data-theme="light"] .note-card.active * {
+    color: #1d4ed8;
+}
+
+html[data-theme="light"] .note-content-area textarea {
+    color: #111827;
+}
+
+
+/* AI */
+html[data-theme="light"] .ai-message-assistant,
+html[data-theme="light"] .ai-message-assistant *,
+html[data-theme="light"] .ai-message-body,
+html[data-theme="light"] .ai-response,
+html[data-theme="light"] .ai-response-paragraph,
+html[data-theme="light"] .ai-response-section,
+html[data-theme="light"] .ai-response-list,
+html[data-theme="light"] .ai-response-list li {
+    color: #111827;
+}
+
+
+/* Empty states */
+html[data-theme="light"] .notes-empty-state h3 {
+    color: #111827;
+}
+
+html[data-theme="light"] .notes-empty-state p {
+    color: #4b5563;
+}
+
+
+/* Theme button itself */
+html[data-theme="light"] .theme-toggle {
+    color: #111827;
+    background: #ffffff;
+}
+
+
+/* Selection */
+html[data-theme="light"] ::selection {
+    background: #dbeafe;
+    color: #111827;
+}

@@ -1,0 +1,3686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'none'; frame-src 'none';"
+>
+<title>PHARMACOLOGY — Year 3 Pharmacology Study Module</title>
+
+<style>
+:root{
+  --p-bg:#f4f7fa;
+  --p-surface:#ffffff;
+  --p-surface-2:#eef3f7;
+  --p-surface-3:#e5edf3;
+  --p-text:#16212b;
+  --p-muted:#5f7080;
+  --p-border:#d6e0e8;
+  --p-accent:#148a70;
+  --p-accent-2:#2f75c8;
+  --p-warn:#a86608;
+  --p-danger:#bf4545;
+  --p-shadow:0 12px 30px rgba(35,55,70,.10);
+  --p-radius:16px;
+  --p-radius-sm:11px;
+  --p-font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+.pharmacology-module[data-theme="dark"]{
+  --p-bg:#0b1017;
+  --p-surface:#111923;
+  --p-surface-2:#17212d;
+  --p-surface-3:#1d2936;
+  --p-text:#edf3f8;
+  --p-muted:#91a2b3;
+  --p-border:#293746;
+  --p-accent:#4cc9a5;
+  --p-accent-2:#62a8ff;
+  --p-warn:#f0b35b;
+  --p-danger:#ef7d7d;
+  --p-shadow:0 16px 40px rgba(0,0,0,.22);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  min-height:100%;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:var(--p-bg);
+  color:var(--p-text);
+  font-family:var(--p-font);
+  line-height:1.5;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.pharmacology-module{
+  min-height:100vh;
+  background:var(--p-bg);
+  color:var(--p-text);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.pharmacology-header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:grid;
+  grid-template-columns:minmax(220px,auto) minmax(280px,640px) auto;
+  align-items:center;
+  gap:24px;
+  padding:15px 28px;
+  border-bottom:1px solid var(--p-border);
+  background:var(--p-bg);
+  box-shadow:0 4px 20px rgba(0,0,0,.04);
+}
+
+.pharmacology-brand{
+  min-width:220px;
+}
+
+.pharmacology-kicker{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--p-accent);
+  font-weight:800;
+}
+
+.pharmacology-brand h1{
+  margin:2px 0 0;
+  font-size:19px;
+  letter-spacing:.04em;
+}
+
+.pharmacology-brand p{
+  margin:1px 0 0;
+  color:var(--p-muted);
+  font-size:12px;
+}
+
+.pharmacology-search-wrap{
+  position:relative;
+  width:100%;
+  margin:auto;
+}
+
+.pharmacology-search-wrap svg{
+  position:absolute;
+  left:13px;
+  top:12px;
+  width:18px;
+  color:var(--p-muted);
+}
+
+#pharmacology-search{
+  width:100%;
+  height:42px;
+  padding:0 14px 0 40px;
+  border:1px solid var(--p-border);
+  border-radius:12px;
+  background:var(--p-surface);
+  color:var(--p-text);
+  outline:none;
+}
+
+#pharmacology-search:focus{
+  border-color:var(--p-accent);
+  box-shadow:0 0 0 3px color-mix(
+    in srgb,
+    var(--p-accent) 12%,
+    transparent
+  );
+}
+
+.pharmacology-header-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.pharmacology-icon-btn,
+.pharmacology-btn{
+  border:1px solid var(--p-border);
+  background:var(--p-surface);
+  color:var(--p-text);
+  border-radius:10px;
+  padding:9px 12px;
+  transition:.18s ease;
+}
+
+.pharmacology-icon-btn:hover,
+.pharmacology-btn:hover{
+  border-color:var(--p-accent);
+  transform:translateY(-1px);
+}
+
+.pharmacology-btn.primary{
+  background:var(--p-accent);
+  color:#07130f;
+  border-color:var(--p-accent);
+  font-weight:800;
+}
+
+.pharmacology-btn.subtle{
+  background:var(--p-surface-2);
+}
+
+/* =========================================================
+   HORIZONTAL NAVIGATION
+   NO SIDEBAR
+   ========================================================= */
+
+.pharmacology-navigation-bar{
+  position:sticky;
+  top:75px;
+  z-index:15;
+  width:100%;
+  padding:9px 28px;
+  border-bottom:1px solid var(--p-border);
+  background:var(--p-bg);
+}
+
+.pharmacology-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  max-width:1500px;
+  margin:auto;
+  overflow-x:auto;
+  scrollbar-width:thin;
+}
+
+.pharmacology-nav button{
+  flex:0 0 auto;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  padding:9px 13px;
+  border:1px solid transparent;
+  background:transparent;
+  color:var(--p-muted);
+  border-radius:10px;
+  white-space:nowrap;
+  transition:.18s ease;
+}
+
+.pharmacology-nav button:hover{
+  background:var(--p-surface-2);
+  color:var(--p-text);
+  border-color:var(--p-border);
+}
+
+.pharmacology-nav button.active{
+  background:var(--p-surface);
+  color:var(--p-accent);
+  border-color:var(--p-border);
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+  font-weight:700;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.pharmacology-shell{
+  width:100%;
+  min-height:calc(100vh - 125px);
+}
+
+.pharmacology-main{
+  min-width:0;
+  width:100%;
+  max-width:1500px;
+  margin:auto;
+  padding:30px 28px 50px;
+}
+
+.pharmacology-view{
+  display:none;
+}
+
+.pharmacology-view.active{
+  display:block;
+}
+
+/* =========================================================
+   PAGE HEAD
+   ========================================================= */
+
+.pharmacology-page-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  margin-bottom:24px;
+}
+
+.pharmacology-page-head h2{
+  margin:0;
+  font-size:27px;
+}
+
+.pharmacology-page-head p{
+  margin:5px 0;
+  color:var(--p-muted);
+}
+
+.pharmacology-head-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.pharmacology-stat-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(130px,1fr));
+  gap:12px;
+  margin-bottom:24px;
+}
+
+.pharmacology-stat{
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:var(--p-radius);
+  padding:17px;
+  box-shadow:var(--p-shadow);
+}
+
+.pharmacology-stat span{
+  display:block;
+  color:var(--p-muted);
+  font-size:12px;
+}
+
+.pharmacology-stat strong{
+  font-size:25px;
+  display:block;
+  margin-top:4px;
+}
+
+.pharmacology-stat small{
+  color:var(--p-accent);
+}
+
+/* =========================================================
+   GENERAL GRIDS
+   ========================================================= */
+
+.pharmacology-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.pharmacology-study-area,
+.pharmacology-card{
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:var(--p-radius);
+  padding:17px;
+  transition:.18s;
+  box-shadow:var(--p-shadow);
+}
+
+.pharmacology-study-area{
+  cursor:pointer;
+  min-height:132px;
+}
+
+.pharmacology-study-area:hover,
+.pharmacology-card:hover{
+  transform:translateY(-2px);
+  border-color:color-mix(
+    in srgb,
+    var(--p-accent) 55%,
+    var(--p-border)
+  );
+}
+
+.pharmacology-area-number{
+  font-size:11px;
+  color:var(--p-accent);
+  font-weight:900;
+}
+
+.pharmacology-study-area h3{
+  margin:7px 0 5px;
+  font-size:16px;
+}
+
+.pharmacology-study-area p{
+  margin:0;
+  color:var(--p-muted);
+  font-size:12px;
+}
+
+.pharmacology-section{
+  margin-top:26px;
+}
+
+.pharmacology-section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.pharmacology-section-head h3{
+  margin:0;
+  font-size:16px;
+}
+
+.pharmacology-link{
+  color:var(--p-accent);
+  background:none;
+  border:0;
+  padding:4px;
+}
+
+/* =========================================================
+   CHIPS
+   ========================================================= */
+
+.pharmacology-chip-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pharmacology-chip{
+  border:1px solid var(--p-border);
+  background:var(--p-surface);
+  color:var(--p-text);
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+}
+
+.pharmacology-chip.high{
+  border-color:color-mix(
+    in srgb,
+    var(--p-warn) 55%,
+    var(--p-border)
+  );
+  color:var(--p-warn);
+}
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+.pharmacology-list{
+  display:grid;
+  gap:9px;
+}
+
+.pharmacology-list-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border:1px solid var(--p-border);
+  background:var(--p-surface);
+  border-radius:12px;
+}
+
+.pharmacology-list-item h4{
+  margin:0;
+  font-size:14px;
+}
+
+.pharmacology-list-item p{
+  margin:2px 0 0;
+  color:var(--p-muted);
+  font-size:12px;
+}
+
+/* =========================================================
+   TWO COLUMN
+   ========================================================= */
+
+.pharmacology-two-col{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:18px;
+}
+
+/* =========================================================
+   TOPICS
+   ========================================================= */
+
+.pharmacology-topic-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.pharmacology-topic{
+  padding:14px;
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.pharmacology-topic:hover{
+  border-color:var(--p-accent);
+}
+
+.pharmacology-topic h4{
+  margin:0;
+  font-size:14px;
+}
+
+.pharmacology-topic small{
+  color:var(--p-muted);
+}
+
+/* =========================================================
+   WORKSPACE
+   ========================================================= */
+
+.pharmacology-workspace{
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:18px;
+  box-shadow:var(--p-shadow);
+  overflow:hidden;
+}
+
+.pharmacology-workspace-top{
+  padding:22px;
+  border-bottom:1px solid var(--p-border);
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.pharmacology-workspace-top h2{
+  margin:0;
+  font-size:25px;
+}
+
+.pharmacology-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:8px;
+}
+
+.pharmacology-meta span{
+  font-size:11px;
+  padding:5px 8px;
+  border:1px solid var(--p-border);
+  border-radius:999px;
+  color:var(--p-muted);
+}
+
+.pharmacology-meta .high{
+  color:var(--p-warn);
+}
+
+.pharmacology-workspace-nav{
+  display:flex;
+  overflow:auto;
+  border-bottom:1px solid var(--p-border);
+  padding:0 12px;
+}
+
+.pharmacology-workspace-nav button{
+  white-space:nowrap;
+  border:0;
+  background:none;
+  color:var(--p-muted);
+  padding:13px 10px;
+  border-bottom:2px solid transparent;
+}
+
+.pharmacology-workspace-nav button.active{
+  color:var(--p-accent);
+  border-bottom-color:var(--p-accent);
+}
+
+.pharmacology-panel{
+  padding:22px;
+}
+
+.pharmacology-panel h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.pharmacology-panel h4{
+  margin:20px 0 7px;
+  font-size:13px;
+  color:var(--p-accent);
+}
+
+.pharmacology-panel p{
+  color:var(--p-muted);
+}
+
+.pharmacology-bullets{
+  margin:0;
+  padding-left:19px;
+  color:var(--p-muted);
+}
+
+.pharmacology-bullets li{
+  margin:6px 0;
+}
+
+.pharmacology-callout{
+  padding:14px;
+  border-left:3px solid var(--p-accent);
+  background:var(--p-surface-2);
+  border-radius:8px;
+  margin:12px 0;
+}
+
+.pharmacology-callout.warn{
+  border-left-color:var(--p-warn);
+}
+
+/* =========================================================
+   DRUG CARDS
+   ========================================================= */
+
+.pharmacology-drug-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.pharmacology-drug-card{
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:14px;
+  padding:15px;
+  cursor:pointer;
+}
+
+.pharmacology-drug-card:hover{
+  border-color:var(--p-accent);
+}
+
+.pharmacology-drug-card h4{
+  margin:0;
+}
+
+.pharmacology-drug-card p{
+  font-size:12px;
+  color:var(--p-muted);
+  margin:5px 0;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.pharmacology-search-results{
+  position:absolute;
+  top:48px;
+  left:0;
+  right:0;
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:13px;
+  box-shadow:var(--p-shadow);
+  max-height:520px;
+  overflow:auto;
+  display:none;
+  z-index:30;
+}
+
+.pharmacology-search-results.open{
+  display:block;
+}
+
+.pharmacology-search-result{
+  padding:12px 14px;
+  border-bottom:1px solid var(--p-border);
+  cursor:pointer;
+}
+
+.pharmacology-search-result:hover{
+  background:var(--p-surface-2);
+}
+
+.pharmacology-search-result strong{
+  display:block;
+}
+
+.pharmacology-search-result span{
+  font-size:11px;
+  color:var(--p-muted);
+}
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+.pharmacology-question{
+  max-width:850px;
+  margin:auto;
+}
+
+.pharmacology-question-card{
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:18px;
+  padding:24px;
+}
+
+.pharmacology-question-top{
+  display:flex;
+  justify-content:space-between;
+  color:var(--p-muted);
+  font-size:12px;
+}
+
+.pharmacology-question h3{
+  font-size:19px;
+  margin:18px 0;
+}
+
+.pharmacology-options{
+  display:grid;
+  gap:10px;
+}
+
+.pharmacology-option{
+  padding:13px;
+  border:1px solid var(--p-border);
+  background:var(--p-surface-2);
+  border-radius:11px;
+  text-align:left;
+  color:var(--p-text);
+}
+
+.pharmacology-option.selected{
+  border-color:var(--p-accent);
+}
+
+.pharmacology-option.correct{
+  border-color:var(--p-accent);
+  background:color-mix(
+    in srgb,
+    var(--p-accent) 12%,
+    var(--p-surface)
+  );
+}
+
+.pharmacology-option.incorrect{
+  border-color:var(--p-danger);
+}
+
+.pharmacology-explanation{
+  margin-top:16px;
+  padding:14px;
+  background:var(--p-surface-2);
+  border-radius:11px;
+  color:var(--p-muted);
+}
+
+/* =========================================================
+   FLASHCARDS
+   ========================================================= */
+
+.pharmacology-flashcard-wrap{
+  max-width:720px;
+  margin:auto;
+}
+
+.pharmacology-flashcard{
+  min-height:300px;
+  border:1px solid var(--p-border);
+  border-radius:20px;
+  background:var(--p-surface);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:35px;
+  text-align:center;
+  box-shadow:var(--p-shadow);
+  cursor:pointer;
+}
+
+.pharmacology-flashcard strong{
+  font-size:25px;
+}
+
+.pharmacology-flashcard p{
+  color:var(--p-muted);
+  font-size:16px;
+}
+
+.pharmacology-flash-controls{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+/* =========================================================
+   CALCULATORS
+   ========================================================= */
+
+.pharmacology-calc-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+
+.pharmacology-calc{
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:16px;
+  padding:18px;
+}
+
+.pharmacology-calc h3{
+  margin-top:0;
+}
+
+.pharmacology-field{
+  display:grid;
+  gap:5px;
+  margin:10px 0;
+}
+
+.pharmacology-field label{
+  font-size:12px;
+  color:var(--p-muted);
+}
+
+.pharmacology-field input,
+.pharmacology-field select,
+.pharmacology-field textarea{
+  width:100%;
+  padding:10px;
+  border:1px solid var(--p-border);
+  border-radius:9px;
+  background:var(--p-surface-2);
+  color:var(--p-text);
+  outline:none;
+}
+
+.pharmacology-result{
+  margin-top:12px;
+  padding:12px;
+  border-radius:10px;
+  background:var(--p-surface-2);
+  font-weight:800;
+}
+
+.pharmacology-result.error{
+  color:var(--p-danger);
+}
+
+/* =========================================================
+   PRESCRIPTION
+   ========================================================= */
+
+.pharmacology-prescription{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.pharmacology-prescription-preview{
+  background:#fff;
+  color:#17212d;
+  border-radius:12px;
+  padding:24px;
+  min-height:350px;
+  border:1px solid var(--p-border);
+}
+
+.pharmacology-prescription-preview h3{
+  margin-top:0;
+}
+
+.pharmacology-rx-line{
+  border-bottom:1px solid #ccd5dc;
+  padding:8px 0;
+}
+
+/* =========================================================
+   EMPTY / PROGRESS
+   ========================================================= */
+
+.pharmacology-empty{
+  padding:35px;
+  text-align:center;
+  border:1px dashed var(--p-border);
+  border-radius:14px;
+  color:var(--p-muted);
+  background:var(--p-surface);
+}
+
+.pharmacology-progress{
+  height:7px;
+  background:var(--p-surface-3);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.pharmacology-progress i{
+  display:block;
+  height:100%;
+  background:var(--p-accent);
+  width:0;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.pharmacology-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:50;
+  padding:20px;
+}
+
+.pharmacology-modal.open{
+  display:flex;
+}
+
+.pharmacology-modal-card{
+  max-width:1000px;
+  width:100%;
+  max-height:90vh;
+  overflow:auto;
+  background:var(--p-surface);
+  border:1px solid var(--p-border);
+  border-radius:18px;
+  padding:22px;
+}
+
+.pharmacology-modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.pharmacology-compare-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.pharmacology-compare-cell{
+  padding:12px;
+  background:var(--p-surface-2);
+  border-radius:10px;
+}
+
+.pharmacology-compare-cell b{
+  display:block;
+  font-size:11px;
+  color:var(--p-accent);
+  margin-bottom:4px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:1100px){
+
+  .pharmacology-header{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .pharmacology-brand{
+    min-width:0;
+  }
+
+  .pharmacology-search-wrap{
+    max-width:none;
+  }
+
+  .pharmacology-header-actions{
+    justify-content:flex-start;
+  }
+
+  .pharmacology-navigation-bar{
+    top:145px;
+    padding:8px 16px;
+  }
+
+  .pharmacology-nav{
+    justify-content:flex-start;
+  }
+
+  .pharmacology-stat-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .pharmacology-grid,
+  .pharmacology-drug-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:780px){
+
+  .pharmacology-header{
+    padding:12px 14px;
+  }
+
+  .pharmacology-navigation-bar{
+    top:140px;
+    padding:7px 10px;
+  }
+
+  .pharmacology-nav{
+    justify-content:flex-start;
+  }
+
+  .pharmacology-nav button{
+    white-space:nowrap;
+    padding:8px 10px;
+  }
+
+  .pharmacology-main{
+    padding:17px;
+  }
+
+  .pharmacology-stat-grid,
+  .pharmacology-grid,
+  .pharmacology-drug-grid,
+  .pharmacology-two-col,
+  .pharmacology-calc-grid,
+  .pharmacology-prescription{
+    grid-template-columns:1fr;
+  }
+
+  .pharmacology-page-head,
+  .pharmacology-workspace-top{
+    flex-direction:column;
+  }
+
+  .pharmacology-topic-grid{
+    grid-template-columns:1fr;
+  }
+
+  .pharmacology-question-top{
+    flex-direction:column;
+    gap:6px;
+  }
+}
+
+@media(max-width:520px){
+
+  .pharmacology-header-actions{
+    width:100%;
+  }
+
+  .pharmacology-header-actions .pharmacology-btn,
+  .pharmacology-header-actions .pharmacology-icon-btn{
+    flex:1;
+  }
+
+  .pharmacology-main{
+    padding:14px;
+  }
+
+  .pharmacology-stat-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .pharmacology-stat:last-child{
+    grid-column:1/-1;
+  }
+}
+
+/* ============================================================
+   PHARMACOLOGY AI WORKSPACE
+   ============================================================ */
+
+.pharmacology-ai-panel {
+    display: none;
+    width: 100%;
+    min-height: 620px;
+    margin-top: 18px;
+    border: 1px solid var(--pharmacology-border, #d9dee7);
+    background: var(--pharmacology-surface, #ffffff);
+    box-sizing: border-box;
+}
+
+.pharmacology-ai-panel.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.pharmacology-ai-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--pharmacology-border, #d9dee7);
+}
+
+.pharmacology-ai-header-main {
+    min-width: 0;
+}
+
+.pharmacology-ai-eyebrow {
+    margin-bottom: 4px;
+    color: var(--pharmacology-text-muted, #667085);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.pharmacology-ai-title {
+    margin: 0;
+    color: var(--pharmacology-text-strong, #111827);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.pharmacology-ai-subtitle {
+    margin: 4px 0 0;
+    color: var(--pharmacology-text-secondary, #667085);
+    font-size: 12px;
+}
+
+.pharmacology-ai-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pharmacology-ai-context {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--pharmacology-border, #d9dee7);
+    background: var(--pharmacology-surface-secondary, #f8fafc);
+}
+
+.pharmacology-ai-context-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 26px;
+    padding: 4px 9px;
+    border: 1px solid var(--pharmacology-border, #d9dee7);
+    background: #ffffff;
+    color: var(--pharmacology-text-secondary, #667085);
+    font-size: 10px;
+}
+
+.pharmacology-ai-context-item strong {
+    color: var(--pharmacology-text-strong, #111827);
+}
+
+.pharmacology-ai-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    flex: 1;
+    min-height: 500px;
+}
+
+.pharmacology-ai-chat {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.pharmacology-ai-messages {
+    flex: 1;
+    min-height: 380px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.pharmacology-ai-empty {
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.pharmacology-ai-empty-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border: 1px solid var(--pharmacology-border, #d9dee7);
+    background: var(--pharmacology-surface-secondary, #f8fafc);
+    color: var(--pharmacology-accent, #475569);
+    font-size: 20px;
+}
+
+.pharmacology-ai-empty h3 {
+    margin: 0;
+    color: var(--pharmacology-text-strong, #111827);
+    font-size: 16px;
+}
+
+.pharmacology-ai-empty p {
+    max-width: 500px;
+    margin: 7px 0 0;
+    color: var(--pharmacology-text-secondary, #667085);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.pharmacology-ai-message {
+    max-width: 850px;
+    margin-bottom: 16px;
+}
+
+.pharmacology-ai-message.user {
+    margin-left: auto;
+}
+
+.pharmacology-ai-message-role {
+    margin-bottom: 5px;
+    color: var(--pharmacology-text-muted, #667085);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.pharmacology-ai-message-content {
+    padding: 12px 14px;
+    border: 1px solid var(--pharmacology-border, #d9dee7);
+    background: #ffffff;
+    color: var(--pharmacology-text-secondary, #344054);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.pharmacology-ai-message.user .pharmacology-ai-message-content {
+    background: var(--pharmacology-surface-secondary, #f8fafc);
+    color: var(--pharmacology-text-strong, #111827);
+}
+
+.pharmacology-ai-composer {
+    padding: 14px 20px 18px;
+    border-top: 1px solid var(--pharmacology-border, #d9dee7);
+}
+
+.pharmacology-ai-input-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.pharmacology-ai-input {
+    flex: 1;
+    min-height: 44px;
+    max-height: 140px;
+    resize: vertical;
+    padding: 11px 12px;
+    border: 1px solid var(--pharmacology-border, #cfd5df);
+    outline: none;
+    background: #ffffff;
+    color: var(--pharmacology-text-strong, #111827);
+    font: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.pharmacology-ai-input:focus {
+    border-color: var(--pharmacology-accent, #475569);
+}
+
+.pharmacology-ai-composer-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pharmacology-ai-save-work {
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid var(--pharmacology-border, #d9dee7);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--pharmacology-text, #1f2937);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.pharmacology-ai-save-work:hover {
+    background: #f5f7fa;
+    border-color: #b8c0cc;
+}
+
+.pharmacology-ai-save-work:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.pharmacology-ai-send {
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--pharmacology-accent, #475569);
+    background: var(--pharmacology-accent, #475569);
+    color: #ffffff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pharmacology-ai-send:hover {
+    opacity: .9;
+}
+
+.pharmacology-ai-send:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.pharmacology-ai-actions {
+    padding: 18px;
+    border-left: 1px solid var(--pharmacology-border, #d9dee7);
+    background: var(--pharmacology-surface-secondary, #f8fafc);
+}
+
+.pharmacology-ai-actions-title {
+    margin-bottom: 10px;
+    color: var(--pharmacology-text-muted, #667085);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.pharmacology-ai-quick-action {
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 10px 11px;
+    border: 1px solid var(--pharmacology-border, #d9dee7);
+    background: #ffffff;
+    color: var(--pharmacology-text-secondary, #344054);
+    cursor: pointer;
+    font: inherit;
+    font-size: 11px;
+    text-align: left;
+}
+
+.pharmacology-ai-quick-action:hover {
+    border-color: var(--pharmacology-accent, #475569);
+    color: var(--pharmacology-text-strong, #111827);
+}
+
+.pharmacology-ai-status {
+    margin-top: 10px;
+    color: var(--pharmacology-text-muted, #667085);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.pharmacology-ai-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--pharmacology-text-muted, #667085);
+    font-size: 11px;
+}
+
+.pharmacology-ai-loading::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border: 2px solid #cbd5e1;
+    border-top-color: var(--pharmacology-accent, #475569);
+    border-radius: 50%;
+    animation: pharmacology-ai-spin .7s linear infinite;
+}
+
+@keyframes pharmacology-ai-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 800px) {
+    .pharmacology-ai-body {
+        grid-template-columns: 1fr;
+    }
+
+    .pharmacology-ai-actions {
+        border-top: 1px solid var(--pharmacology-border, #d9dee7);
+        border-left: 0;
+    }
+}
+
+/* ============================================================
+   PHARMACOLOGY AI COMPOSER
+   FULL-WIDTH INPUT + VISIBLE ACTION BUTTONS
+   ============================================================ */
+
+.pharmacology-ai-composer {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible !important;
+}
+
+/* The question input should use the entire composer width */
+#pharmacology-ai-input,
+.pharmacology-ai-input {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    min-height: 110px;
+    height: 110px;
+
+    padding: 14px 16px;
+
+    resize: vertical;
+
+    overflow-y: auto;
+}
+
+/* Button row stays below the input */
+.pharmacology-ai-composer-actions {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 10px;
+    padding: 0 0 2px;
+
+    overflow: visible !important;
+}
+
+/* Buttons */
+.pharmacology-ai-composer-actions button {
+    flex: 0 0 auto;
+
+    min-height: 40px;
+    height: 40px;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    white-space: nowrap;
+
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    position: relative;
+    z-index: 10;
+}
+
+/* Save */
+.pharmacology-ai-save-work {
+    border: 1px solid #d7dce4;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #263241;
+}
+
+.pharmacology-ai-save-work:hover {
+    background: #f5f7fa;
+}
+
+/* Send */
+.pharmacology-ai-send {
+    border: 1px solid #1f5eff;
+    border-radius: 8px;
+
+    background: #1f5eff;
+    color: #ffffff;
+}
+
+.pharmacology-ai-send:hover {
+    background: #174dcc;
+}
+/* ============================================================
+   AI COMPOSER — RESTORE NORMAL WIDTH
+   ============================================================ */
+
+.pharmacology-ai-composer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#pharmacology-ai-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Keep the buttons directly under the typing area */
+.pharmacology-ai-composer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    margin-top: 8px;
+    box-sizing: border-box;
+}
+
+/* Do not let buttons change the input width */
+.pharmacology-ai-composer-actions button {
+    flex: 0 0 auto;
+}
+/* ============================================================
+   PHARMACOLOGY AI — FORCE FULL-WIDTH COMPOSER
+   FINAL OVERRIDE
+   ============================================================ */
+
+#pharmacology-ai-panel {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+#pharmacology-ai-panel .pharmacology-ai-composer {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#pharmacology-ai-panel .pharmacology-ai-composer form,
+#pharmacology-ai-panel .pharmacology-ai-composer > div {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#pharmacology-ai-panel #pharmacology-ai-input,
+#pharmacology-ai-panel textarea.pharmacology-ai-input {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+#pharmacology-ai-panel .pharmacology-ai-composer-actions {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+
+    gap: 10px !important;
+    margin-top: 8px !important;
+}
+
+#pharmacology-ai-panel .pharmacology-ai-composer-actions button {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+}
+
+/* ============================================================
+   FINAL FIX — AI INPUT AND BUTTONS MUST BE VERTICAL
+   ============================================================ */
+
+#pharmacology-ai-panel .pharmacology-ai-composer {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#pharmacology-ai-panel .pharmacology-ai-input-wrap {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#pharmacology-ai-panel #pharmacology-ai-input {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+
+    min-height: 44px !important;
+    height: auto !important;
+    max-height: 140px !important;
+}
+
+#pharmacology-ai-panel .pharmacology-ai-composer-actions {
+    display: flex !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    justify-content: flex-end !important;
+    align-items: center !important;
+
+    gap: 8px !important;
+    margin-top: 10px !important;
+}
+
+/* ============================================================
+   PHARMACOLOGY MY WORK — NOTE DIALOG
+   ============================================================ */
+
+.pharmacology-note-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.pharmacology-note-dialog-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.28);
+}
+
+.pharmacology-note-dialog-card {
+    position: relative;
+    z-index: 1;
+    width: min(720px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+
+    background: #ffffff;
+    border: 1px solid #d9dee7;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+}
+
+.pharmacology-note-dialog-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.pharmacology-note-dialog-header h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.pharmacology-note-dialog-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #667085;
+}
+
+.pharmacology-note-dialog-close {
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 7px;
+
+    background: #ffffff;
+    color: #475467;
+
+    font-size: 22px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.pharmacology-note-dialog-close:hover {
+    background: #f5f7fa;
+}
+
+.pharmacology-note-dialog-body {
+    padding: 22px;
+}
+
+.pharmacology-note-dialog-label {
+    display: block;
+    margin: 0 0 7px;
+
+    font-size: 13px;
+    font-weight: 700;
+    color: #344054;
+}
+
+.pharmacology-note-title,
+.pharmacology-note-content {
+    display: block;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #172033;
+
+    font: inherit;
+}
+
+.pharmacology-note-title {
+    height: 44px;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+}
+
+.pharmacology-note-content {
+    min-height: 220px;
+    padding: 12px;
+
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.pharmacology-note-title:focus,
+.pharmacology-note-content:focus {
+    outline: none;
+    border-color: #98a2b3;
+}
+
+.pharmacology-note-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+
+    padding: 16px 22px;
+
+    border-top: 1px solid #e5e7eb;
+}
+/* ============================================================
+   MY WORK — FILE MANAGER
+   ============================================================ */
+
+.pharmacology-work-list {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   FILE LIST
+   ============================================================ */
+
+.pharmacology-work-files {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    background: #dfe3e8;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   FILE
+   ============================================================ */
+
+.pharmacology-work-file {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 72px;
+
+    padding: 12px 14px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        background 0.12s ease;
+}
+
+.pharmacology-work-file:hover {
+    background: #f7f8fa;
+}
+
+.pharmacology-work-file:focus {
+    outline: none;
+    background: #f4f6f8;
+}
+
+
+/* ============================================================
+   FILE ICON
+   ============================================================ */
+
+.pharmacology-work-file-icon {
+    flex: 0 0 auto;
+
+    width: 42px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 14px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    color: #344054;
+
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.pharmacology-work-file-icon.is-ai {
+    color: #344054;
+}
+
+.pharmacology-work-file-icon.is-note {
+    color: #475467;
+}
+
+
+/* ============================================================
+   FILE MAIN
+   ============================================================ */
+
+.pharmacology-work-file-main {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.pharmacology-work-file-title {
+    overflow: hidden;
+
+    color: #172033;
+
+    font-size: 15px;
+    font-weight: 650;
+
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.pharmacology-work-file-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 5px;
+
+    color: #667085;
+
+    font-size: 12px;
+}
+
+
+.pharmacology-work-file-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.pharmacology-work-file-meta span + span::before {
+    content: "·";
+    margin-right: 8px;
+    color: #98a2b3;
+}
+
+
+/* ============================================================
+   FILE ACTIONS
+   ============================================================ */
+
+.pharmacology-work-file-actions {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-left: 16px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.12s ease;
+}
+
+.pharmacology-work-file:hover
+.pharmacology-work-file-actions,
+.pharmacology-work-file:focus
+.pharmacology-work-file-actions {
+    opacity: 1;
+}
+
+
+.pharmacology-work-file-action {
+    min-height: 32px;
+
+    padding: 0 9px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #475467;
+
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.pharmacology-work-file-action:hover {
+    background: #f5f7fa;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.pharmacology-work-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 360px;
+
+    padding: 40px 24px;
+
+    box-sizing: border-box;
+
+    border: 1px dashed #cfd5dd;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    text-align: center;
+}
+
+
+.pharmacology-work-empty-icon {
+    width: 52px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 6px;
+
+    color: #667085;
+
+    font-size: 25px;
+}
+
+
+.pharmacology-work-empty h3 {
+    margin: 0 0 7px;
+
+    color: #172033;
+
+    font-size: 17px;
+}
+
+
+.pharmacology-work-empty p {
+    max-width: 430px;
+
+    margin: 0 0 20px;
+
+    color: #667085;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   OPEN FILE / EDITOR
+   ============================================================ */
+
+.pharmacology-work-editor {
+    width: 100%;
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   EDITOR TOOLBAR
+   ============================================================ */
+
+.pharmacology-work-editor-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 12px 14px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    background: #fafbfc;
+}
+
+
+.pharmacology-work-editor-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+/* ============================================================
+   EDITOR HEADER
+   ============================================================ */
+
+.pharmacology-work-editor-header {
+    padding: 24px 26px 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.pharmacology-work-editor-type {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    color: #667085;
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+
+.pharmacology-work-editor-icon {
+    width: 27px;
+    height: 32px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d9dee7;
+    border-radius: 4px;
+
+    background: #ffffff;
+
+    color: #475467;
+}
+
+
+.pharmacology-work-editor-header h2 {
+    margin: 0;
+
+    color: #172033;
+
+    font-size: 23px;
+    line-height: 1.3;
+}
+
+
+.pharmacology-work-editor-context {
+    margin-top: 8px;
+
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+.pharmacology-work-editor-date {
+    margin-top: 8px;
+
+    color: #98a2b3;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   EDITOR BODY
+   ============================================================ */
+
+.pharmacology-work-editor-body {
+    padding: 20px 26px 26px;
+}
+
+
+.pharmacology-work-editor-textarea {
+    display: block;
+
+    width: 100%;
+    min-height: 520px;
+
+    box-sizing: border-box;
+
+    padding: 16px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.65;
+
+    resize: vertical;
+}
+
+
+.pharmacology-work-editor-textarea:focus {
+    outline: none;
+
+    border-color: #98a2b3;
+}
+
+
+/* ============================================================
+   DIALOG
+   ============================================================ */
+
+.pharmacology-work-dialog {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+}
+
+
+.pharmacology-work-dialog-backdrop {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(
+        15,
+        23,
+        42,
+        0.28
+    );
+}
+
+
+.pharmacology-work-dialog-card {
+    position: relative;
+
+    z-index: 1;
+
+    width: min(
+        560px,
+        100%
+    );
+
+    max-height: calc(
+        100vh - 48px
+    );
+
+    overflow: auto;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+
+.pharmacology-work-dialog-large {
+    width: min(
+        720px,
+        100%
+    );
+}
+
+
+/* ============================================================
+   DIALOG HEADER
+   ============================================================ */
+
+.pharmacology-work-dialog-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.pharmacology-work-dialog-header h3 {
+    margin: 0 0 5px;
+
+    color: #172033;
+
+    font-size: 18px;
+}
+
+
+.pharmacology-work-dialog-header p {
+    margin: 0;
+
+    color: #667085;
+
+    font-size: 13px;
+}
+
+
+.pharmacology-work-dialog-close {
+    flex: 0 0 auto;
+
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #475467;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+.pharmacology-work-dialog-close:hover {
+    background: #f5f7fa;
+}
+
+
+/* ============================================================
+   DIALOG BODY
+   ============================================================ */
+
+.pharmacology-work-dialog-body {
+    padding: 22px;
+}
+
+
+.pharmacology-work-dialog-body label {
+    display: block;
+
+    margin: 0 0 7px;
+
+    color: #344054;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+.pharmacology-work-dialog-body label + label {
+    margin-top: 18px;
+}
+
+
+.pharmacology-work-dialog-input,
+.pharmacology-work-dialog-textarea {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d9dee7;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font: inherit;
+}
+
+
+.pharmacology-work-dialog-input {
+    height: 44px;
+
+    padding: 10px 12px;
+}
+
+
+.pharmacology-work-dialog-textarea {
+    min-height: 260px;
+
+    padding: 12px;
+
+    line-height: 1.55;
+
+    resize: vertical;
+}
+
+
+.pharmacology-work-dialog-input:focus,
+.pharmacology-work-dialog-textarea:focus {
+    outline: none;
+
+    border-color: #98a2b3;
+}
+
+
+/* ============================================================
+   DELETE PREVIEW
+   ============================================================ */
+
+.pharmacology-work-delete-preview {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+
+    background: #fafbfc;
+
+    color: #172033;
+}
+
+
+.pharmacology-work-delete-icon {
+    width: 34px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d9dee7;
+    border-radius: 4px;
+
+    background: #ffffff;
+
+    color: #475467;
+}
+
+
+/* ============================================================
+   DIALOG ACTIONS
+   ============================================================ */
+
+.pharmacology-work-dialog-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    padding: 16px 22px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+.pharmacology-btn.danger {
+    border-color: #d9a5a5;
+
+    background: #ffffff;
+
+    color: #a33a3a;
+}
+
+
+.pharmacology-btn.danger:hover {
+    background: #fff7f7;
+}
+
+
+/* ============================================================
+   WORK CONTENT SPACING
+   ============================================================ */
+
+.pharmacology-work-spacer {
+    height: 7px;
+}
+
+
+/* ============================================================
+   SMALLER WINDOWS
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+    .pharmacology-work-file-actions {
+        opacity: 1;
+    }
+
+    .pharmacology-work-file-action {
+        padding: 0 7px;
+    }
+
+    .pharmacology-work-editor-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pharmacology-work-editor-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .pharmacology-work-editor-header {
+        padding: 20px;
+    }
+
+    .pharmacology-work-editor-body {
+        padding: 16px;
+    }
+
+}
+
+/* ============================================================
+   MY WORK — DOCUMENT TABLES
+   ============================================================ */
+
+.pharmacology-work-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 24px 0;
+    border: 1px solid var(--pharmacology-border, #e5e7eb);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.pharmacology-work-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.pharmacology-work-table th,
+.pharmacology-work-table td {
+    padding: 12px 14px;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+    text-align: left;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+.pharmacology-work-table th:last-child,
+.pharmacology-work-table td:last-child {
+    border-right: none;
+}
+
+.pharmacology-work-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.pharmacology-work-table th {
+    font-weight: 700;
+    background: #f8fafc;
+    color: #111827;
+    white-space: normal;
+}
+
+.pharmacology-work-table td {
+    color: #374151;
+    background: #ffffff;
+}
+
+.pharmacology-work-table tbody tr:hover td {
+    background: #fafafa;
+}
+
+.pharmacology-work-table code {
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #f3f4f6;
+}
+
+.pharmacology-work-table strong {
+    color: #111827;
+}
+
+
+/* ============================================================
+   DOCUMENT SPACING AROUND TABLES
+   ============================================================ */
+
+.pharmacology-work-document > .pharmacology-work-table-wrap:first-child {
+    margin-top: 4px;
+}
+
+.pharmacology-work-document > .pharmacology-work-table-wrap:last-child {
+    margin-bottom: 4px;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .pharmacology-work-table {
+        min-width: 560px;
+        font-size: 13px;
+    }
+
+    .pharmacology-work-table th,
+    .pharmacology-work-table td {
+        padding: 10px 11px;
+    }
+}
+
+.pharmacology-work-input-error {
+    border-color: #dc2626 !important;
+    outline: 2px solid rgba(220, 38, 38, 0.12);
+}
+
+.pharmacology-work-title-error {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #dc2626;
+}
+
+.pharmacology-work-title-error[hidden] {
+    display: none;
+}
+
+.pharmacology-work-input-error {
+    border-color: #dc2626 !important;
+    outline: 2px solid rgba(220, 38, 38, 0.12);
+}
+
+.pharmacology-pdf-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background: #f3f4f6;
+
+    z-index: 9999;
+
+}
+</style>
+</head>
+
+<body>
+
+<div
+  id="pharmacology-module"
+  class="pharmacology-module"
+  data-theme="light"
+>
+
+<header
+  id="pharmacology-header"
+  class="pharmacology-header"
+>
+
+  <div class="pharmacology-brand">
+    <div class="pharmacology-kicker">
+      YEAR 3 · Y3-003
+    </div>
+
+    <h1>PHARMACOLOGY</h1>
+
+    <p>
+      Year 3 Pharmacology Study Module
+    </p>
+  </div>
+
+  <div class="pharmacology-search-wrap">
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <circle
+        cx="11"
+        cy="11"
+        r="7"
+      ></circle>
+
+      <path
+        d="m20 20-4-4"
+      ></path>
+    </svg>
+
+    <input
+      id="pharmacology-search"
+      type="search"
+      autocomplete="off"
+      placeholder="Search drugs, classes, mechanisms, adverse effects, topics…"
+    >
+
+    <div
+      id="pharmacology-search-results"
+      class="pharmacology-search-results"
+    ></div>
+
+  </div>
+
+  <div class="pharmacology-header-actions">
+
+    <button
+      id="pharmacology-theme-button"
+      class="pharmacology-icon-btn"
+      title="Toggle light/dark theme"
+    >
+      ☾
+    </button>
+
+    <button
+      id="pharmacology-compare-header"
+      class="pharmacology-btn subtle"
+    >
+      Compare
+    </button>
+    <button
+    type="button"
+    class="pharmacology-header-button pharmacology-ai-trigger"
+    id="pharmacology-ai-trigger"
+    aria-label="Open Pharmacology AI"
+>
+    AI Assistant
+</button>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     HORIZONTAL NAVIGATION
+     THERE IS NO SIDEBAR
+     ======================================================= -->
+
+<div
+  id="pharmacology-navigation-bar"
+  class="pharmacology-navigation-bar"
+>
+
+  <nav
+    id="pharmacology-navigation"
+    class="pharmacology-nav"
+  >
+
+    <button
+      data-nav="dashboard"
+      class="active"
+    >
+      ⌂
+      <span>Dashboard</span>
+    </button>
+
+    <button
+      data-nav="high-yield"
+    >
+      ★
+      <span>High-Yield</span>
+    </button>
+
+    <button
+      data-nav="questions"
+    >
+      ✓
+      <span>Question Bank</span>
+    </button>
+
+    <button
+      data-nav="flashcards"
+    >
+      ▣
+      <span>Flashcards</span>
+    </button>
+
+    <button
+      data-nav="calculators"
+    >
+      ∑
+      <span>Calculators</span>
+    </button>
+
+    <button
+      data-nav="prescription"
+    >
+      Rx
+      <span>Prescription Practice</span>
+    </button>
+
+    <button
+      data-nav="bookmarks"
+    >
+      🔖
+      <span>Bookmarks</span>
+    </button>
+
+    <button
+  data-nav="work"
+>
+  📝
+  <span>My Work</span>
+</button>
+
+<button
+      data-nav="documents"
+    >
+      📄
+      <span>Documents</span>
+    </button>
+
+  </nav>
+
+</div>
+
+
+<div class="pharmacology-shell">
+
+<main
+  id="pharmacology-main"
+  class="pharmacology-main"
+>
+
+<!-- =======================================================
+     DASHBOARD
+     ======================================================= -->
+
+<section
+  id="pharmacology-dashboard-view"
+  class="pharmacology-view active"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Pharmacology workstation
+      </h2>
+
+      <p>
+        Move from class → mechanism → clinical application → questions.
+      </p>
+
+    </div>
+
+    <div class="pharmacology-head-actions">
+
+      <button
+        id="pharmacology-random-drug"
+        class="pharmacology-btn primary"
+        type="button"
+      >
+        Random drug
+      </button>
+
+      <button
+        id="pharmacology-random-question"
+        class="pharmacology-btn"
+        type="button"
+      >
+        Practice
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-statistics"
+    class="pharmacology-stat-grid"
+  ></div>
+
+
+  <div class="pharmacology-section">
+
+    <div class="pharmacology-section-head">
+
+      <h3>
+        Study areas
+      </h3>
+
+    </div>
+
+    <div
+      id="pharmacology-study-areas"
+      class="pharmacology-grid"
+    ></div>
+
+  </div>
+
+
+  <div class="pharmacology-two-col">
+
+    <div class="pharmacology-section">
+
+      <div class="pharmacology-section-head">
+
+        <h3>
+          Recent activity
+        </h3>
+
+      </div>
+
+      <div
+        id="pharmacology-recent"
+        class="pharmacology-list"
+      ></div>
+
+    </div>
+
+
+    <div class="pharmacology-section">
+
+      <div class="pharmacology-section-head">
+
+        <h3>
+          Difficult / priority review
+        </h3>
+
+      </div>
+
+      <div
+        id="pharmacology-difficult"
+        class="pharmacology-list"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="pharmacology-section">
+
+    <div class="pharmacology-section-head">
+
+      <h3>
+        High-yield
+      </h3>
+
+      <button
+        type="button"
+        class="pharmacology-link"
+        data-nav-action="high-yield"
+      >
+        Open all →
+      </button>
+
+    </div>
+
+    <div
+      id="pharmacology-high-yield"
+      class="pharmacology-chip-row"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     DOCUMENTS
+     ======================================================= -->
+
+<section
+  id="pharmacology-documents-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Documents
+      </h2>
+
+      <p>
+        Your Pharmacology PDF library.
+      </p>
+
+    </div>
+
+    <div class="pharmacology-head-actions">
+
+      <button
+        type="button"
+        id="pharmacology-document-upload"
+        class="pharmacology-btn primary"
+      >
+        + Upload PDF
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-document-library"
+    class="pharmacology-document-library"
+  ></div>
+
+</section>
+
+
+<!-- =======================================================
+     WORKSPACE
+     ======================================================= -->
+
+<section
+  id="pharmacology-workspace-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <button
+        id="pharmacology-back-button"
+        class="pharmacology-btn"
+        type="button"
+      >
+        ← Back
+      </button>
+
+    </div>
+
+    <div class="pharmacology-head-actions">
+
+      <button
+        id="pharmacology-bookmark-button"
+        class="pharmacology-btn"
+        type="button"
+      >
+        ☆ Bookmark
+      </button>
+
+      <button
+        id="pharmacology-difficult-button"
+        class="pharmacology-btn"
+        type="button"
+      >
+        Mark difficult
+      </button>
+
+      <button
+        id="pharmacology-studied-button"
+        class="pharmacology-btn primary"
+        type="button"
+      >
+        Mark studied
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-workspace"
+    class="pharmacology-workspace"
+  >
+
+    <div
+      id="pharmacology-workspace-content"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     HIGH-YIELD
+     ======================================================= -->
+
+<section
+  id="pharmacology-high-yield-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        High-Yield Pharmacology
+      </h2>
+
+      <p>
+        Priority material for mechanisms, distinctions and clinical application.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-high-yield-list"
+    class="pharmacology-topic-grid"
+  ></div>
+
+</section>
+
+
+<!-- =======================================================
+     QUESTIONS
+     ======================================================= -->
+
+<section
+  id="pharmacology-questions-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Question Bank
+      </h2>
+
+      <p>
+        Single-best-answer pharmacology practice.
+      </p>
+
+    </div>
+
+    <div class="pharmacology-head-actions">
+
+      <button
+        id="pharmacology-question-reset"
+        class="pharmacology-btn"
+        type="button"
+      >
+        Reset session
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-question-area"
+    class="pharmacology-question"
+  ></div>
+
+</section>
+
+
+<!-- =======================================================
+     FLASHCARDS
+     ======================================================= -->
+
+<section
+  id="pharmacology-flashcards-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Flashcards
+      </h2>
+
+      <p>
+        Active recall across mechanisms, adverse effects and clinical pearls.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-flashcard"
+    class="pharmacology-flashcard-wrap"
+  ></div>
+
+</section>
+
+
+<!-- =======================================================
+     CALCULATORS
+     ======================================================= -->
+
+<section
+  id="pharmacology-calculators-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Pharmacology Calculators
+      </h2>
+
+      <p>
+        Enter compatible units deliberately; the module does not silently convert units.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-calculator"
+    class="pharmacology-calc-grid"
+  ></div>
+
+</section>
+
+
+<!-- =======================================================
+     PRESCRIPTION PRACTICE
+     ======================================================= -->
+
+<section
+  id="pharmacology-prescription-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Prescription Practice
+      </h2>
+
+      <p>
+        Educational simulation only — not a real prescribing service.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-prescription"
+    class="pharmacology-prescription"
+  ></div>
+
+</section>
+
+
+<!-- =======================================================
+     BOOKMARKS
+     ======================================================= -->
+
+<section
+  id="pharmacology-bookmarks-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        Bookmarks
+      </h2>
+
+      <p>
+        Your saved pharmacology review queue.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-bookmarks-list"
+    class="pharmacology-list"
+  ></div>
+
+</section>
+
+
+<!-- ============================================================
+     MY WORK
+     ============================================================ -->
+
+<section
+  id="pharmacology-work-view"
+  class="pharmacology-view"
+>
+
+  <div class="pharmacology-page-head">
+
+    <div>
+
+      <h2>
+        My Work
+      </h2>
+
+      <p>
+        Your saved Pharmacology notes and AI answers.
+      </p>
+
+    </div>
+
+    <div class="pharmacology-head-actions">
+
+      <button
+        id="pharmacology-new-note"
+        type="button"
+        class="pharmacology-btn primary"
+      >
+        + New Note
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="pharmacology-work-list"
+    class="pharmacology-list pharmacology-work-list"
+  ></div>
+
+</section>
+
+</main>
+
+
+<!-- ============================================================
+     PHARMACOLOGY AI ASSISTANT
+     Controlled by the existing Year 3 Study OS AI.
+     This panel is NOT a `.pharmacology-view` — it is not part of
+     the showView() view-switching system. It is toggled solely
+     via the .active class by setupPharmacologyAIUI(), so it can
+     stay mounted below whichever main view is currently active.
+     Context is Pharmacology-only.
+     ============================================================ -->
+
+<section
+  class="pharmacology-ai-panel"
+  id="pharmacology-ai-panel"
+  aria-label="Pharmacology AI Assistant"
+>
+
+  <header class="pharmacology-ai-header">
+
+    <div class="pharmacology-ai-header-main">
+
+      <div class="pharmacology-ai-eyebrow">
+        YEAR 3 • PHARMACOLOGY • AI
+      </div>
+
+      <h2 class="pharmacology-ai-title">
+        Pharmacology AI Assistant
+      </h2>
+
+      <p class="pharmacology-ai-subtitle">
+        Ask questions, revise topics, and control your Pharmacology workspace.
+      </p>
+
+    </div>
+
+
+    <div class="pharmacology-ai-header-actions">
+
+      <button
+        type="button"
+        class="pharmacology-header-button"
+        id="pharmacology-ai-clear"
+      >
+        Clear
+      </button>
+
+      <button
+        type="button"
+        class="pharmacology-header-button"
+        id="pharmacology-ai-close"
+        title="Close AI Assistant"
+        aria-label="Close AI Assistant"
+      >
+        ✕
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ==========================================================
+       CURRENT MODULE CONTEXT
+       ========================================================== -->
+
+  <div
+    class="pharmacology-ai-context"
+    id="pharmacology-ai-context"
+  >
+
+    <div class="pharmacology-ai-context-item">
+
+      <strong>
+        Module:
+      </strong>
+
+      <span id="pharmacology-ai-context-module">
+        Pharmacology
+      </span>
+
+    </div>
+
+
+    <div
+      class="pharmacology-ai-context-item"
+      id="pharmacology-ai-context-area-wrap"
+    >
+
+      <strong>
+        Area:
+      </strong>
+
+      <span id="pharmacology-ai-context-area">
+        —
+      </span>
+
+    </div>
+
+
+    <div
+      class="pharmacology-ai-context-item"
+      id="pharmacology-ai-context-topic-wrap"
+    >
+
+      <strong>
+        Topic:
+      </strong>
+
+      <span id="pharmacology-ai-context-topic">
+        —
+      </span>
+
+    </div>
+
+
+    <div
+      class="pharmacology-ai-context-item"
+      id="pharmacology-ai-context-drug-wrap"
+    >
+
+      <strong>
+        Drug:
+      </strong>
+
+      <span id="pharmacology-ai-context-drug">
+        —
+      </span>
+
+    </div>
+
+
+    <div
+      class="pharmacology-ai-context-item"
+      id="pharmacology-ai-context-class-wrap"
+    >
+
+      <strong>
+        Class:
+      </strong>
+
+      <span id="pharmacology-ai-context-class">
+        —
+      </span>
+
+    </div>
+
+
+    <div class="pharmacology-ai-context-item">
+
+      <strong>
+        Section:
+      </strong>
+
+      <span id="pharmacology-ai-context-section">
+        Overview
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================================
+       AI BODY
+       ========================================================== -->
+
+  <div class="pharmacology-ai-body">
+
+    <div class="pharmacology-ai-chat">
+
+      <div
+        class="pharmacology-ai-messages"
+        id="pharmacology-ai-messages"
+      >
+
+        <div
+          class="pharmacology-ai-empty"
+          id="pharmacology-ai-empty"
+        >
+
+          <div class="pharmacology-ai-empty-icon">
+            AI
+          </div>
+
+          <h3>
+            Pharmacology AI is ready
+          </h3>
+
+          <p>
+            Ask about the topic currently open in Pharmacology.
+            The AI will receive Pharmacology-specific context only.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ========================================================
+           AI COMPOSER
+           ======================================================== -->
+
+      <div class="pharmacology-ai-composer">
+
+        <div class="pharmacology-ai-input-wrap">
+
+          <textarea
+            id="pharmacology-ai-input"
+            class="pharmacology-ai-input"
+            rows="2"
+            placeholder="Ask about the current Pharmacology topic..."
+            aria-label="Ask Pharmacology AI"
+          ></textarea>
+
+
+          <div class="pharmacology-ai-composer-actions">
+
+            <button
+              type="button"
+              id="pharmacology-ai-save-work"
+              class="pharmacology-ai-save-work"
+            >
+              Save to My Work
+            </button>
+
+
+            <button
+              type="button"
+              id="pharmacology-ai-send"
+              class="pharmacology-ai-send"
+            >
+              Send
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="pharmacology-ai-status"
+          id="pharmacology-ai-status"
+        >
+          Pharmacology context active.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ==========================================================
+         QUICK ACTIONS
+         ========================================================== -->
+
+    <aside class="pharmacology-ai-actions">
+
+      <div class="pharmacology-ai-actions-title">
+        Quick Actions
+      </div>
+
+
+      <button
+        type="button"
+        class="pharmacology-ai-quick-action"
+        data-pharmacology-ai-action="explain"
+      >
+        Explain this topic
+      </button>
+
+
+      <button
+        type="button"
+        class="pharmacology-ai-quick-action"
+        data-pharmacology-ai-action="summarize"
+      >
+        Give me a high-yield summary
+      </button>
+
+
+      <button
+        type="button"
+        class="pharmacology-ai-quick-action"
+        data-pharmacology-ai-action="mcq"
+      >
+        Generate MCQs
+      </button>
+
+
+      <button
+        type="button"
+        class="pharmacology-ai-quick-action"
+        data-pharmacology-ai-action="flashcards"
+      >
+        Make flashcards
+      </button>
+
+
+      <button
+        type="button"
+        class="pharmacology-ai-quick-action"
+        data-pharmacology-ai-action="clinical"
+      >
+        Give clinical pearls
+      </button>
+
+
+      <button
+        type="button"
+        class="pharmacology-ai-quick-action"
+        data-pharmacology-ai-action="note"
+      >
+        Add a note
+      </button>
+
+
+      <div class="pharmacology-ai-status">
+        AI actions operate within this Pharmacology module.
+      </div>
+
+    </aside>
+
+  </div>
+
+</section>
+
+</div>
+<!-- /.pharmacology-shell -->
+
+</div>
+<!-- /#pharmacology-module -->
+
+
+<!-- =======================================================
+     SCRIPTS
+     pdfViewer.js is loaded first so that
+     window.pharmacologyPdfViewer is available by the time
+     module.js's document library opens a PDF. module.js is
+     the source of truth for this module's HTML/JS contract.
+     ======================================================= -->
+
+<script src="pdfViewer.js"></script>
+<script src="module.js"></script>
+
+</body>
+</html>
